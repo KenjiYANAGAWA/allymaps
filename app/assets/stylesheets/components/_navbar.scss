@@ -10,3 +10,42 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// Bottom navbar
+
+.navbar-bottom {
+  display: flex;
+  justify-content: space-around;
+  background-color: $light-gray;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar-bottom a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+#nav-text {
+  // font-size: 12px;
+}
+
+.navbar-bottom a:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-bottom {
+  }
+  .navbar-bottom a {
+  }
+}
