@@ -1,7 +1,9 @@
-<h1>Itineraries#index</h1>
-<%# -------------list of my itineraries------------- %>
-<% @itineraries.each do |itinerary| %>
-  <%= link_to itinerary_path(itinerary) do %>
-    <p><strong><%= itinerary.name %></strong></p>
+<div class="container mt-5">
+  <h1>Itineraries#index</h1>
+  <%# -------------list of my itineraries------------- %>
+  <% @itineraries.each do |itinerary| %>
+    <%= link_to itinerary_path(itinerary) do %>
+      <p><strong><%= itinerary.name %></strong></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
