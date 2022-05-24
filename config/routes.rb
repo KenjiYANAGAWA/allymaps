@@ -4,10 +4,9 @@ Rails.application.routes.draw do
 
   resources :places, only: [:index, :new, :create, :show] do
     resources :reviews, only: [:create]
+    resources :destinations, only: [:new, :create]
   end
   
-  resources :itineraries, only: [:index, :new, :create, :show] do
-    resources :destinations, only: [:create]
-  end
+  resources :itineraries, only: [:index, :create, :show]
 
 end
