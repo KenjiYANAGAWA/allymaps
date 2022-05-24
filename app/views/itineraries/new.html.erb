@@ -1,2 +1,7 @@
 <h1>Itineraries#new</h1>
 <p>Find me in app/views/itineraries/new.html.erb</p>
+<%# ------------ new itinerary form ---------------- %>
+<%= simple_form_for @itinerary do |f|%>
+  <%= f.input :name, label: "Add to new itinerary"%>
+  <%= f.submit 'Add', class: 'btn btn-primary mb-3' %>
+<% end %>
