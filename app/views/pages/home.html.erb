@@ -1,11 +1,23 @@
 <%= render 'shared/navbar_top' %>
 <h1>Pages#home</h1>
-<div class="button">click me</div>
-<li class="link mt-3" >Route Search</li>
-<h2>Top recommendations for you:</h2>
-<%# -------------list of places------------- %>
-<% @places.each do |place| %>
-  <%= link_to place_path(place) do %>
-    <p><%= place.name %></p>
-  <% end %>
-<% end %>
+<p>Find me in app/views/pages/home.html.erb</p>
+<%# -------------BUTTON------------- %>
+<div class="button mx-3 my-3">click me</div>
+<%# -------------ROUTE SEARCH------------- %>
+<li class="link mx-3 my-3" >Route Search</li>
+<%# -------------MIDDLE CARD------------- %>
+<div class="mid_card mx-3 my-3">
+  <img src="https://wallpaperaccess.com/full/2286682.jpg" alt="">
+  <div class="mid_card-info">
+    <h2>FUSHIMI INARI</h2>
+    <p>Super Cool Place.</p>
+  </div>
+</div>
+<%# -------------SMALL CARD------------- %>
+<div class="small_card mx-3 my-3">
+  <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+  <div class="small_card-info">
+    <h2>FUSHIMI INARI</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
