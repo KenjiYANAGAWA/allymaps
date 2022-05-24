@@ -1,5 +1,9 @@
 <h1>Pages#home</h1>
-<h3>Top recommendations for you:</h3>
+
+<div class="button">click me</div>
+<li class="link mt-3" >Route Search</li>
+
+<h2>Top recommendations for you:</h2>
 <%# -------------list of places------------- %>
 <% @places.each do |place| %>
   <%= link_to place_path(place) do %>
