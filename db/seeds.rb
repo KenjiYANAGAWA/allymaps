@@ -2,7 +2,7 @@ puts "Cleaning the DB..."
 User.destroy_all
 Place.destroy_all
 
-japan_places =  %w(meguro, shibuya, shinjuku, Ginza, Ueno, Nippori, Ikebukuro, Mizonokuchi, Kawasaki, yokohama, Kamakura, Enoshima, Ebisu, Shinagawa, Tabata, Sugamo, komagome, mejiro, takadanobaba, hajajuku, yoyogi, asakusa, odaiba, shinbashi, noborito, tachikawa, yamato, akihabara)
+japan_places =  %w(meguro shibuya shinjuku Ginza Ueno Nippori Ikebukuro Mizonokuchi Kawasaki yokohama Kamakura Enoshima Ebisu Shinagawa Tabata Sugamo komagome mejiro takadanobaba hajajuku yoyogi asakusa odaiba shinbashi noborito tachikawa yamato akihabara)
 
 
 puts "Creating places..."
@@ -34,6 +34,7 @@ puts "Creating itineraries..."
 10.times do
   puts "..."
   Itinerary.create!(
+    name: "Trip to #{Faker::Nation.capital_city}",
     user: User.all.sample
   )
 end
