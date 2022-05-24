@@ -1,0 +1,35 @@
+.small_card {
+  background-color: $light-gray;
+  width: 336px;
+  height: 109px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  /*fixed*/
+  display: flex;
+  overflow: hidden;
+}
+
+.small_card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.small_card-info h2 {
+  /*customizable*/
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.small_card-info p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.small_card .small_card-info {
+  padding: 16px;
+}
