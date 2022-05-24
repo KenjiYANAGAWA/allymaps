@@ -1,17 +1,24 @@
 <%= render 'shared/navbar_top' %>
-<h1>Pages#home</h1>
-
-<div class="button">click me</div>
-<li class="link mt-3" >Route Search</li>
-
-<h2>Top recommendations for you:</h2>
-<%# -------------list of places------------- %>
-<% @places.each do |place| %>
-  <%= link_to place_path(place) do %>
-    <p><%= place.name %></p>
-  <% end %>
-<% end %>
-<%# -------------links at the bottom------------- %>
-<%= link_to "Home", root_path %>
-<%= link_to "Search for places", places_path %>
-<%= link_to "Itineraries", itineraries_path %>
+<h1>On a Wheelchair? No problem.</h1>
+<p>Plan your next trip, read reviews and get travel advice from our community on where to go</p>
+<%# -------------BUTTON------------- %>
+<div class="button mx-3 my-3">click me</div>
+<%# -------------ROUTE SEARCH------------- %>
+<li class="link mx-3 my-3" >Route Search</li>
+<p>Top recommendations for you</p>
+<%# -------------MIDDLE CARD------------- %>
+<div class="mid_card mx-3 my-3">
+  <img src="https://wallpaperaccess.com/full/2286682.jpg" alt="">
+  <div class="mid_card-info">
+    <h2>FUSHIMI INARI</h2>
+    <p>Super Cool Place.</p>
+  </div>
+</div>
+<%# -------------SMALL CARD------------- %>
+<div class="small_card mx-3 my-3">
+  <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+  <div class="small_card-info">
+    <h2>FUSHIMI INARI</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>

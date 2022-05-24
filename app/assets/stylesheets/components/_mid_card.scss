@@ -1,0 +1,39 @@
+.mid_card {
+  background-color: $light-gray;
+  width: 336px;
+  height: 336px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  /*fixed*/
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mid_card img {
+  /*fixed*/
+  width: 100%;
+  min-height: 100px;
+  flex-grow: 1;
+  object-fit: cover;
+  /*customizable*/
+  object-position: 50% 50%;
+  border-radius: 4px 4px 0 0;
+}
+
+.mid_card-info {
+  /*customizable*/
+  padding: 24px 16px;
+}
+
+.mid_card-info h2 {
+  /*customizable*/
+  margin: 0;
+}
+
+.mid_card:hover {
+  /*customizable*/
+  transition: 0.2s ease-out;
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}

@@ -1,12 +1,17 @@
 <h1>Places#index</h1>
 <%# -------------list of places------------- %>
+<%= form_tag places_path, method: :get do %>
+  <%= text_field_tag :address,
+      params[:location],
+      class: "form-control",
+      placeholder: "Where do you go?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<%# -------------list of places------------- %>
 <% @places.each do |place| %>
   <%= link_to place_path(place) do %>
     <p><strong><%= place.name %></strong></p>
     <p><%= place.address.capitalize %></p>
   <% end %>
 <% end %>
-<%# -------------links at the bottom------------- %>
-<%= link_to "Home", root_path %>
-<%= link_to "Search for places", places_path %>
-<%= link_to "Itineraries", itineraries_path %>
