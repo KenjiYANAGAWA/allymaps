@@ -1,11 +1,20 @@
-<h1>Itineraries#index</h1>
-<%# -------------list of my itineraries------------- %>
-<% @itineraries.each do |itinerary| %>
-  <%= link_to itinerary_path(itinerary) do %>
-    <p><strong><%= itinerary.name %></strong></p>
+<div class="container m-2 p-3">
+  <h1>Itineraries#index</h1>
+  <%# ------------ new itinerary form ---------------- %>
+  <%= simple_form_for @itinerary do |f|%>
+    <%= f.input :name %>
+    <%= f.submit 'Add', class: 'btn btn-primary mb-3' %>
   <% end %>
-<% end %>
+  <%# -------------list of my itineraries------------- %>
+  <% @itineraries.each do |itinerary| %>
+    <div class="card">
+      <%= link_to itinerary_path(itinerary) do %>
+        <p><strong><%= itinerary.name %></strong></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 <%# -------------links at the bottom------------- %>
-<%= link_to "Home", root_path %>
-<%= link_to "Search for places", places_path %>
-<%= link_to "Itineraries", itineraries_path %>
+<%#= link_to "Home", root_path %>
+<%#= link_to "Search for places", places_path %>
+<%#= link_to "Itineraries", itineraries_path %>
