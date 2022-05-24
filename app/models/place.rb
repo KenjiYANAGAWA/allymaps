@@ -1,5 +1,6 @@
 class Place < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  has_many_attached :photos
 
   enum wheelchair_accessibility: { unknown: 0, inaccessible: 1, fair: 2, accessible: 3 }
   validates :name, :wheelchair_accessibility, :address, presence: true
