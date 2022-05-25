@@ -17,7 +17,10 @@ puts "Creating places..."
     # wheelchair_accessibility: rand(1..3)
     # TODO: add new features here
     # status: Pet.statuses.keys.sample
-    # accessible_toilet: Place.toilets.keys.sample
+    toilet: Place.toilets.keys.sample
+    entrance: Place.entrances.keys.sample
+    elevator: Place.elevators.keys.sample
+    parking: Place.parkings.keys.sample
   )
   place.photos.attach(io: file, filename: 'place.jpeg')
 end
