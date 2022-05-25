@@ -7,6 +7,7 @@ class Place < ApplicationRecord
   enum elevator: {  no: 1, has: 2, nonessential: 3 }, _suffix: true
   enum parking: { no: 1, has: 2 }, _suffix: true
   enum charging: { no: 1, has: 2 }, _suffix: true
+  enum area: { no: 1, some: 2, most: 3, all: 4 }, _suffix: true
 
   validates :name, :address, presence: true
 
@@ -18,4 +19,5 @@ end
 # NIL means unknown
 # toilet means accessible toilets
 # parking emans priority parking
+# area means accessible area [None, some, most, all]
 # nonessential_elevator meaning the place does not have to have an elevator. e.g. parks
