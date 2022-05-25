@@ -34,6 +34,7 @@ gem "geocoder"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'pundit'
 gem 'pg_search', '~> 2.3.0'
+gem 'acts_as_list'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'

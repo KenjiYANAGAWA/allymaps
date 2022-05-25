@@ -7,6 +7,10 @@ class DestinationPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.itinerary.user == user
+  end
+
+  def update?
+    record.itinerary.user == user
   end
 end

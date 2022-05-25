@@ -7,25 +7,27 @@
   <p>Drag and drop the cards to rearrange</p>
 </div>
 <div class="container p-3">
-  <% if @itinerary.places.any? %>
-    <% @itinerary.places.each do |place| %>
-      <%= link_to place_path(place) do %>
-        <div class="small_card mx-3 my-3">
-          <img src="https://wallpaperaccess.com/full/2286682.jpg" />
-          <div class="small_card-info">
-            <h2><%= place.name %></h2>
-            <p><%= place.description %></p>
-            <h3><%= place.address.capitalize %></h3>
+  <ul data-controller="sortable" data-sortable-resource-name-value="destination" data-sortable-animation-value="150">
+    <% if @itinerary.destinations.any? %>
+      <% @itinerary.destinations.order(position: :asc).each do |destination| %>
+        <li data-sortable-update-url="<%= destination_path(destination) %>">
+          <%= link_to place_path(destination.place) do %>
+            <div class="small_card mx-3 my-3">
+              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+              <div class="small_card-info">
+                <h2><%= destination.place.name %></h2>
+                <p><%= destination.place.description %></p>
+                <h3><%= destination.place.address.capitalize %></h3>
+              </div>
+            </div>
+          <% end %>
+          <div class="d-flex justify-content-end">
+            <%= link_to "Route Search", "https://maps.google.com", class: 'link mx-3 my-3'%>
           </div>
-        </div>
+        </li>
       <% end %>
-      <div class="d-flex justify-content-end">
-        <%= link_to "https://maps.google.com" do %>
-          <li class="link mx-3 my-3" >Route Search</li>
-        <% end %>
-      </div>
+    <% else %>
+      <h3 class="text-center">No destinations yet</h3>
     <% end %>
-  <% else %>
-    <h3 class="text-center">No destinations yet</h3>
-  <% end %>
+  </ul>
 </div>

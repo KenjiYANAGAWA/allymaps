@@ -21,9 +21,16 @@ class DestinationsController < ApplicationController
     end
   end
 
+  def update
+    @destination = Destination.find(params[:id])
+    authorize @destination
+    @destination.update(destination_params)
+    redirect_to itinerary_path(@destination.itinerary)
+  end
+
   private
 
   def destination_params
-    params.require(:destination).permit(:itinerary_id)
+    params.require(:destination).permit(:itinerary_id, :position)
   end
 end
