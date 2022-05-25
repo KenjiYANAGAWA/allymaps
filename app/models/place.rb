@@ -15,10 +15,8 @@ class Place < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 end
 
-# unknown is NIL
+# NIL means unknown
 # toilet means accessible toilets
 # parking emans priority parking
 # nonessential_elevator meaning the place does not have to have an elevator. e.g. parks
 # could not come up with a better word
-
-# enum wheelchair_accessibility: { unknown: 0, inaccessible: 1, fair: 2, accessible: 3 }

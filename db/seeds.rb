@@ -14,9 +14,6 @@ puts "Creating places..."
     name: Faker::JapaneseMedia::OnePiece.location,
     description: Faker::ChuckNorris.fact,
     address: japan_places.sample,
-    # wheelchair_accessibility: rand(1..3)
-    # TODO: add new features here
-    # status: Pet.statuses.keys.sample
     toilet: Place.toilets.keys.sample,
     entrance: Place.entrances.keys.sample,
     elevator: Place.elevators.keys.sample,
@@ -51,7 +48,7 @@ end
 puts "...created #{Itinerary.count} itineraries."
 
 puts "Creating destinations..."
-30.times do
+20.times do
   puts "..."
   Destination.create!(
     itinerary: Itinerary.all.sample,
@@ -61,12 +58,11 @@ end
 puts "...created #{Destination.count} destinations."
 
 puts "Creating reviews..."
-60.times do
+10.times do
   file = File.open("app/assets/images/reviews/fushimiinari.jpeg")
   puts "..."
   review = Review.create!(
     content: Faker::Quote.matz,
-    # wheelchair_accessibility: rand(1..3),
     user: User.all.sample,
     place: Place.all.sample
   )
