@@ -12,7 +12,7 @@
       <% @itinerary.places.each do |place| %>
         <%= link_to place_path(place) do %>
           <div class="small_card mx-3 my-3">
-            <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+            <img src="<%= cl_image_path(place.photos.first.key) %>" />
             <div class="small_card-info">
               <h2><%= place.name %></h2>
               <p><%= place.description %></p>
@@ -31,7 +31,7 @@
         <% unless next_place == @itinerary.places[-1] %>
           <%= link_to place_path(place) do %>
             <div class="small_card mx-3 my-3">
-              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+              <img src="<%= cl_image_path(place.photos.first.key) %>" />
               <div class="small_card-info">
                 <h2><%= place.name %></h2>
                 <p><%= place.description %></p>
@@ -47,7 +47,7 @@
         <% else %>
           <%= link_to place_path(place) do %>
             <div class="small_card mx-3 my-3">
-              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+              <img src="<%= cl_image_path(place.photos.first.key) %>" />
               <div class="small_card-info">
                 <h2><%= place.name %></h2>
                 <p><%= place.description %></p>
@@ -62,7 +62,7 @@
           </div>
           <%= link_to place_path(next_place) do %>
             <div class="small_card mx-3 my-3">
-              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+              <img src="<%= cl_image_path(next_place.photos.first.key) %>" />
               <div class="small_card-info">
                 <h2><%= next_place.name %></h2>
                 <p><%= next_place.description %></p>
