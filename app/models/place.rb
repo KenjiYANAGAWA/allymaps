@@ -10,7 +10,7 @@ class Place < ApplicationRecord
   enum priority_parking: { no: 1, has: 2 }, _suffix: true
   enum charging: { no: 1, has: 2 }, _suffix: true
 
-  validates :name, :address, :accessible_toilet, :entrance, :elevator, :priority_parking, :charging, presence: true
+  validates :name, :address, presence: true
 
   # geocoding
   geocoded_by :address
