@@ -25,11 +25,9 @@ end
 #
 # # READ
 # place.area? -> returns boolean | false means unknown
-# place.area -> returns status key "some", "most", etc |  nil means unknown
+# place.area -> returns status key "some", "most", etc |  "no_data" or nil means unknown
 # place.some_area? -> return boolean
 # place.all_area? -> return boolean
-# place
 #
 # # UPDATE
-# place.update_attribute(:area, 'some') -> weird way found on google
-# place.area = 1
+# place.area = "some"
