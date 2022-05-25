@@ -4,12 +4,6 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new
   end
 
-  def new
-    @itineraries = policy_scope(Itinerary)
-    @itinerary = Itinerary.new
-    authorize @itinerary
-  end
-
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
