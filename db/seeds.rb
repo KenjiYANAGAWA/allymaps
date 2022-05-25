@@ -16,6 +16,8 @@ puts "Creating places..."
     address: japan_places.sample,
     # wheelchair_accessibility: rand(1..3)
     # TODO: add new features here
+    # status: Pet.statuses.keys.sample
+    # accessible_toilet: Place.toilets.keys.sample
   )
   place.photos.attach(io: file, filename: 'place.jpeg')
 end

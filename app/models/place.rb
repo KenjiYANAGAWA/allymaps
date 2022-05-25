@@ -4,7 +4,7 @@ class Place < ApplicationRecord
 
   # enum wheelchair_accessibility: { unknown: 0, inaccessible: 1, fair: 2, accessible: 3 }
   # unknown is NIL
-  enum accessible_toilet: { no: 1, has_one: 2, has_many: 3 }, _suffix: true
+  enum toilet: { no: 1, has_one: 2, has_many: 3 }, _suffix: true
   enum entrance: { one_step: 1, two_or_more_steps: 2, ramp: 3, flat: 4 }, _suffix: true
   enum elevator: {  no: 1, has: 2, nonessential: 3 }, _suffix: true
   enum priority_parking: { no: 1, has: 2 }, _suffix: true
