@@ -2,12 +2,13 @@
   background-color: $light-gray;
   width: 336px;
   height: 336px;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   /*fixed*/
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: transform 0.2s ease-out;
 }
 
 .mid_card img {
@@ -31,9 +32,15 @@
   margin: 0;
 }
 
+.mid_card-info h3 {
+  /*customizable*/
+  font-size: 18px;
+  margin: 0;
+  text-align: end;
+}
+
 .mid_card:hover {
   /*customizable*/
-  transition: 0.2s ease-out;
   transform: translateY(-8px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3);
 }
