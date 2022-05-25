@@ -1,2 +1,12 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+<div class="container">
+  <% if @place.photos %>
+    <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
+  <% else %>
+    <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
+  <% end %>
+  <h2><%= @place.name %></h2>
+  <p><%= @place.description %></p>
+  <h3><%= @place.address.capitalize%></h3>
+  <p>Wheelchair Accessibility; <%= @place.wheelchair_accessibility %></p>
+  <button class="button">Add to Summary</button>
+</div>
