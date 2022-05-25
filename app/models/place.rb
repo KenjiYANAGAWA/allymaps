@@ -19,4 +19,3 @@ end
 # toilet means accessible toilets
 # parking emans priority parking
 # nonessential_elevator meaning the place does not have to have an elevator. e.g. parks
-# could not come up with a better word
