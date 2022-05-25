@@ -14,7 +14,8 @@ puts "Creating places..."
     name: Faker::JapaneseMedia::OnePiece.location,
     description: Faker::ChuckNorris.fact,
     address: japan_places.sample,
-    wheelchair_accessibility: rand(1..3)
+    # wheelchair_accessibility: rand(1..3)
+    # TODO: add new features here
   )
   place.photos.attach(io: file, filename: 'place.jpeg')
 end
