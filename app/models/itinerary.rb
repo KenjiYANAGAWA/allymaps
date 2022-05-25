@@ -3,5 +3,8 @@ class Itinerary < ApplicationRecord
   has_many :destinations, dependent: :destroy
   has_many :places, through: :destinations
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
+
+  # to be able to create a new destination when creating a new itinerary
+  accepts_nested_attributes_for :destinations
 end
