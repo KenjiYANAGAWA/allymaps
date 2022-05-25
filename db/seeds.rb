@@ -7,7 +7,7 @@ Place.destroy_all
 japan_places = %w[meguro shibuya shinjuku Ginza Ueno Nippori Ikebukuro Mizonokuchi Kawasaki yokohama Kamakura Enoshima Ebisu Shinagawa Tabata Sugamo komagome mejiro takadanobaba hajajuku yoyogi asakusa odaiba shinbashi noborito tachikawa yamato akihabara]
 
 puts "Creating places..."
-20.times do
+10.times do
   puts "..."
   file = File.open("app/assets/images/places/fushimiinari.jpeg")
   place = Place.create!(
@@ -17,10 +17,11 @@ puts "Creating places..."
     # wheelchair_accessibility: rand(1..3)
     # TODO: add new features here
     # status: Pet.statuses.keys.sample
-    toilet: Place.toilets.keys.sample
-    entrance: Place.entrances.keys.sample
-    elevator: Place.elevators.keys.sample
-    parking: Place.parkings.keys.sample
+    toilet: Place.toilets.keys.sample,
+    entrance: Place.entrances.keys.sample,
+    elevator: Place.elevators.keys.sample,
+    parking: Place.parkings.keys.sample,
+    charging: Place.chargings.keys.sample
   )
   place.photos.attach(io: file, filename: 'place.jpeg')
 end
@@ -65,7 +66,7 @@ puts "Creating reviews..."
   puts "..."
   review = Review.create!(
     content: Faker::Quote.matz,
-    wheelchair_accessibility: rand(1..3),
+    # wheelchair_accessibility: rand(1..3),
     user: User.all.sample,
     place: Place.all.sample
   )
