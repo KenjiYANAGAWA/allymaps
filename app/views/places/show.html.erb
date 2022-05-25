@@ -7,7 +7,7 @@
   <h2><%= @place.name %></h2>
   <p><%= @place.description %></p>
   <h3><%= @place.address.capitalize%></h3>
-  <p>Wheelchair Accessibility; <%= @place.wheelchair_accessibility %></p>
+  <p>Accessibility: <%#= @place.wheelchair_accessibility %></p>
   <%= link_to "Add to Summary", new_place_destination_path(@place), class: "button" %>
   <%# <button class="button">Add to Summary</button> %>
 </div>
