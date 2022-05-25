@@ -1,1 +1,18 @@
-<h1>Add this place to your </h1>
+<%# ----------- CREATE NEW ITINERARY and ADD DESTINATION TO IT ----------- %>
+<h1>Add this place to a new itinerary</h1>
+<%= simple_form_for @itinerary do |f| %>
+  <%= f.input :name %>
+  <%= f.simple_fields_for :destinations do |d_form| %>
+    <%= d_form.association :place, as: :hidden, input_html: { value: @place.id } %>
+  <% end %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+<%# ----------- ADD DESTINATION TO EXISTING ITINERARY ----------- %>
+<%# ----no dropdown system, but button system %>
+<h1>Add this place to an existing itinerary</h1>
+<% current_user.itineraries.each do |itinerary| %>
+  <%= simple_form_for [@place, @destination] do |f| %>
+    <%= f.association :itinerary, as: :hidden, input_html: { value: itinerary.id } %>
+    <%= f.submit itinerary.name, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
