@@ -15,10 +15,11 @@ puts "Creating places..."
     description: Faker::ChuckNorris.fact,
     address: japan_places.sample,
     toilet: Place.toilets.keys.sample,
-    entrance: Place.entrances.keys.sample,
+    # entrance: Place.entrances.keys.sample,
     elevator: Place.elevators.keys.sample,
     parking: Place.parkings.keys.sample,
-    charging: Place.chargings.keys.sample
+    charging: Place.chargings.keys.sample,
+    area: Place.areas.keys.sample
   )
   place.photos.attach(io: file, filename: 'place.jpeg')
 end
