@@ -1,2 +1,79 @@
-<h1>Itineraries#show</h1>
-<p>Find me in app/views/itineraries/show.html.erb</p>
+<div class="container p-3 text-center">
+  <% if @itinerary.name %>
+    <h1><%= @itinerary.name %></h1>
+  <% else %>
+    <h1>Unnamed Itinerary</h1>
+  <% end %>
+  <p>Drag and drop the cards to rearrange</p>
+</div>
+<div class="container p-3">
+  <% if @itinerary.places.any? %>
+    <% if @itinerary.places.count == 1 %>
+      <% @itinerary.places.each do |place| %>
+        <%= link_to place_path(place) do %>
+          <div class="small_card mx-3 my-3">
+            <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+            <div class="small_card-info">
+              <h2><%= place.name %></h2>
+              <p><%= place.description %></p>
+              <h3><%= place.address.capitalize %></h3>
+            </div>
+          </div>
+        <% end %>
+        <div class="d-flex justify-content-end">
+          <%= link_to "https://www.google.com/maps/dir//#{place.address}", target: :_blank do %>
+            <li class="link mx-3 my-3" >Route Search</li>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <% @itinerary.places.each_cons(2) do |place, next_place| %>
+        <% unless next_place == @itinerary.places[-1] %>
+          <%= link_to place_path(place) do %>
+            <div class="small_card mx-3 my-3">
+              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+              <div class="small_card-info">
+                <h2><%= place.name %></h2>
+                <p><%= place.description %></p>
+                <h3><%= place.address.capitalize %></h3>
+              </div>
+            </div>
+          <% end %>
+          <div class="d-flex justify-content-end">
+            <%= link_to "https://www.google.com/maps/dir/#{place.address}/#{next_place.address}", target: :_blank do %>
+              <li class="link mx-3 my-3" >Route Search</li>
+            <% end %>
+          </div>
+        <% else %>
+          <%= link_to place_path(place) do %>
+            <div class="small_card mx-3 my-3">
+              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+              <div class="small_card-info">
+                <h2><%= place.name %></h2>
+                <p><%= place.description %></p>
+                <h3><%= place.address.capitalize %></h3>
+              </div>
+            </div>
+          <% end %>
+          <div class="d-flex justify-content-end">
+            <%= link_to "https://www.google.com/maps/dir/#{place.address}/#{next_place.address}", target: :_blank do %>
+              <li class="link mx-3 my-3" >Route Search</li>
+            <% end %>
+          </div>
+          <%= link_to place_path(next_place) do %>
+            <div class="small_card mx-3 my-3">
+              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+              <div class="small_card-info">
+                <h2><%= next_place.name %></h2>
+                <p><%= next_place.description %></p>
+                <h3><%= next_place.address.capitalize %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h3 class="text-center">No destinations yet</h3>
+  <% end %>
+</div>
