@@ -141,7 +141,7 @@ puts "#{place.name} created"
 puts "..."
 file = File.open("app/assets/images/places/landmarks/japanese-sword-museum.webp")
 place = Place.create!(
-  name:'The Japanese Sword Museum',
+  name:'Japanese Sword Museum',
   description: "The Japanese Sword Museum is fully accessible and located near a number of other museums that are sure to please history buffs. The museum building is new and very flat. Wheelchair parking is available at the front of the museum.  Tactile paving leads from the entrance to the ticket gate, but after that there are only tactile blocks indicating stairs.",
   toilet: 'has_many',
   elevator: 'has',
@@ -158,7 +158,7 @@ puts "#{place.name} created"
 puts "..."
 file = File.open("app/assets/images/places/landmarks/arashiyama.webp")
 place = Place.create!(
-  name:'Arashiyama',
+  name:'Kyoto Arashiyama',
   description: "Situated in the foothills off the main tourist area in Arashiyama, this famous bamboo grove is one of Kyoto’s most visited locations. The forest itself is comprised of several main groves, but the most celebrated is the westernmost one located behind Tenryuji Zen temple. The tall bamboo here is particularly nice on sunny, breezy days when you can experience komorebi – a Japanese word used to describe soft, dappled light as it filters through leaves and branches. The grove itself is smooth and paved and is an easy ride for wheelchair users. There are some sloping areas and crowding in areas, but nothing that should cause difficulty. Tenryuji Zen Temple is located near the beginning  of the path through the groves. While the temple grounds have gravel paths and some areas are inaccessible due to steps, many parts of the temple are wheelchair accessible.  A wheelchair accessible toilet is available within the temple grounds, however, since the temple is separate from the bamboo groves, it can only be used during temple hours (8:30 to 17:30; until 17:00 from late October to late March) and after paying the entrance fee of 500 yen.",
   toilet: 'has_one',
   elevator: 'nonessential',
