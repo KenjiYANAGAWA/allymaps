@@ -11,7 +11,10 @@
       <li  data-sortable-update-url="<%= destination_path(destination) %>" >
         <%= render "destination_card", destination: destination %>
         <div class="d-flex justify-content-end">
-          <%= link_to "Get directions", "", class: 'link', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' %>
+          <%= link_to "", class: 'link', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
+            <i class="fas fa-map-marker-alt"></i>            
+            <p style="display: inline">Get directions</p>
+          <% end %>
         </div>
       </li>
     <% end %>
