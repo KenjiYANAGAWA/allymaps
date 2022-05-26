@@ -9,10 +9,13 @@ class Place < ApplicationRecord
   enum charging: { no_data: 0, no: 1, has: 2 }, _suffix: true
   enum area: { no_data: 0, no: 1, some: 2, most: 3, all: 4 }, _suffix: true
 
-  validates :name, :address, presence: true
+  CATEGORY = ['temple', 'park', 'restaurant', 'landmark', 'hotel']
+  validates :category, inclusion: { in: CATEGORY }
+
+  validates :name, :city, presence: true
 
   # geocoding
-  geocoded_by :address
+  geocoded_by :name
   after_validation :geocode, if: :will_save_change_to_address?
 end
 
@@ -24,8 +27,8 @@ end
 # CRUD for enum attributes
 #
 # # READ
-# place.area? -> returns boolean | false means unknown
 # place.area -> returns status key "some", "most", etc |  "no_data" or nil means unknown
+# place.area? -> returns boolean | false means unknown
 # place.some_area? -> return boolean
 # place.all_area? -> return boolean
 #
