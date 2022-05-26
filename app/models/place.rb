@@ -9,6 +9,9 @@ class Place < ApplicationRecord
   enum charging: { no_data: 0, no: 1, has: 2 }, _suffix: true
   enum area: { no_data: 0, no: 1, some: 2, most: 3, all: 4 }, _suffix: true
 
+  CATEGORY = ['temple', 'park', 'restaurant', 'landmark', 'hotel']
+  validates :category, inclusion: { in: CATEGORY }
+
   validates :name, :city, presence: true
 
   # geocoding
