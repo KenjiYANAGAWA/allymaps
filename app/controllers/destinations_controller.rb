@@ -21,7 +21,7 @@ class DestinationsController < ApplicationController
     end
   end
 
-  def update
+  def update      # to update the position when you drag-and-drop
     @destination = Destination.find(params[:id])
     authorize @destination
     @destination.update(destination_params)
