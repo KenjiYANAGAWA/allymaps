@@ -1,0 +1,23 @@
+.add-to-itinerary-form {
+  border-radius: 36px;
+}
+#itinerary_name {
+  border-radius: 36px;
+  padding: 12px 16px;
+}
+
+.btn-form {
+  padding: 16px 24px;
+  border-radius: 36px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  width: 100%;
+// padding: 16px 24px;
+}
+.btn-form-existing {
+  border-radius: 36px;
+  background-position: center;
+  width: 100%;
+  color: $light-gray;
+  padding: 16px 24px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
