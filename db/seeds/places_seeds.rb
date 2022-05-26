@@ -1,4 +1,4 @@
-### Temples and Shrines
+###Temples and Shrines
 
 puts "..."
 file = File.open("app/assets/images/places/temples/fushimiinari.jpeg")
@@ -48,7 +48,23 @@ place = Place.create!(
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
 
-### Landmarks
+puts "..."
+file = File.open("app/assets/images/places/temples/kinkakuji.webp")
+place = Place.create!(
+  name:'Kinkakuji',
+  description: "Kinkakuji, or the Golden Pavilion, is one of the top stops for anyone visiting Kyoto, and one of Japan’s most popular buildings. Originally a shogun’s estate, it is now a Buddhist temple and is part of the Historic Monuments of Ancient Kyoto UNESCO World Heritage site.  The site near the pavilion is wheelchair accessible, but much of the gardens are not.",
+  address: '1 Kinkakujicho, Kita-ku, Kyoto, Kyoto, 603-8361, Japan',
+  city: 'Kyoto',
+  toilet: 'has_one',
+  elevator: 'nonessential',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'some',
+  category: 'temple'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+###Landmarks
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/gunkanjima.png")
@@ -130,7 +146,39 @@ place = Place.create!(
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
 
-### Parks
+puts "..."
+file = File.open("app/assets/images/places/landmarks/arashiyama.webp")
+place = Place.create!(
+  name:'Arashiyama',
+  description: "Situated in the foothills off the main tourist area in Arashiyama, this famous bamboo grove is one of Kyoto’s most visited locations. The forest itself is comprised of several main groves, but the most celebrated is the westernmost one located behind Tenryuji Zen temple. The tall bamboo here is particularly nice on sunny, breezy days when you can experience komorebi – a Japanese word used to describe soft, dappled light as it filters through leaves and branches. The grove itself is smooth and paved and is an easy ride for wheelchair users. There are some sloping areas and crowding in areas, but nothing that should cause difficulty. Tenryuji Zen Temple is located near the beginning  of the path through the groves. While the temple grounds have gravel paths and some areas are inaccessible due to steps, many parts of the temple are wheelchair accessible.  A wheelchair accessible toilet is available within the temple grounds, however, since the temple is separate from the bamboo groves, it can only be used during temple hours (8:30 to 17:30; until 17:00 from late October to late March) and after paying the entrance fee of 500 yen.",
+  toilet: 'has_one',
+  elevator: 'nonessential',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'most',
+  address: '4 Sagaogurayama Tabuchiyamachō, Kyoto, Kyoto, 616-8394, Japan',
+  city: 'Kyoto',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/kyoto-tower.webp")
+place = Place.create!(
+  name:'Kyoto Tower',
+  description: "Kyoto Tower offers views of the ancient capital that are worth seeing and adaptations to the old building have made it relatively wheelchair accessible. Kyoto Tower was planned to be constructed and completed in time for the 1964 Summer Olympics in Tokyo, but was completed closer to the end of 1964. While only 131 meters tall, due to rules in Kyoto that limit the height of buildings, it is the tallest structure in the city.",
+  toilet: 'no',
+  elevator: 'has',
+  parking: 'no',
+  charging: 'no_data',
+  area: 'most',
+  address: '721-1 Karasuma-dori Higashi Shiokoji-cho Shimogyo-ku, Kyoto, Kyoto, 600-8216, Japan',
+  city: 'Kyoto',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+###Parks
 
 puts "..."
 file = File.open("app/assets/images/places/parks/yoyogi_park.jpeg")
