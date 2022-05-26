@@ -1,12 +1,12 @@
 class DestinationsController < ApplicationController
   def new
-    @itinerary = Itinerary.new
-    @destination = Destination.new
     @place = Place.find(params[:place_id])
-
-    @itinerary.destinations.build              # needed for nested form
+    # when creating a new itinerary
+    @itinerary = Itinerary.new      
     session[:referrer] = "destinations/new"    # to know where to redirect in itineraries/create
-
+    
+    # when adding the destination to an existing itinerary
+    @destination = @itinerary.destinations.build # needed for nested form
     authorize @destination
   end
 

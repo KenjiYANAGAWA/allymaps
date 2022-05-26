@@ -1,0 +1,10 @@
+        <%= link_to place_path(destination.place) do %>
+  <div class="small_card mx-3 my-3">
+    <img src="https://wallpaperaccess.com/full/2286682.jpg" />
+    <div class="small_card-info">
+      <h2><%= destination.place.name %></h2>
+      <p><%= destination.place.description %></p>
+      <h3><%= destination.place.address.capitalize %></h3>
+    </div>
+  </div>
+<% end %>

@@ -1,33 +1,18 @@
 <div class="container p-3 text-center">
-  <% if @itinerary.name %>
-    <h1><%= @itinerary.name %></h1>
-  <% else %>
-    <h1>Unnamed Itinerary</h1>
-  <% end %>
-  <p>Drag and drop the cards to rearrange</p>
+  <h1>Itinerary: <%= @itinerary.name %></h1>
 </div>
 <div class="container p-3">
+  <% unless @itinerary.destinations.any? %>
+    <h3 class="text-center">No destinations yet</h3>
+  <% end %>
   <ul data-controller="sortable" data-sortable-resource-name-value="destination" data-sortable-animation-value="150">
-    <% if @itinerary.destinations.any? %>
-      <% @itinerary.destinations.order(position: :asc).each do |destination| %>
-        <li data-sortable-update-url="<%= destination_path(destination) %>">
-          <%= link_to place_path(destination.place) do %>
-            <div class="small_card mx-3 my-3">
-              <img src="https://wallpaperaccess.com/full/2286682.jpg" />
-              <div class="small_card-info">
-                <h2><%= destination.place.name %></h2>
-                <p><%= destination.place.description %></p>
-                <h3><%= destination.place.address.capitalize %></h3>
-              </div>
-            </div>
-          <% end %>
-          <div class="d-flex justify-content-end">
-            <%= link_to "Route Search", "https://maps.google.com", class: 'link mx-3 my-3'%>
-          </div>
-        </li>
-      <% end %>
-    <% else %>
-      <h3 class="text-center">No destinations yet</h3>
+    <% @itinerary.destinations.order(position: :asc).each_cons(2) do |destination1, destination2| %>
+      <li  data-sortable-update-url="<%= destination_path(destination1) %>">
+        <%= render "destination_card", destination: destination1 %>
+        <div class="d-flex justify-content-end">
+          <%= link_to "Route Search", "https://www.google.com/maps/dir/#{destination1.place.address}/#{destination2&.place.address}", class: 'link mx-3 my-3', data: {sortable_target: 'button', address: destination1.place.address } %>
+        </div>
+      </li>
     <% end %>
   </ul>
 </div>
