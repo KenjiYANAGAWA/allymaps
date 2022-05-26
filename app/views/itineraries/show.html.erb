@@ -9,11 +9,11 @@
     <h3 class="text-center">No destinations yet</h3>
   <% end %>
   <ul data-controller="sortable" data-sortable-resource-name-value="destination" data-sortable-animation-value="150">
-    <% @itinerary.destinations.order(position: :asc).each_cons(2) do |destination1, destination2| %>
-      <li  data-sortable-update-url="<%= destination_path(destination1) %>">
-        <%= render "destination_card", destination: destination1 %>
+    <% @itinerary.destinations.order(position: :asc).each do |destination| %>
+      <li  data-sortable-update-url="<%= destination_path(destination) %>">
+        <%= render "destination_card", destination: destination %>
         <div class="d-flex justify-content-end">
-          <%= link_to "Route Search", "https://www.google.com/maps/dir/#{destination1.place.address}/#{destination2&.place.address}", class: 'link mx-3 my-3', data: {sortable_target: 'button', address: destination1.place.address } %>
+          <%= link_to "Open google maps", "", class: 'link mx-3 my-3', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' %>
         </div>
       </li>
     <% end %>
