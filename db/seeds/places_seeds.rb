@@ -15,6 +15,7 @@ place = Place.create!(
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/temples/kamakura_daibutsu.jpeg")
@@ -31,6 +32,7 @@ place = Place.create!(
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/temples/sensoji.webp")
@@ -47,6 +49,7 @@ place = Place.create!(
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/temples/kinkakuji.webp")
@@ -63,6 +66,7 @@ place = Place.create!(
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 ###Landmarks
 
@@ -81,6 +85,7 @@ place = Place.create!(
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/akihabara.webp")
@@ -97,6 +102,7 @@ place = Place.create!(
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/daikanyama-feature.webp")
@@ -113,6 +119,7 @@ place = Place.create!(
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/usj.webp")
@@ -129,6 +136,7 @@ place = Place.create!(
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/japanese-sword-museum.webp")
@@ -145,6 +153,7 @@ place = Place.create!(
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/arashiyama.webp")
@@ -161,9 +170,10 @@ place = Place.create!(
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
-file = File.open("app/assets/images/places/landmarks/kyoto-tower.webp")
+file = File.open("app/assets/images/places/landmarks/kyoto-tower.jpg")
 place = Place.create!(
   name:'Kyoto Tower',
   description: "Kyoto Tower offers views of the ancient capital that are worth seeing and adaptations to the old building have made it relatively wheelchair accessible. Kyoto Tower was planned to be constructed and completed in time for the 1964 Summer Olympics in Tokyo, but was completed closer to the end of 1964. While only 131 meters tall, due to rules in Kyoto that limit the height of buildings, it is the tallest structure in the city.",
@@ -177,6 +187,7 @@ place = Place.create!(
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 ###Parks
 
@@ -190,11 +201,12 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'most',
-  address: '2-1 Yoyogikamizonocho, Shibuya City, Tokyo, 151-0052 Japan',
+  address: '2-1 Yoyogikamizonocho, Shibuya, Tokyo, 151-0052, Japan',
   city: 'Shibuya',
   category: 'park'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/parks/mother_bokujo.jpeg")
@@ -211,6 +223,7 @@ place = Place.create!(
   category: 'park'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 
 
