@@ -1,8 +1,24 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
-}
-
+  background: rgba(255, 255, 255, 0);
+    .container-fluid {
+      p {
+        color: $light-gray;
+      }
+    }
+  }
+  .navbar-toggler span {
+    color: $light-gray;
+  }
+  .nav-item {
+    padding: 8px 0;
+    text-align: end;
+  }
+  .nav-link-dropdown {
+    color: $light-gray;
+    padding-right: 16px;
+    font-size: 24px;
+  }
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -38,16 +54,11 @@
   font-size: 20px;
 }
 
-#nav-text {
-  // font-size: 12px;
-}
 
 .navbar-bottom a:hover {
   cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
-  .navbar-bottom {}
 
-  .navbar-bottom a {}
 }
