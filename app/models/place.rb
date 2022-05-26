@@ -9,7 +9,7 @@ class Place < ApplicationRecord
   enum charging: { no_data: 0, no: 1, has: 2 }, _suffix: true
   enum area: { no_data: 0, no: 1, some: 2, most: 3, all: 4 }, _suffix: true
 
-  validates :name, :address, presence: true
+  validates :name, :city, presence: true
 
   # geocoding
   geocoded_by :address
