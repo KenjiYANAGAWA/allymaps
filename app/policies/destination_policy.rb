@@ -6,7 +6,15 @@ class DestinationPolicy < ApplicationPolicy
     # end
   end
 
+  def new?
+    true   # all users can access to this form
+  end
+
   def create?
-    true
+    record.itinerary.user == user # only owner of itinerary can add destination
+  end
+
+  def update?
+    record.itinerary.user == user
   end
 end
