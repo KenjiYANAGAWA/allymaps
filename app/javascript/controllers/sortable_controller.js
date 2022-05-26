@@ -8,6 +8,7 @@ export default class extends Sortable {
 
     // as soon as I visit the page, I remove the button after last destination
     this.buttonTargets.forEach((button) => {
+      this.updateDirections(button)
       this.removeButton(button)
     })
 
