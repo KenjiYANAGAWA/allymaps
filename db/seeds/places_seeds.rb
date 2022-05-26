@@ -1,3 +1,5 @@
+### Temples and Shrines
+
 puts "..."
 file = File.open("app/assets/images/places/temples/fushimiinari.jpeg")
 place = Place.create!(
@@ -9,7 +11,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'has',
   charging: 'no_data',
-  area: 'some'
+  area: 'some',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -25,10 +27,28 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'has',
   charging: 'no_data',
-  area: 'most'
+  area: 'most',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
+
+puts "..."
+file = File.open("app/assets/images/places/temples/sensoji.webp")
+place = Place.create!(
+  name:'Sensoji',
+  description: "Sensoji (Sensō-ji) is an ancient Buddhist temple located in Tokyo's cultural capital, Asakusa. Not only is Sensoji Tokyo’s oldest temple, it is one of the most significant.  The area is very wheelchair accessible and definitely a must-visit! As mentioned above, Sensoji and the Asakusa is area one of the most visited sites in Japan.  The Kaminarimon is a landmark that most people use as a meeting point and, since it is the entrance to the complex, even tour buses that park at the back walk there for photo opportunities.  Following from there, Nakamise-dori is not very wide and is filled with people slowly strolling and focusing on buying souveniers – meaning they have a high probability of bumping into a wheelchair user. Getting close to the shops to take a look can be difficult as you get swept along with the crowd and  getting into the shops is next to impossible.  The staff are very used to foreigners and are there to sell goods, so they are very friendly.  Most owners run shops that have been operating for generations and feel a strong connection to both the temple and the local community.  While most do sell souvenirs, many still sell items to be used by local residents.",
+  address: '2 Chome-3-1 Asakusa, Taito, Tokyo, 111-0032, Japan',
+  city: 'Taito',
+  toilet: 'has_many',
+  elevator: 'nonessential',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'all',
+  category: 'temple'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+### Landmarks
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/gunkanjima.png")
@@ -41,8 +61,106 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'no',
   charging: 'no_data',
-  area: 'some'
+  area: 'some',
   category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/akihabara.webp")
+place = Place.create!(
+  name:'Akihabara',
+  description: "Akihabara, or Akiba, has gained worldwide recognition as the heart of Japan’s high-tech and otaku (ie nerd/geek) culture. Almost everyone who comes to Japan wants to visit it to shop, find anime/manga, go to a maid cafe, or see AKB 48. However exciting it is, it is not terribly wheelchair accessible if you want to really dig into the culture. With a disability, it can be a difficult, but still worthwhile place to visit.",
+  address: 'Akihabara Station, Chiyoda, Tokyo, 101-0028, Japan',
+  city: 'Chiyoda',
+  toilet: 'no_data',
+  elevator: 'nonessential',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'some',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/daikanyama-feature.webp")
+place = Place.create!(
+  name:'Daikanyama',
+  description: "Daikanyama is often referred to as Tokyo's Brooklyn and features high-end fashion boutiques and trendy cafes. Unfortunately, a large majority of the smaller shops are not wheelchair accessible. Daikanyama can be accessed from Daikanyama Station on the Tokyu Toyoko Line. The station is wheelchair accessible and has a wheelchair accessible toilet.",
+  address: 'Daikanyamacho, Shibuya, Tokyo, 150-0034, Japan',
+  city: 'Shibuya',
+  toilet: 'no_data',
+  elevator: 'nonessential',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'some',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/usj.webp")
+place = Place.create!(
+  name:'Universal Studio Japan',
+  description: "Universal Studios Japan is one of the most popular attractions in Osaka and offers excitement, famous characters, rides, shows and more. While it is fairly accessible in general, some of the most popular rides – including Harry Potter and the Forbidden Journey – are not accessible to guests with mobility difficulties. Universal Studios Japan remains one of this country’s more accessible tourist attractions. For starters, ample parking for wheelchair users is available, and the spaces are extra-long to allow room for loading and unloading equipment. USJ offers discounts at the gate to holders of red techo (an identification card for individuals with disabilities available to those covered by the National Health Insurance) and a companion. A special map detailing resources for those with special needs, called Support Book, is available in English and Japanes",
+  address: '2-1-33 Sakurajima, Konohana-ku, Osaka, Osaka, 554-0031, Japan',
+  city: 'Konohana-ku',
+  toilet: 'has_many',
+  elevator: 'nonessential',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'most',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/japanese-sword-museum.webp")
+place = Place.create!(
+  name:'The Japanese Sword Museum',
+  description: "The Japanese Sword Museum is fully accessible and located near a number of other museums that are sure to please history buffs. The museum building is new and very flat. Wheelchair parking is available at the front of the museum.  Tactile paving leads from the entrance to the ticket gate, but after that there are only tactile blocks indicating stairs.",
+  toilet: 'has_many',
+  elevator: 'has',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'most',
+  address: '1-12-9, Yokoami, Sumida, Tokyo, 130-0015, Japan',
+  city: 'Sumida',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+### Parks
+
+puts "..."
+file = File.open("app/assets/images/places/parks/yoyogi_park.jpeg")
+place = Place.create!(
+  name:'Yoyogi Park',
+  description: "Yoyogi Park is a park in Yoyogikamizonocho, Shibuya, Tokyo, Japan, located adjacent to Harajuku Station and Meiji Shrine. The park is a popular Tokyo destination.",
+  toilet: 'has_many',
+  elevator: 'nonessential',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'most',
+  address: '2-1 Yoyogikamizonocho, Shibuya City, Tokyo, 151-0052 Japan',
+  city: 'Shibuya',
+  category: 'park'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+
+puts "..."
+file = File.open("app/assets/images/places/parks/mother_bokujo.jpeg")
+place = Place.create!(
+  name:'Mother Farm',
+  description: "Mother Farm is accessible via public transportation from Tokyo Station. Although it is a bit far from Tokyo, it is certainly fun enough to make the visit worthwhile! This wide-open farm on top of a mountain is not only exciting for kids, but adults as well. Mother Farm is a massive place at an overwhelming 2.5 million square meters! The vast meadowland is big enough to contain 350 football stadiums and is home to a variety of animals. This is truly a hilltop animal paradise.",
+  toilet: 'has_many',
+  elevator: 'nonessential',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'most',
+  address: '940-3 Tagura, Futtsu, Chiba, 299-1731, Japan',
+  city: 'Futtsu Chiba',
+  category: 'park'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
 
