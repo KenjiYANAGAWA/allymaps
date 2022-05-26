@@ -1,13 +1,35 @@
-<div class="container">
   <% if @place.photos %>
-    <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
-  <% else %>
-    <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
-  <% end %>
-  <h2><%= @place.name %></h2>
+  <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
+<% else %>
+  <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
+<% end %>
+<div class="p-2">
+  <h1><%= @place.name %></h1>
   <p><%= @place.description %></p>
-  <h3><%= @place.address.capitalize%></h3>
-  <p>Accessibility: <%#= @place.wheelchair_accessibility %></p>
-  <%= link_to "Add to Summary", new_place_destination_path(@place), class: "button" %>
-  <%# <button class="button">Add to Summary</button> %>
+  <h2><%= @place.address.capitalize%></h2>
+  <table class="table table-striped">
+    <tr>
+      <td>Accessible Toilet</td>
+      <td>Many</td>
+    </tr>
+    <tr>
+      <td>Accessible Area</td>
+      <td>Some</td>
+    </tr>
+    <tr>
+      <td>Elevator</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Priority Parking</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Electric Wheelchair Charging Station</td>
+      <td>I don't know</td>
+    </tr>
+  </table>
+  <div class="d-grid gap-2 col-6 mx-auto mt-3">
+    <%= link_to "Add to Summary", new_place_destination_path(@place), class: "button"%>
+  </div>
 </div>
