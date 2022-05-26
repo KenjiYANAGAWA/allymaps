@@ -1,18 +1,22 @@
 <%# ----------- CREATE NEW ITINERARY and ADD DESTINATION TO IT ----------- %>
-<h1>Add this place to a new itinerary</h1>
-<%= simple_form_for @itinerary do |f| %>
-  <%= f.input :name %>
-  <%= f.simple_fields_for :destinations do |d_form| %>
-    <%= d_form.association :place, as: :hidden, input_html: { value: @place.id } %>
+<div class="container mt-5 p-3">
+  <h1 class="mb-4">Choose where to add the destination</h1>
+  <h3>Add to a new itinerary</h3>
+  <%= simple_form_for @itinerary, class: 'add-to-itinerary-form' do |f| %>
+    <%= f.input :name, class: 'input-form' %>
+    <%= f.simple_fields_for :destinations do |d_form| %>
+      <%= d_form.association :place, as: :hidden, input_html: { value: @place.id } %>
+    <% end %>
+    <%= f.submit class: 'btn btn-dark btn-form' %>
   <% end %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
-<%# ----------- ADD DESTINATION TO EXISTING ITINERARY ----------- %>
-<%# ----no dropdown system, but button system %>
-<h1>Add this place to an existing itinerary</h1>
-<% current_user.itineraries.each do |itinerary| %>
-  <%= simple_form_for [@place, @destination] do |f| %>
-    <%= f.association :itinerary, as: :hidden, input_html: { value: itinerary.id } %>
-    <%= f.submit itinerary.name, class: 'btn btn-primary' %>
+  <h3 class="text-center p-3">or</h3>
+  <%# ----------- ADD DESTINATION TO EXISTING ITINERARY ----------- %>
+  <%# ----no dropdown system, but button system %>
+  <h3 class="mt-3">Add to an existing itinerary</h3>
+  <% current_user.itineraries.each do |itinerary| %>
+    <%= simple_form_for [@place, @destination], class: 'add-to-itinerary-form' do |f| %>
+      <%= f.association :itinerary, as: :hidden, input_html: { value: itinerary.id } %>
+      <%= f.submit itinerary.name, class: 'btn btn-form-existing', style: "background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(#{itinerary.places.first ? cl_image_path(itinerary.places.first.photos.first.key) : image_path('https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940')})" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
