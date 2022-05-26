@@ -1,17 +1,22 @@
-<h1>Places#index</h1>
-<%# -------------list of places------------- %>
-<%= form_tag places_path, method: :get do %>
-  <%= text_field_tag :address,
+<div class="nav-back">
+  <%= render 'shared/back_button' %>
+  <h1 class="px-4">Search your destination</h1>
+</div>
+<div class="container mt-3 p-3">
+  <%# -------------list of places------------- %>
+  <%= form_tag places_path, method: :get do %>
+    <%= text_field_tag :address,
       params[:location],
       class: "form-control",
       placeholder: "Where do you go?"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-<%# -------------list of places------------- %>
-<% @places.each do |place| %>
-  <%= link_to place_path(place) do %>
-    <p><strong><%= place.name %></strong></p>
-    <p><%= place.address.capitalize %></p>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-<% end %>
+  <%# -------------list of places------------- %>
+  <% @places.each do |place| %>
+    <%= link_to place_path(place) do %>
+      <p><strong><%= place.name %></strong></p>
+      <p><%= place.address.capitalize %></p>
+    <% end %>
+  <% end %>
+</div>

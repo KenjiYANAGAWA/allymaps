@@ -1,5 +1,8 @@
+<div class="nav-back">
+  <%= render 'shared/back_button' %>
+  <h1 class="px-4">Itinerary: <%= @itinerary.name %></h1>
+</div>
 <div class="container p-3 text-center">
-  <h1>Itinerary: <%= @itinerary.name %></h1>
 </div>
 <div class="container p-3">
   <% unless @itinerary.destinations.any? %>
