@@ -5,13 +5,13 @@
 <% unless @itinerary.destinations.any? %>
   <h3 class="text-center">No destinations yet</h3>
 <% end %>
-<div class="d-flex flex-column align-items-center">
+<div class="d-flex flex-column align-items-center mb-3">
   <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
     <% @itinerary.destinations.order(position: :asc).each do |destination| %>
       <li  data-sortable-update-url="<%= destination_path(destination) %>" >
         <%= render "destination_card", destination: destination %>
         <div class="d-flex justify-content-end">
-          <%= link_to "", class: 'link m-3', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
+          <%= link_to "", class: 'link m-3 btn btn-dark', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
             <h6 class="mb-0"><i class="fas fa-map-marker-alt"></i>  Get directions</h6>
           <% end %>
         </div>
