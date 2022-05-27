@@ -12,11 +12,16 @@
   %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-  <%# -------------list of places------------- %>
+  <%# -------------list of places with mid-card------------- %>
   <% @places.each do |place| %>
     <%= link_to place_path(place) do %>
-      <p><strong><%= place.name %></strong></p>
-      <p><%= place.address.capitalize %></p>
+      <%= render "shared/mid_card", place: place %>
     <% end %>
   <% end %>
 </div>
+<%# <h3 class="p-3">Top Recomendations for you</h3>
+<div class="container top-recomendations d-flex flex-column align-items-center">
+  <% @places.shuffle.first(3).each do |place| %>
+  <%# <%= render "mid_card", place: place %>
+  <%# <% end %>
+  <%# </div> %>
