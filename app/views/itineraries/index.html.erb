@@ -2,18 +2,16 @@
   <%= render 'shared/back_button' %>
   <h1 class="px-4">Itineraries</h1>
 </div>
-
 <%# ------------ new itinerary form ---------------- %>
 <div class="mx-3 d-flex flex-column">
   <h3>Add a new itinerary:</h3>
   <div class="mx-3">
     <%= simple_form_for @itinerary do |f|%>
-      <%= f.input :name %>
+      <%= f.input :name, placeholder: "Itinerary name", label: false %>
       <%= f.submit 'Add', class: 'btn btn-dark btn-form mb-3' %>
     <% end %>
   </div>
 </div>
-
 <%# -------------list of my itineraries------------- %>
 <h3 class="mx-3">Your itineraries:</h3>
 <div class="d-flex flex-column align-items-center">
