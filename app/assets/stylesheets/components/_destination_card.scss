@@ -1,0 +1,48 @@
+.destination_card {
+  background-color: $light-gray;
+  height: 109px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  /*fixed*/
+  display: flex;
+  overflow: hidden;
+  color: $gray;
+  transition: transform 0.2s ease-out;
+}
+
+.dc_img img {
+  height: 100%;
+  width: 40vw;
+  object-fit: cover;
+}
+
+.dc_up-down {
+  width: 16%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.dc_info {
+  flex: 1;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.dc_info div {
+  display: grid;
+  justify-items: center;
+}
+
+.destination_card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.destination_card h3 {
+  font-size: 14px;
+  opacity: .7;
+}
