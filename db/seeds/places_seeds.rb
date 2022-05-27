@@ -1,4 +1,4 @@
-###Temples and Shrines
+### Temples and Shrines
 
 puts "..."
 file = File.open("app/assets/images/places/temples/fushimiinari.jpeg")
@@ -68,7 +68,7 @@ place = Place.create!(
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
 
-###Landmarks
+### Landmarks
 
 puts "..."
 file = File.open("app/assets/images/places/landmarks/gunkanjima.png")
@@ -189,7 +189,58 @@ place = Place.create!(
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
 
-###Parks
+puts "..."
+file = File.open("app/assets/images/places/landmarks/tokorozawa_koku_kinenkan.jpeg")
+place = Place.create!(
+  name: 'Tokorozawa Aviation Museum',
+  description: "The Tokorozawa Aviation Museum (所沢航空発祥記念館, Tokorozawa Kōkū Hasshō Kinenkan) is a museum located in the city of Tokorozawa, Saitama dedicated to the history of aviation in Japan. It contains aircraft and other displays (many of which are interactive) and an IMAX theatre. Located on the site of Japan's first airfield which started operations in 1911 with a flight by Yoshitoshi Tokugawa, the original single runway is still visible and has been incorporated into a larger multifunction park adjacent to the museum. It is located in the Tokorozawa Aviation Memorial Park.",
+  toilet: 'has_many',
+  elevator: 'no_data',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'most',
+  address: '1-13 Namiki, Tokorozawa-shi, Saitama, 359-0042, Japan',
+  city: 'Saitama',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/skytree.jpeg")
+place = Place.create!(
+  name: 'Tokyo Skytree',
+  description: "Tokyo Skytree (東京スカイツリー, Tōkyō Sukaitsurī, stylized TOKYO SKYTREE) is a broadcasting and observation tower in Sumida, Tokyo. It became the tallest structure in Japan in 2010[3] and reached its full height of 634 meters (2,080 ft) in March 2011, making it the tallest tower in the world, displacing the Canton Tower,[4][5] and the third tallest structure in the world after the Merdeka 118 (678.9 m or 2,227 ft) and the Burj Khalifa (829.8 m or 2,722 ft).[6] It is also the tallest freestanding structure in the OECD, the G20 and G7 countries.",
+  toilet: 'has_many',
+  elevator: 'has',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'all',
+  address: '1 Chome-1-2 Oshiage, Sumida City, Tokyo, 131-0045, Japan',
+  city: 'Sumida',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/kokuritsu_kagaku_hakubutsukan.jpeg")
+place = Place.create!(
+  name: 'National Museum of Nature and Science',
+  description: "The National Museum of Nature and Science (国立科学博物館, Kokuritsu Kagaku Hakubutsukan) is in the northeast corner of Ueno Park in Tokyo. The museum has exhibitions on pre-Meiji science in Japan. A life-size blue whale model and a steam locomotive are on display outside.",
+  toilet: 'has_many',
+  elevator: 'has',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'all',
+  address: '7-20 Uenokoen, Taito City, Tokyo, 110-8718, Japan',
+  city: 'Taito',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
+### Parks
 
 puts "..."
 file = File.open("app/assets/images/places/parks/yoyogi_park.jpeg")
@@ -225,7 +276,24 @@ place = Place.create!(
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
 
+### Restaurants
 
+puts "..."
+file = File.open("app/assets/images/places/restaurants/meiji_kinenn_kan.jpeg")
+place = Place.create!(
+  name:'Meiji Kinenkan',
+  description: "Rebuilt, late-1800s reception hall popular for weddings, with green grounds & a summer beer garden. Meiji Kinenkan features five restaurants that stimulate all of your senses, serving expertly prepared dishes using the finest seasonal ingredients Japan has to offer.",
+  toilet: 'has_one',
+  elevator: 'no_data',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'most',
+  address: '2 Chome-2-23 Motoakasaka, Minato City, Tokyo, 107-8507, Japan',
+  city: 'Minato',
+  category: 'restaurant'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
 
 # toilet: { no_data: 0, no: 1, has_one: 2, has_many: 3 }, _suffix: true
 # charging: { no_data: 0, no: 1, has: 2 }, _suffix: true
