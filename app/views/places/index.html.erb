@@ -4,13 +4,13 @@
 </div>
 <div class="container mt-3 p-3">
   <%# -------------list of places------------- %>
-  <%= form_tag places_path, method: :get do %>
+  <%= form_tag places_path, method: :get, class: 'search-form' do %>
     <%= text_field_tag :address,
       params[:location],
       class: "form-control",
-      placeholder: "Where do you go?"
+      placeholder: "Where do you want to go?"
   %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-dark btn-search" %>
   <% end %>
   <%# -------------list of places with mid-card------------- %>
   <% @places.each do |place| %>
