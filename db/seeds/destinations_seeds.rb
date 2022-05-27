@@ -15,7 +15,3 @@ Destination.create!(
   itinerary: User.find_by(email: '1@e.com').itineraries[0],
   place: Place.find_by(name: 'Kyoto Arashiyama')
 )
-Destination.create!(
-  itinerary: User.find_by(email: '1@e.com').itineraries[0],
-  place: Place.find_by(name:'Universal Studios Japan')
-)
