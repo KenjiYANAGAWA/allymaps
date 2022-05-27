@@ -245,7 +245,7 @@ puts "#{place.name} created"
 puts "..."
 file = File.open("app/assets/images/places/parks/yoyogi_park.jpeg")
 place = Place.create!(
-  name:'Yoyogi Park',
+  name: 'Yoyogi Park',
   description: "Yoyogi Park is a park in Yoyogikamizonocho, Shibuya, Tokyo, Japan, located adjacent to Harajuku Station and Meiji Shrine. The park is a popular Tokyo destination.",
   toilet: 'has_many',
   elevator: 'nonessential',
