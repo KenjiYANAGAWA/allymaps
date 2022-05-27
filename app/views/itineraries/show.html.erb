@@ -5,7 +5,7 @@
 <% unless @itinerary.destinations.any? %>
   <h3 class="text-center">No destinations yet</h3>
 <% end %>
-<div class="d-flex flex-column align-items-center">
+<div class="d-flex flex-column align-items-center mb-3">
   <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
     <% @itinerary.destinations.order(position: :asc).each do |destination| %>
       <li  data-sortable-update-url="<%= destination_path(destination) %>" >

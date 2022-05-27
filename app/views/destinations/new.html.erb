@@ -7,7 +7,7 @@
   <%# <h1 class="mb-4">Choose where to add the destination</h1> %>
   <h3>Add to a new itinerary</h3>
   <%= simple_form_for @itinerary, class: 'add-to-itinerary-form' do |f| %>
-    <%= f.input :name, class: 'input-form' %>
+    <%= f.input :name, class: 'input-form', placeholder: "Itinerary name", label: false %>
     <%= f.simple_fields_for :destinations do |d_form| %>
       <%= d_form.association :place, as: :hidden, input_html: { value: @place.id } %>
     <% end %>
