@@ -2,12 +2,12 @@
   <%= render 'shared/navbar_top' %>
   <div class="container">
     <h1>On a Wheelchair? No problem.</h1>
-    <h3>Plan your next trip, read reviews and get travel advice from our community on where to go</h3>
+    <h3>Plan your next trip, read reviews and get travel advice from our community on where to go.</h3>
   </div>
 </div>
 <%# ------------CATEGORIES BUTTONS ----------------- %>
-<div class="container p-1">
-  <h3 class="p-3">What are you looking for?</h3>
+<div class="container">
+  <h3 class="pt-3" style="padding-left: 12px">What are you looking for?</h3>
   <div class="cards">
     <%= link_to places_path do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/6039219/pexels-photo-6039219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
@@ -32,8 +32,8 @@
   </div>
 </div>
 <%# ------------ 3 RECOMENDATIONS ----------------- %>
-<h3 class="p-3">Top Recomendations for you</h3>
-<div class="container top-recomendations d-flex flex-column align-items-center">
+<h3 style="padding-left: 24px; margin-bottom: 0; padding-top: 12px;">Top Recomendations for you</h3>
+<div class="container top-recomendations d-flex flex-column align-items-center" style="margin-top: -6px;">
   <% @places.shuffle.first(3).each do |place| %>
     <%= render "shared/mid_card", place: place %>
   <% end %>
