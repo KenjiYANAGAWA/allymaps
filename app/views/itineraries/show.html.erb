@@ -10,9 +10,9 @@
     <% @itinerary.destinations.order(position: :asc).each do |destination| %>
       <li  data-sortable-update-url="<%= destination_path(destination) %>" >
         <%= render "destination_card", destination: destination %>
-        <div class="">
-          <%= link_to "", class: 'btn btn-dark btn-form', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
-            <i class="fas fa-map-marker-alt">&nbsp;&nbsp;Get directions</i>
+        <div class="d-flex justify-content-end">
+          <%= link_to "", class: 'link m-3', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
+            <h6 class="mb-0"><i class="fas fa-map-marker-alt"></i>  Get directions</h6>
           <% end %>
         </div>
       </li>
