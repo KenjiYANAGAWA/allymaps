@@ -5,36 +5,38 @@
     <h3>Plan your next trip, read reviews and get travel advice from our community on where to go.</h3>
   </div>
 </div>
-<%# ------------CATEGORIES BUTTONS ----------------- %>
-<div class="container">
-  <h3 class="pt-3" style="padding-left: 12px; margin-bottom: 10px;">What are you looking for?</h3>
-  <div class="cards">
-    <%= link_to places_path do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/6039219/pexels-photo-6039219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
-        <h2>Temples / Shrines</h2>
-      </div>
-    <% end %>
-    <%= link_to places_path do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/2187427/pexels-photo-2187427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
-        <h2>Landmarks</h2>
-      </div>
-    <% end %>
-    <%= link_to places_path do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/4552171/pexels-photo-4552171.jpeg')">
-        <h2>Restaurants / Cafes</h2>
-      </div>
-    <% end %>
-    <%= link_to places_path do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/5746154/pexels-photo-5746154.jpeg')">
-        <h2>Parks</h2>
-      </div>
+<div class="home-content">
+  <%# ------------CATEGORIES BUTTONS ----------------- %>
+  <div class="container">
+    <h3 class="py-4 px-1">What are you looking for?</h3>
+    <div class="cards">
+      <%= link_to places_path do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/6039219/pexels-photo-6039219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+          <h2>TEMPLES / SHRINES</h2>
+        </div>
+      <% end %>
+      <%= link_to places_path do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/2187427/pexels-photo-2187427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+          <h2>LANDMARKS</h2>
+        </div>
+      <% end %>
+      <%= link_to places_path do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/4552171/pexels-photo-4552171.jpeg')">
+          <h2>RESTAURANTS / CAFES</h2>
+        </div>
+      <% end %>
+      <%= link_to places_path do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/5746154/pexels-photo-5746154.jpeg')">
+          <h2>PARKS / GARDENS</h2>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%# ------------ 3 RECOMENDATIONS ----------------- %>
+  <h3 class='py-4 px-3'>Top Recomendations for you</h3>
+  <div class="container top-recomendations d-flex flex-column align-items-center" style="margin-top: -6px;">
+    <% @places.shuffle.first(3).each do |place| %>
+      <%= render "shared/mid_card", place: place %>
     <% end %>
   </div>
-</div>
-<%# ------------ 3 RECOMENDATIONS ----------------- %>
-<h3 style="padding-left: 24px; margin-bottom: 0; padding-top: 12px;">Top Recomendations for you</h3>
-<div class="container top-recomendations d-flex flex-column align-items-center" style="margin-top: -6px;">
-  <% @places.shuffle.first(3).each do |place| %>
-    <%= render "shared/mid_card", place: place %>
-  <% end %>
 </div>

@@ -17,7 +17,7 @@
   .nav-link-dropdown {
     color: $light-gray;
     padding-right: 16px;
-    font-size: 24px;
+    font-size: 20px;
   }
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -32,13 +32,16 @@
 .navbar-bottom {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: $light-gray;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 10;
-  padding-top: 20px;
+  padding: 8px;
+  border-top: 1px solid rgb(213, 213, 213);
+
 }
 
 .navbar-bottom a {
@@ -50,8 +53,15 @@
   padding: 0;
   display: flex;
   text-decoration: none;
-  color: black;
-  font-size: 20px;
+  color: rgb(59, 59, 59);
+}
+.nav-icon {
+  font-size: 26px;
+}
+#nav-text{
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
 }
 
 
