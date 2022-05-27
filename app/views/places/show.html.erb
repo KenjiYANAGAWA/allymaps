@@ -9,36 +9,76 @@
 <div class="p-3">
   <h1 class='text-center p-2'><%= @place.name %></h1>
   <p><%= @place.description %></p>
-  <h3>Address:</h3>
-  <h5 class='pb-3'><%= @place.address.titleize%></h5>
-  <table class="table table-striped">
-    <tr>
-      <td><i class="fas fa-toilet-paper fa-2x access-icon"></i></td>
-      <td>Accessible Toilet</td>
-      <td><%= @place.toilet.titleize %></td>
-    </tr>
-    <tr>
-      <td><i class="fas fa-wheelchair fa-2x access-icon"></i></td>
-      <td>Accessible Area</td>
-      <td><%= @place.area.titleize %></td>
-    </tr>
-    <tr>
-      <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
-      <td>Elevator</td>
-      <td><%= @place.elevator.titleize %></td>
-    </tr>
-    <tr>
-      <td><i class="fas fa-parking fa-2x access-icon"></i></td>
-      <td>Priority Parking</td>
-      <td><%= @place.parking.titleize %></td>
-    </tr>
-    <tr>
-      <td><i class="fas fa-charging-station fa-2x access-icon"></i></td>
-      <td>Electric Wheelchair Charging Station</td>
-      <td><%= @place.charging.titleize %></td>
-    </tr>
+  <h5>Address:</h5>
+  <h6 class='pb-3'><%= @place.address.titleize%></h6>
+  <table class="table table-striped mb-5">
+    <% unless @place.toilet == 'no_data' %>
+      <tr>
+        <td><i class="fas fa-toilet-paper fa-2x access-icon"></i></td>
+        <td>Accessible Toilet</td>
+        <% if @place.toilet == 'has_many' %>
+          <td>Many</td>
+        <% elsif @place.toilet == 'has_one' %>
+          <td>One</td>
+        <% elsif @place.toilet == 'no' %>
+          <td>None</td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% unless @place.area == 'no_data' %>
+      <tr>
+        <td><i class="fas fa-wheelchair fa-2x access-icon"></i></td>
+        <td>Accessible Area</td>
+        <% if @place.area == 'no' %>
+          <td>None</td>
+        <% else %>
+          <td><%= @place.area.titleize %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% unless @place.elevator == 'no_data' %>
+      <tr>
+        <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
+        <td>Elevator</td>
+        <% if @place.elevator == 'no' %>
+          <td>None</td>
+        <% elsif @place.elevator == 'has' %>
+          <td>Available</td>
+        <% else %>
+          <td><%= @place.elevator.titleize %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% unless @place.parking == 'no_data' %>
+      <tr>
+        <td><i class="fas fa-parking fa-2x access-icon"></i></td>
+        <td>Priority Parking</td>
+        <% if @place.parking == 'no' %>
+          <td>None</td>
+        <% elsif @place.parking == 'has' %>
+          <td>Available</td>
+        <% else %>
+          <td><%= @place.parking.titleize %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% unless @place.charging == 'no_data' %>
+      <tr>
+        <td><i class="fas fa-charging-station fa-2x access-icon"></i></td>
+        <td>Electric Wheelchair Charging Station</td>
+        <% if @place.charging == 'no' %>
+          <td>None</td>
+        <% elsif @place.charging == 'has' %>
+          <td>Available</td>
+        <% else %>
+          <td><%= @place.charging.titleize %></td>
+        <% end %>
+      </tr>
+    <% end %>
   </table>
   <div class="d-grid gap-2 col-6 mx-auto mt-3">
-    <%= link_to "Add to Summary", new_place_destination_path(@place), class: "button button-add-summary"%>
+    <%= link_to new_place_destination_path(@place), class: "button button-add-summary" do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
   </div>
 </div>
