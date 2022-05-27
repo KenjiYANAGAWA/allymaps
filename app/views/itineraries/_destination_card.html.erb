@@ -7,3 +7,18 @@
     </div>
   </div>
 <% end %>
+<div class="destination_card">
+  <div class="dc_up-down">
+    <i class="fas fa-chevron-up"></i>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+  <div class="dc_img">
+    <%= cl_image_tag destination.place.photos[0].key%>
+  </div>
+  <div class="dc_info">
+    <div>
+      <h2><%= destination.place.name %></h2>
+      <h3><span>in </span><%= destination.place.city.capitalize %></h3>
+    </div>
+  </div>
+</div>
