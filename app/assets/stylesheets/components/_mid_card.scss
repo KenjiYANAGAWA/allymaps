@@ -1,7 +1,7 @@
 .mid_card {
   background-color: $light-gray;
   width: 336px;
-  height: 336px;
+  // height: 336px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   /*fixed*/
@@ -31,6 +31,7 @@
 
 .mid_card-info h2 {
   /*customizable*/
+  font-size: 24px;
   margin: 0;
 }
 
@@ -43,4 +44,15 @@
 
 .mid_card-info h4 {
   font-size: 16px;
+}
+
+.gallery_card_info {
+  display: flex;
+  min-height: 140px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.access-icon-card {
+  padding: 0 8px;
+  font-size: 24px;
 }

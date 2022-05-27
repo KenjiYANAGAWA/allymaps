@@ -3,6 +3,7 @@
     <%= cl_image_tag destination.place.photos[0].key%>
     <div class="small_card-info">
       <h2><%= destination.place.name %></h2>
+      <p><%= destination.place.address %></p>
       <h3><%= destination.place.city.capitalize %></h3>
     </div>
   </div>

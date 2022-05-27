@@ -6,33 +6,39 @@
 <% else %>
   <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
 <% end %>
-<div class="p-2">
-  <h1><%= @place.name %></h1>
+<div class="p-3">
+  <h1 class='text-center p-2'><%= @place.name %></h1>
   <p><%= @place.description %></p>
-  <h2><%= @place.address.capitalize%></h2>
+  <h3>Address:</h3>
+  <h5 class='pb-3'><%= @place.address.titleize%></h5>
   <table class="table table-striped">
     <tr>
+      <td><i class="fas fa-toilet-paper fa-2x access-icon"></i></td>
       <td>Accessible Toilet</td>
-      <td>Many</td>
+      <td><%= @place.toilet.titleize %></td>
     </tr>
     <tr>
+      <td><i class="fas fa-wheelchair fa-2x access-icon"></i></td>
       <td>Accessible Area</td>
-      <td>Some</td>
+      <td><%= @place.area.titleize %></td>
     </tr>
     <tr>
+      <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
       <td>Elevator</td>
-      <td>N/A</td>
+      <td><%= @place.elevator.titleize %></td>
     </tr>
     <tr>
+      <td><i class="fas fa-parking fa-2x access-icon"></i></td>
       <td>Priority Parking</td>
-      <td>Yes</td>
+      <td><%= @place.parking.titleize %></td>
     </tr>
     <tr>
+      <td><i class="fas fa-charging-station fa-2x access-icon"></i></td>
       <td>Electric Wheelchair Charging Station</td>
-      <td>I don't know</td>
+      <td><%= @place.charging.titleize %></td>
     </tr>
   </table>
   <div class="d-grid gap-2 col-6 mx-auto mt-3">
-    <%= link_to "Add to Summary", new_place_destination_path(@place), class: "button"%>
+    <%= link_to "Add to Summary", new_place_destination_path(@place), class: "button button-add-summary"%>
   </div>
 </div>
