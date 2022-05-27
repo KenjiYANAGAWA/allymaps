@@ -2,18 +2,17 @@
   <%= render 'shared/back_button' %>
   <h1 class="px-4">Itinerary: <%= @itinerary.name %></h1>
 </div>
-<div class="container">
-  <% unless @itinerary.destinations.any? %>
-    <h3 class="text-center">No destinations yet</h3>
-  <% end %>
-  <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;'>
+<% unless @itinerary.destinations.any? %>
+  <h3 class="text-center">No destinations yet</h3>
+<% end %>
+<div class="d-flex flex-column align-items-center">
+  <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
     <% @itinerary.destinations.order(position: :asc).each do |destination| %>
       <li  data-sortable-update-url="<%= destination_path(destination) %>" >
         <%= render "destination_card", destination: destination %>
-        <div class="d-flex justify-content-end">
-          <%= link_to "", class: 'link', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
-            <i class="fas fa-map-marker-alt"></i>            
-            <p style="display: inline">Get directions</p>
+        <div class="">
+          <%= link_to "", class: 'btn btn-dark btn-form', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
+            <i class="fas fa-map-marker-alt">&nbsp;&nbsp;Get directions</i>
           <% end %>
         </div>
       </li>
