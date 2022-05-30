@@ -9,6 +9,7 @@ class PlacesController < ApplicationController
         lat: place.latitude,
         lng: place.longitude
       }
+    end
   end
 
   def new
