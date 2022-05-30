@@ -5,8 +5,12 @@
   <h1 class="px-4 text-primary">Itinerary: <%= @itinerary.name.capitalize %></h1>
   <% unless @itinerary.destinations.any? %>
     <h3 class="text-center mb-5">No destinations yet</h3>
-    <%= link_to places_path, class: 'button' do %>
-      <p class='text-center'><i class="fas fa-search"></i> Start looking</p>
+    <!-- Button trigger modal -->
+    <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#placeForm">
+      <i class="fas fa-plus"></i><i class="fas fa-bed"></i>
+    </button>
+    <%= link_to places_path do %>
+      <p class='text-center'><i class="fas fa-search"></i>  or search for a place to visit</p>
     <% end %>
   <% end %>
   <div class="d-flex flex-column align-items-center mb-3">
@@ -22,5 +26,28 @@
         </li>
       <% end %>
     </ul>
+  </div>
+</div>
+<% if @itinerary.destinations.any? %>
+  <!-- Button trigger modal -->
+  <button type="button" class="button button-add-hotel" data-bs-toggle="modal" data-bs-target="#placeForm">
+    <i class="fas fa-plus"></i><i class="fas fa-bed"></i>
+  </button>
+<% end %>
+<!-- Modal -->
+<div class="modal fade" id="placeForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <p style="opacity: 0.6">Itinerary: <%= @itinerary.name.upcase %></p>
+          <h5 class="modal-title" id="exampleModalLabel">Add an accommodation</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "places/add_accommodation", itinerary: @itinerary, place: @place %>
+      </div>
+    </div>
   </div>
 </div>

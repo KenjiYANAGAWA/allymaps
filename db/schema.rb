@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_26_090537) do
+ActiveRecord::Schema.define(version: 2022_05_30_035405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2022_05_26_090537) do
     t.integer "area"
     t.string "city"
     t.string "category"
+    t.boolean "accommodation", default: false
   end
 
   create_table "reviews", force: :cascade do |t|

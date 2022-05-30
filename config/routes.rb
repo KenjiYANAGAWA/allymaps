@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :itineraries, only: [:index, :create, :show]
-
+  
   # for reorder the psoition
   resources :destinations, only: [:update]
 
