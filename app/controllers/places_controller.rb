@@ -7,7 +7,9 @@ class PlacesController < ApplicationController
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
-        lng: place.longitude
+        lng: place.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { place: place })
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
       }
     end
   end
