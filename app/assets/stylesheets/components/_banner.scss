@@ -3,29 +3,40 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 32px;
+  padding-bottom: 102px;
+  position: relative;
+  height: 100vh;
+}
+
+.banner-image {
   background-size: cover;
   background-position: center;
-  padding-bottom: 102px;
-  position: fixed;
-  top: 0;
+  position: absolute;
+  inset: 0;
   z-index: -10;
 }
 
 .banner h1 {
   margin: 0;
   color: rgba(255, 255, 255, 0.9);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 40px;
   font-weight: bold;
   text-align: center;
   padding-bottom: 24px;
+  color: $yellow;
+
 }
 
-.banner h3 {
+.banner p {
   font-size: 20px;
   color: white;
   opacity: .9;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   padding: 0 16px;
   text-align: start;
+}
+
+.top-90 {
+  top: 90% !important;
 }

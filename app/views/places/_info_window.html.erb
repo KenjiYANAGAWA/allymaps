@@ -1,0 +1,7 @@
+<%= link_to place_path(place), class: 'maplink' do %>
+  <div class="container info-window">
+    <%= cl_image_tag(place.photos.first.key, :width => 200) %>
+    <h2><strong><%= "#{place.name}"%></strong></h2>
+    <p><%= place.city %></p>
+  </div>
+<% end %>
