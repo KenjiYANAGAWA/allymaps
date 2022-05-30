@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :destinations, only: [:new, :create]
   end
 
-  resources :itineraries, only: [:index, :create, :show]
+  resources :itineraries, only: [:index, :create, :show] do
+    resources :accommodations, only: [:create]
+  end
 
   # for reorder the psoition
   resources :destinations, only: [:update]
