@@ -11,7 +11,7 @@
     <%= f.simple_fields_for :destinations do |d_form| %>
       <%= d_form.association :place, as: :hidden, input_html: { value: @place.id } %>
     <% end %>
-    <%= f.submit class: 'btn btn-dark btn-form' %>
+    <%= f.submit class: 'btn btn-info btn-form' %>
   <% end %>
   <h3 class="text-center p-3">or</h3>
   <%# ----------- ADD DESTINATION TO EXISTING ITINERARY ----------- %>

@@ -1,24 +1,29 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: rgba(255, 255, 255, 0);
-    .container-fluid {
-      p {
-        color: $light-gray;
-      }
+
+  .container-fluid {
+    p {
+      color: $light-gray;
     }
   }
-  .navbar-toggler span {
-    color: $light-gray;
-  }
-  .nav-item {
-    padding: 8px 0;
-    text-align: end;
-  }
-  .nav-link-dropdown {
-    color: $light-gray;
-    padding-right: 16px;
-    font-size: 20px;
-  }
+}
+
+.navbar-toggler span {
+  color: $light-gray;
+}
+
+.nav-item {
+  padding: 8px 0;
+  text-align: end;
+}
+
+.nav-link-dropdown {
+  color: $light-gray;
+  padding-right: 16px;
+  font-size: 20px;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -41,6 +46,7 @@
   z-index: 10;
   padding: 8px;
   border-top: 1px solid rgb(213, 213, 213);
+  background-color: $green;
 
 }
 
@@ -55,10 +61,12 @@
   text-decoration: none;
   color: rgb(59, 59, 59);
 }
+
 .nav-icon {
   font-size: 26px;
 }
-#nav-text{
+
+#nav-text {
   padding: 0;
   margin: 0;
   font-size: 14px;
@@ -69,6 +77,4 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
-
-}
+@media screen and (max-width: 600px) {}
