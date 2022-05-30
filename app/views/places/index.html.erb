@@ -1,8 +1,8 @@
 <div class="nav-back">
   <%= render 'shared/back_button' %>
-  <h1 class="px-4">Search your destination</h1>
 </div>
 <div class="container search-content">
+  <h1 class="px-4 mb-2 text-primary">Search your destination</h1>
   <%# -------------list of places------------- %>
   <%= form_tag places_path, method: :get, class: 'search-form pb-3' do %>
     <%= text_field_tag :address,
@@ -18,7 +18,7 @@
   <div class="justify-content-center"><%= render partial: "map", locals:{ places: @places } %></div>
   <%# -------------list of places with mid-card------------- %>
   <% @places.each do |place| %>
-    <%= link_to place_path(place) do %>
+    <%= link_to place_path(place), class: 'card-link' do %>
       <%= render "shared/mid_card", place: place %>
     <% end %>
   <% end %>
