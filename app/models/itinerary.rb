@@ -3,7 +3,6 @@ class Itinerary < ApplicationRecord
   has_many :destinations, dependent: :destroy
   has_many :places, through: :destinations
   has_one_attached :photo
-  has_many :accommodations, dependent: :destroy
 
   validates :name, presence: true
 

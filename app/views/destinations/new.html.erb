@@ -20,7 +20,7 @@
   <% current_user.itineraries.order(created_at: :desc).each do |itinerary| %>
     <%= simple_form_for [@place, @destination], class: 'add-to-itinerary-form' do |f| %>
       <%= f.association :itinerary, as: :hidden, input_html: { value: itinerary.id } %>
-      <%= f.submit itinerary.name, class: 'btn btn-form-existing', style: "background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(#{itinerary.places.first ? cl_image_path(itinerary.places.first.photos.first.key) : image_path('https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940')})" %>
+      <%= f.submit itinerary.name, class: 'btn btn-form-existing', style: "background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(#{itinerary.places.first&.photos&.attached? ? cl_image_path(itinerary.places.first.photos.first.key) : image_path('https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940')})" %>
     <% end %>
   <% end %>
 </div>

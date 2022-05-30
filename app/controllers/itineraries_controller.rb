@@ -26,6 +26,8 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @place = Place.new
+    @place.destinations.build
     authorize @itinerary
   end
 

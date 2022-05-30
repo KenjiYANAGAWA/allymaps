@@ -3,7 +3,7 @@
   <h1 class="px-4">Search your destination</h1>
 </div>
 <div class="container search-content p-3">
-  <%# -------------list of places------------- %>
+  <%# -------------search by location form------------- %>
   <%= form_tag places_path, method: :get, class: 'search-form pb-3' do %>
     <%= text_field_tag :address,
       params[:location],

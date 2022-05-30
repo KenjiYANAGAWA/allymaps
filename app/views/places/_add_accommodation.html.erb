@@ -1,0 +1,10 @@
+<%= simple_form_for place do |f| %>
+  <%= f.input :name, placeholder: "Home OR Hotel Paquita" %>
+  <%= f.input :address, placeholder: "1 Chome Marunouchi, Chiyoda City, Tokyo" %>
+  <%= f.input :city, placeholder: "Tokyo" %>
+  <%= f.input :accommodation, as: :hidden, input_html: { value: true } %>
+  <%= f.simple_fields_for :destinations do |d_form| %>
+    <%= d_form.association :itinerary, as: :hidden, input_html: { value: itinerary.id } %>
+  <% end %>
+  <%= f.submit class: 'btn btn-dark btn-form' %>
+<% end %>

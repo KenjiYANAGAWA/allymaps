@@ -2,7 +2,7 @@
   <div class="nav-back-place">
     <%= render 'shared/back_button' %>
   </div>
-  <% if @place.photos %>
+  <% if @place.photos.first %>
     <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
   <% else %>
     <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
