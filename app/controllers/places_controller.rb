@@ -4,6 +4,14 @@ class PlacesController < ApplicationController
   def index
     @places = policy_scope(Place)
     @places = @places.near(params[:address], 50) if params[:address]
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { place: place })
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+      }
+    end
   end
 
   def new
