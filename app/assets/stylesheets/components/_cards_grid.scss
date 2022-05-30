@@ -2,9 +2,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  padding: 22px;
-  padding-top: 0;
+  padding: 0;
   justify-items: center;
+  grid-auto-rows: 160px;
+
+  a {
+    width: 100%;
+  }
 }
 
 // Smallest device

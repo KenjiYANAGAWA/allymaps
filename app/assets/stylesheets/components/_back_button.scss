@@ -3,10 +3,17 @@
   justify-content: flex-start;
   align-items: center;
   padding: 16px;
-  position: fixed;
+  position: relative;
   top: 0;
   z-index: -10;
+  background-color: $green;
+
+  h1 {
+    font-size: 24px;
+  }
 }
+
+
 .nav-back-place {
   background: transparent;
   position: absolute;
@@ -23,5 +30,6 @@
     color: $gray;
     text-shadow: 0 0 3px rgb(255, 255, 255);
     font-size: 32px;
+    color: $blue;
   }
 }
