@@ -4,6 +4,11 @@ class PlacesController < ApplicationController
   def index
     @places = policy_scope(Place)
     @places = @places.near(params[:address], 50) if params[:address]
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
   end
 
   def new
