@@ -15,7 +15,7 @@
     <% end %>
   <% end %>
   <%# -------------list of places in the map------------- %>
-  <div class="justify-content-center"><%= render partial: "shared/map", locals:{ places: @places } %></div>
+  <div><%= render partial: "shared/map"%></div>
   <%# -------------list of places with mid-card------------- %>
   <% @places.each do |place| %>
     <%= link_to place_path(place), class: 'card-link' do %>

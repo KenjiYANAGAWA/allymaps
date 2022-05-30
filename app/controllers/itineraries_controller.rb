@@ -27,6 +27,16 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = Itinerary.find(params[:id])
     authorize @itinerary
+    @places = @itinerary.places
+    @markers = @places.geocoded.map.with_index do |place, index|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: { place: place }),
+        'marker-symbol': index
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+      }
+    end
   end
 
   private
