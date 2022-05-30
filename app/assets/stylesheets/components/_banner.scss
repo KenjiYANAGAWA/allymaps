@@ -5,6 +5,7 @@
   gap: 32px;
   padding-bottom: 102px;
   position: relative;
+  height: 100vh;
 }
 
 .banner-image {
@@ -34,4 +35,8 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   padding: 0 16px;
   text-align: start;
+}
+
+.top-90 {
+  top: 90% !important;
 }
