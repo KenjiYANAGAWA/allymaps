@@ -1,6 +1,6 @@
 <div class="mid_card mx-3 my-3">
   <%# <%= link_to place_path(place) do %>
-    <% if place.photos.first.attached? %>
+    <% if place.photos %>
       <%= cl_image_tag place.photos.first.key ,style:"width:100%; height:200px" %>
     <% else %>
       <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
