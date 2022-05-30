@@ -9,10 +9,19 @@
   <% end %>
 </div>
 <div class="p-3 place-content">
+
   <h1 class='text-center p-2 text-primary'><%= @place.name %></h1>
-  <p><%= @place.description %></p>
-  <h5>Address:</h5>
-  <h6 class='pb-3'><%= @place.address.titleize%></h6>
+  <%= javascript_pack_tag 'readmore'%>
+  <div class="place-info-short">
+    <p><%= @place.description[0, 135] %>... <%= link_to 'Read more', '#', class: 'readmore-btn' %></p>
+  </div>
+  <div class="place-info-long hidden">
+    <p><%= @place.description %><%= link_to ' Read Less', '#', class: 'readless-btn' %></p>
+    <h5>Address:</h5>
+    <h6 class='pb-3'><%= @place.address.titleize%></h6>
+  </div>
+  <h3 class='pt-3 pb-3'>Accessible Features</h3>
+
   <table class="table table-striped mb-5">
     <% unless @place.toilet == 'no_data' %>
       <tr>

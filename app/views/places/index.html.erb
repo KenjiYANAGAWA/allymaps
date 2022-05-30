@@ -16,7 +16,7 @@
   <% end %>
   <%# -------------list of places with mid-card------------- %>
   <% @places.each do |place| %>
-    <%= link_to place_path(place) do %>
+    <%= link_to place_path(place), class: 'card-link' do %>
       <%= render "shared/mid_card", place: place %>
     <% end %>
   <% end %>
