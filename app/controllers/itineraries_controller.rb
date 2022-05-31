@@ -35,8 +35,7 @@ class ItinerariesController < ApplicationController
         lat: place.latitude,
         lng: place.longitude,
         info_window: render_to_string(partial: "shared/info_window", locals: { place: place }),
-        'marker-symbol': index
-        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+        image_url: helpers.asset_url("markers/number_#{index + 1}.png")
       }
     end
   end
