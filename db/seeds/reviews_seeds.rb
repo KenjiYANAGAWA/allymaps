@@ -73,7 +73,7 @@ puts "Review of #{review.place.name} by #{review.user.username} ( #{review.user.
 puts "..."
 review = Review.create!(
   rating: 4,
-  content: "Built in 2012, Tokyo Skytree and the accompanying Sola Machi shopping mall have excellent accessibility.",
+  content: "Tokyo Skytree and the accompanying Sola Machi shopping mall have excellent accessibility.",
   user: User.where.not(email: '1@e.com').sample,
   place: Place.find_by(name: 'Tokyo Skytree')
 )
