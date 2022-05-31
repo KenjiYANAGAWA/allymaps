@@ -100,9 +100,11 @@
       <% if @place.reviews.blank? %>
         <p class="text-center">No reviews yet</p>
       <% else %>
-        <% @place.reviews.each do |review| %>
-          <%= render 'reviews/review', review: review %>
-        <% end %>
+        <div class="cards">
+          <% @place.reviews.each do |review| %>
+            <%= render 'reviews/review', review: review %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

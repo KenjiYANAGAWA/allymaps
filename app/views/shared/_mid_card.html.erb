@@ -1,37 +1,39 @@
-<div class="mid_card mx-3 my-3">
-  <%= link_to place_path(place) do %>
-    <% if place.photos %>
-      <%= cl_image_tag place.photos.first.key ,style:"width:100%; height:200px" %>
-    <% else %>
-      <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
+<div class="mid_card my-3">
+  <%= link_to place_path(place), class: 'card-link' do %>
+    <%= link_to place_path(place) do %>
+      <% if place.photos %>
+        <%= cl_image_tag place.photos.first.key ,style:"width:100%; height:200px" %>
+      <% else %>
+        <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
+      <% end %>
     <% end %>
+    <div class="mid_card-info gallery_card_info">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><%= place.name %></h2>
+        <h4 class="m-0"><%= place.city.capitalize %></h4>
+      </div>
+      <div class="d-flex flex-row-reverse" style="margin-left: 50%;">
+        <%# ------------ TOILET --------------- %>
+        <% if place.toilet == "has_one" || place.toilet == "has_many" %>
+          <h3 class="ms-3"><i class="access-icon fas fa-toilet-paper fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accessible Toilet"></i></h3>
+        <% end %>
+        <%# ------------ PARKING --------------- %>
+        <% if place.parking == "has"%>
+          <h3 class="ms-3"><i class="access-icon fas fa-parking fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Priority Parking"></i></h3>
+        <% end %>
+        <%# ------------ CHARGING STATION --------------- %>
+        <% if place.charging == "has"%>
+          <h3 class="ms-3"><i class="access-icon fas fa-charging-station fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"></i></h3>
+        <% end %>
+        <%# ------------ Accessible AREA --------------- %>
+        <% if place.area == "most" || place.area == "all"%>
+          <h3 class="ms-3"><i class="access-icon fas fa-wheelchair fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wheelchair Charging Station"></i></h3>
+        <% end %>
+        <%# ------------ ELEVATOR --------------- %>
+        <% if place.elevator == "has"%>
+          <h3 class="ms-3"><i class="access-icon fas fa-universal-access fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elevator"></i></h3>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-  <div class="mid_card-info gallery_card_info">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h2><%= place.name %></h2>
-      <h4 class="m-0"><%= place.city.capitalize %></h4>
-    </div>
-    <div class="d-flex flex-row-reverse" style="margin-left: 50%;">
-      <%# ------------ TOILET --------------- %>
-      <% if place.toilet == "has_one" || place.toilet == "has_many" %>
-        <h3 class="ms-3"><i class="access-icon fas fa-toilet-paper fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accessible Toilet"></i></h3>
-      <% end %>
-      <%# ------------ PARKING --------------- %>
-      <% if place.parking == "has"%>
-        <h3 class="ms-3"><i class="access-icon fas fa-parking fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Priority Parking"></i></h3>
-      <% end %>
-      <%# ------------ CHARGING STATION --------------- %>
-      <% if place.charging == "has"%>
-        <h3 class="ms-3"><i class="access-icon fas fa-charging-station fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"></i></h3>
-      <% end %>
-      <%# ------------ Accessible AREA --------------- %>
-      <% if place.area == "most" || place.area == "all"%>
-        <h3 class="ms-3"><i class="access-icon fas fa-wheelchair fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wheelchair Charging Station"></i></h3>
-      <% end %>
-      <%# ------------ ELEVATOR --------------- %>
-      <% if place.elevator == "has"%>
-        <h3 class="ms-3"><i class="access-icon fas fa-universal-access fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elevator"></i></h3>
-      <% end %>
-    </div>
-  </div>
 </div>
