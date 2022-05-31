@@ -5,7 +5,8 @@ file = File.open("app/assets/images/places/temples/fushimiinari.jpeg")
 place = Place.create!(
   name: 'Fushimi Inari Shrine',
   description: 'Fushimi Inari Shrine is an iconic site in Kyoto with thousands of torii gates that wind up a forested mountain. With a bit of effort, visitors in wheelchairs can see the first stretch of the path and the first two shrines.',
-  address: '68 Fukakusa Yabunouchicho, Fushimi-ku, Kyoto, Kyoto, 612-0882, Japan',
+  # address: '68 Fukakusa Yabunouchicho, Fushimi-ku, Kyoto, Kyoto, 612-0882, Japan',
+  address: 'Fushimi Inari Shrine',
   city: 'Kyoto',
   toilet: 'has_many',
   elevator: 'has',
@@ -22,7 +23,8 @@ file = File.open("app/assets/images/places/temples/kamakura_daibutsu.jpeg")
 place = Place.create!(
   name: 'Kōtoku-in',
   description: "The Great Buddha of Kamakura (鎌倉大仏, Kamakura Daibutsu) is a bronze statue of Amida Buddha, which stands on the grounds of Kotokuin Temple. With a height of 11.4 meters, it has long been the second tallest bronze Buddha statue in Japan, surpassed only by the statue in Nara's Todaiji Temple and some recent creations. The statue was cast in 1252 and originally located inside a large temple hall. However, the temple buildings were destroyed multiple times by typhoons and a tsunami in the 14th and 15th centuries. So, since the late 15th century, the Buddha has been standing in the open air.",
-  address: '4 Chome-2-28 Hase, Kamakura, Kanagawa, 248-0016, Japan',
+  # address: '4 Chome-2-28 Hase, Kamakura, Kanagawa, 248-0016, Japan',
+  address: 'Kōtoku-in',
   city: 'Kanagawa',
   toilet: 'has_one',
   elevator: 'no_data',
@@ -39,7 +41,8 @@ file = File.open("app/assets/images/places/temples/sensoji.webp")
 place = Place.create!(
   name: 'Sensoji',
   description: "Sensoji (Sensō-ji) is an ancient Buddhist temple located in Tokyo's cultural capital, Asakusa. Not only is Sensoji Tokyo’s oldest temple, it is one of the most significant.  The area is very wheelchair accessible and definitely a must-visit! As mentioned above, Sensoji and the Asakusa is area one of the most visited sites in Japan.  The Kaminarimon is a landmark that most people use as a meeting point and, since it is the entrance to the complex, even tour buses that park at the back walk there for photo opportunities.  Following from there, Nakamise-dori is not very wide and is filled with people slowly strolling and focusing on buying souveniers – meaning they have a high probability of bumping into a wheelchair user. Getting close to the shops to take a look can be difficult as you get swept along with the crowd and  getting into the shops is next to impossible.  The staff are very used to foreigners and are there to sell goods, so they are very friendly.  Most owners run shops that have been operating for generations and feel a strong connection to both the temple and the local community.  While most do sell souvenirs, many still sell items to be used by local residents.",
-  address: '2 Chome-3-1 Asakusa, Taito, Tokyo, 111-0032, Japan',
+  # address: '2 Chome-3-1 Asakusa, Taito, Tokyo, 111-0032, Japan',
+  address: 'Sensoji',
   city: 'Taito',
   toilet: 'has_many',
   elevator: 'nonessential',
@@ -56,7 +59,8 @@ file = File.open("app/assets/images/places/temples/kinkakuji.webp")
 place = Place.create!(
   name: 'Kinkakuji',
   description: "Kinkakuji, or the Golden Pavilion, is one of the top stops for anyone visiting Kyoto, and one of Japan’s most popular buildings. Originally a shogun’s estate, it is now a Buddhist temple and is part of the Historic Monuments of Ancient Kyoto UNESCO World Heritage site.  The site near the pavilion is wheelchair accessible, but much of the gardens are not.",
-  address: '1 Kinkakujicho, Kita-ku, Kyoto, Kyoto, 603-8361, Japan',
+  # address: '1 Kinkakujicho, Kita-ku, Kyoto, Kyoto, 603-8361, Japan',
+  address: 'Kinkakuji',
   city: 'Kyoto',
   toilet: 'has_one',
   elevator: 'nonessential',
@@ -75,7 +79,8 @@ file = File.open("app/assets/images/places/landmarks/gunkanjima.png")
 place = Place.create!(
   name: 'Gunkanjima',
   description: "Though it is officially called Hashima, the small mining island off the cost of Nagasaki came to be called Gunkanjima (Battleship Island) because the silhouette of the over-built island looks like a naval battleship.  Its eerie look even became the inspiration for a Bond villain’s hideout. Coal was first discovered on Gunkanjima in 1810 by the feudal lord of Saga, and after mining operations continued to build up, it was purchased by the Mitsubishi Corporation and permanently inhabited from 1887 onward. Though the island is only 480 meters long and 150 meters wide, it was home to 5000 residents – both miners and their families. The island was expanded and high sea walls were erected to protect the mining operations, residential space, schools, restaurants, shops, public bath and hospital. Operations were closed down in 1974 and the residents were required to leave the island. The buildings slowly gave way to the elements, leaving a haunting atmosphere. It is great to see local organizations help visitors with disabilities visit an otherwise inaccessible location.  The trip to Gunkanjima is a bit strenuous for some travelers, but is a unique opportunity that is worth the extra effort.",
-  address: 'Takashimamachi, Nagasaki, 851-1315, Japan',
+  # address: 'Takashimamachi, Nagasaki, 851-1315, Japan',
+  address: 'Gunkanjima',
   city: 'Nagasaki',
   toilet: 'has_one',
   elevator: 'nonessential',
@@ -92,7 +97,8 @@ file = File.open("app/assets/images/places/landmarks/akihabara.webp")
 place = Place.create!(
   name: 'Akihabara',
   description: "Akihabara, or Akiba, has gained worldwide recognition as the heart of Japan’s high-tech and otaku (ie nerd/geek) culture. Almost everyone who comes to Japan wants to visit it to shop, find anime/manga, go to a maid cafe, or see AKB 48. However exciting it is, it is not terribly wheelchair accessible if you want to really dig into the culture. With a disability, it can be a difficult, but still worthwhile place to visit.",
-  address: 'Akihabara Station, Chiyoda, Tokyo, 101-0028, Japan',
+  # address: 'Akihabara Station, Chiyoda, Tokyo, 101-0028, Japan',
+  address: 'Akihabara',
   city: 'Chiyoda',
   toilet: 'no_data',
   elevator: 'nonessential',
@@ -109,7 +115,8 @@ file = File.open("app/assets/images/places/landmarks/daikanyama-feature.webp")
 place = Place.create!(
   name: 'Daikanyama',
   description: "Daikanyama is often referred to as Tokyo's Brooklyn and features high-end fashion boutiques and trendy cafes. Unfortunately, a large majority of the smaller shops are not wheelchair accessible. Daikanyama can be accessed from Daikanyama Station on the Tokyu Toyoko Line. The station is wheelchair accessible and has a wheelchair accessible toilet.",
-  address: 'Daikanyamacho, Shibuya, Tokyo, 150-0034, Japan',
+  # address: 'Daikanyamacho, Shibuya, Tokyo, 150-0034, Japan',
+  address: 'Daikanyama',
   city: 'Shibuya',
   toilet: 'no_data',
   elevator: 'nonessential',
@@ -126,7 +133,8 @@ file = File.open("app/assets/images/places/landmarks/usj.webp")
 place = Place.create!(
   name: 'Universal Studios Japan',
   description: "Universal Studios Japan is one of the most popular attractions in Osaka and offers excitement, famous characters, rides, shows and more. While it is fairly accessible in general, some of the most popular rides – including Harry Potter and the Forbidden Journey – are not accessible to guests with mobility difficulties. Universal Studios Japan remains one of this country’s more accessible tourist attractions. For starters, ample parking for wheelchair users is available, and the spaces are extra-long to allow room for loading and unloading equipment. USJ offers discounts at the gate to holders of red techo (an identification card for individuals with disabilities available to those covered by the National Health Insurance) and a companion. A special map detailing resources for those with special needs, called Support Book, is available in English and Japanes",
-  address: '2-1-33 Sakurajima, Konohana-ku, Osaka, Osaka, 554-0031, Japan',
+  # address: '2-1-33 Sakurajima, Konohana-ku, Osaka, Osaka, 554-0031, Japan',
+  address: 'Universal Studios Japan',
   city: 'Konohana-ku',
   toilet: 'has_many',
   elevator: 'nonessential',
@@ -148,7 +156,8 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'most',
-  address: '1-12-9, Yokoami, Sumida, Tokyo, 130-0015, Japan',
+  # address: '1-12-9, Yokoami, Sumida, Tokyo, 130-0015, Japan',
+  address: 'Japanese Sword Museum',
   city: 'Sumida',
   category: 'landmark'
 )
@@ -165,7 +174,8 @@ place = Place.create!(
   parking: 'no_data',
   charging: 'no_data',
   area: 'most',
-  address: '4 Sagaogurayama Tabuchiyamachō, Kyoto, Kyoto, 616-8394, Japan',
+  # address: '4 Sagaogurayama Tabuchiyamachō, Kyoto, Kyoto, 616-8394, Japan',
+  address: 'Kyoto Arashiyama',
   city: 'Kyoto',
   category: 'landmark'
 )
@@ -182,7 +192,8 @@ place = Place.create!(
   parking: 'no',
   charging: 'no_data',
   area: 'most',
-  address: '721-1 Karasuma-dori Higashi Shiokoji-cho Shimogyo-ku, Kyoto, Kyoto, 600-8216, Japan',
+  # address: '721-1 Karasuma-dori Higashi Shiokoji-cho Shimogyo-ku, Kyoto, Kyoto, 600-8216, Japan',
+  address: 'Kyoto Tower',
   city: 'Kyoto',
   category: 'landmark'
 )
@@ -199,7 +210,8 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'most',
-  address: '1-13 Namiki, Tokorozawa-shi, Saitama, 359-0042, Japan',
+  # address: '1-13 Namiki, Tokorozawa-shi, Saitama, 359-0042, Japan',
+  address: 'Tokorozawa Aviation Museum',
   city: 'Saitama',
   category: 'landmark'
 )
@@ -216,7 +228,8 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'all',
-  address: '1 Chome-1-2 Oshiage, Sumida City, Tokyo, 131-0045, Japan',
+  # address: '1 Chome-1-2 Oshiage, Sumida City, Tokyo, 131-0045, Japan',
+  address: 'Tokyo Skytree',
   city: 'Sumida',
   category: 'landmark'
 )
@@ -233,7 +246,8 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'all',
-  address: '7-20 Uenokoen, Taito City, Tokyo, 110-8718, Japan',
+  # address: '7-20 Uenokoen, Taito City, Tokyo, 110-8718, Japan',
+  address: 'National Museum of Nature and Science',
   city: 'Taito',
   category: 'landmark'
 )
@@ -252,7 +266,8 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'most',
-  address: '2-1 Yoyogikamizonocho, Shibuya, Tokyo, 151-0052, Japan',
+  # address: '2-1 Yoyogikamizonocho, Shibuya, Tokyo, 151-0052, Japan',
+  address: 'Yoyogi Park',
   city: 'Shibuya',
   category: 'park'
 )
@@ -269,7 +284,8 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'most',
-  address: '940-3 Tagura, Futtsu, Chiba, 299-1731, Japan',
+  # address: '940-3 Tagura, Futtsu, Chiba, 299-1731, Japan',
+  address: 'Mother Farm',
   city: 'Futtsu Chiba',
   category: 'park'
 )
@@ -288,7 +304,8 @@ place = Place.create!(
   parking: 'has',
   charging: 'no_data',
   area: 'most',
-  address: '2 Chome-2-23 Motoakasaka, Minato City, Tokyo, 107-8507, Japan',
+  # address: '2 Chome-2-23 Motoakasaka, Minato City, Tokyo, 107-8507, Japan',
+  address: 'Meiji Kinenkan',
   city: 'Minato',
   category: 'restaurant'
 )
