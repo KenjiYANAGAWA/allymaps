@@ -37,6 +37,8 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @reviews = Review.where(place: @place.id)
+    @review = Review.new
     authorize @place
   end
 

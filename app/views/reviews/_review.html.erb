@@ -1,0 +1,41 @@
+<div class="review-card">
+  <% if review.photos.any? %>
+    <% if review.photos.length == 1 %>
+      <%= image_tag review.photos.first, alt: 'review photo', class: 'review-img' %>
+    <% elsif review.photos.length > 1 %>
+      <div id="carousel<%= review.id %>" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag review.photos.first, alt: 'review photo', class: 'review-img' %>
+          </div>
+          <% review.photos[1..-1].each do |photo| %>
+            <div class="carousel-item">
+              <%= image_tag photo, alt: 'review photo', class: 'review-img' %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= review.id %>" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= review.id %>" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="d-flex align-items-center stars-show pb-2" id="review-<%= review.id %> review_content">
+    <%# <div class="username me-3"> %>
+    <%#= review.user.first_name %>
+    <%#= review.user.last_name %>
+    <%# </div> %>
+    <% review.rating.times do %>
+      <i class="fab fa-accessible-icon"></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <i class="fab fa-accessible-icon icon-white"></i>
+    <% end %>
+  </div>
+  <p class='review-content'><%= review.content %></p>
+</div>

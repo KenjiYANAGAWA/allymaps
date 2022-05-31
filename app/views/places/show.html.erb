@@ -87,6 +87,34 @@
       </tr>
     <% end %>
   </table>
+  <%# -------------LIST OF REVIEWS-------------- %>
+  <h3>Reviews</h3>
+  <div class="p-3 m-3">
+    <div id="reviews">
+      <% if @place.reviews.blank? %>
+        <p class="text-center">No reviews yet</p>
+      <% else %>
+        <% @place.reviews.each do |review| %>
+          <%= render 'reviews/review', review: review %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%# -------------FORM FOR THE REVIEWS-------------- %>
+  <div class="comment-form p-5 m-3">
+    <h3>How accessible was this place?</h3>
+    <%=  simple_form_for [@place, @review], remote: true do |f| %>
+      <div class="star-rating mb-5">
+        <% 5.times do |i| %>
+          <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+        <% end %>
+      </div>
+      <%= f.input :content, label: false, placeholder: 'Write about your experience' %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit 'Post', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <%# ----------------- ADD BUTTON --------------------- %>
   <div class="d-grid gap-2 col-6 mx-auto mt-3">
     <%= link_to new_place_destination_path(@place), class: "button button-add-summary" do %>
       <i class="fas fa-plus"></i>
