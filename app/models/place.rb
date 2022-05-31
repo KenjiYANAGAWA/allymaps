@@ -18,7 +18,7 @@ class Place < ApplicationRecord
   validates :city, presence: true
 
   # geocoding
-  geocoded_by :name
+  geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
   accepts_nested_attributes_for :destinations

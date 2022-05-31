@@ -4,7 +4,7 @@
 <div class="search-content">
   <%# ------------ new itinerary form ---------------- %>
   <div class="mx-3 d-flex flex-column">
-    <h3 class="text-primary">Add a new itinerary to your list:</h3>
+    <h3 class="text-primary mb-3">Add a new itinerary to your list:</h3>
     <div class="mx-3">
       <%= simple_form_for @itinerary do |f|%>
         <%= f.input :name, placeholder: 'Itinerary name', label: false %>
@@ -13,7 +13,7 @@
     </div>
   </div>
   <%# -------------list of my itineraries------------- %>
-  <h3 class="mx-3 text-primary">Your itineraries list:</h3>
+  <h3 class="my-3 ms-3 text-primary">Your itineraries list:</h3>
   <div class="d-flex flex-column align-items-center">
     <% unless @itineraries.any? %>
       <h3 class="text-center">No itineraries yet</h3>

@@ -1,9 +1,11 @@
 <div class="nav-back">
   <%= render 'shared/back_button' %>
 </div>
+
 <%# -------------search by location form------------- %>
 <div class="search-content-map">
   <h1 class="px-4 mb-2 text-primary">Search your destination</h1>
+
   <%= form_tag places_path, method: :get, class: 'search-form pb-3' do %>
     <%= text_field_tag :address,
       params[:location],

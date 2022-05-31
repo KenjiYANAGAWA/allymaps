@@ -1,6 +1,6 @@
 <div class="place-imgs">
   <div class="nav-back-place">
-    <%= render 'shared/back_button' %>
+    <%= render 'shared/show_back_button' %>
   </div>
   <% if @place.photos.first %>
     <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
@@ -53,7 +53,7 @@
         <% end %>
       </tr>
     <% end %>
-    <% unless @place.elevator == 'no_data' %>
+    <% unless @place.elevator == 'no_data' || @place.elevator == 'nonessential' %>
       <tr>
         <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
         <td>Elevator</td>
