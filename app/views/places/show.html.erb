@@ -1,6 +1,6 @@
 <div class="place-imgs">
   <div class="nav-back-place">
-    <%= render 'shared/back_button' %>
+    <%= render 'shared/show_back_button' %>
   </div>
   <% if @place.photos.first %>
     <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
