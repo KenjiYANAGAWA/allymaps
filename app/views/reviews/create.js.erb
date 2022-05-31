@@ -1,0 +1,11 @@
+console.log("pepe"); <%# useless line, just to check if this js file is received by the browser %>
+<%# only is old way to define js functions %>
+function insertReview() {
+const reviews = document.querySelector('#reviews');
+reviews.insertAdjacentHTML('beforeend', "<%= j render 'reviews/review', review: @review %>")
+}
+function emptyForm() {
+document.getElementById("review_content").value = "";
+}
+insertReview();
+emptyForm();
