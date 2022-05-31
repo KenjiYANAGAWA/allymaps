@@ -1,7 +1,7 @@
 .star-rating {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   input {
     visibility: hidden;
@@ -32,8 +32,9 @@
 
 .stars-show {
   color: rgb(255, 187, 0);
-  padding: 16px;
+  padding: 0 18px;
   font-size: 24px;
+  margin-bottom: 8px;
 }
 .icon-white {
   color: white;
