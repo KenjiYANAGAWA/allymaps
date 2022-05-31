@@ -1,19 +1,21 @@
 <div class="banner position-relative">
-  <div class="banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(<%= image_path('home/map-img.jpeg') %>);"> </div>
-  <%= render 'shared/navbar_top' %>
+  <div class="banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('home/map-img.jpeg') %>);"> </div>
   <div class="container">
-    <h1>In a Wheelchair? No problem.</h1>
-    <p>Plan your next trip, read reviews and get travel advice from our community on where to go.</p>
+    <h1><%= image_tag "brand_kit/icon_green.png", style: "margin:10px;", alt: "Allymaps icon", width: "50", height: "50" %>Allymaps</h1>
+    <p style="text-align:center">Plan your next trip, read reviews and get travel advice from our community on where to go.</p>
   </div>
   <div class="arrow">
-    <a href="#browse"><i class="fas fa-chevron-down fa-5x position-absolute top-90 start-50 translate-middle text-info"></i></a>
+    <a href="#browse"><i class="fas fa-chevron-down fa-3x position-absolute top-86 start-50 translate-middle text-info"></i></a>
   </div>
 </div>
 <div class="home-content">
   <%# ------------CATEGORIES BUTTONS ----------------- %>
   <div id="browse" class="container">
-    <h3 class="py-4 px-1">What are you looking for?</h3>
-    <div class="cards">
+    <div class="d-flex mt-5 pt-2">
+      <%= image_tag "brand_kit/icon_green.png", style: "margin:10px;", alt: "Allymaps icon", width: "50", height: "50" %>
+      <h3 class="py-4 px-1 text-primary">What are you looking for?</h3>
+    </div>
+    <div class="cards mx-3">
       <%= link_to places_path do %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url('https://images.pexels.com/photos/6039219/pexels-photo-6039219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
           <h2>TEMPLES / SHRINES</h2>
@@ -37,8 +39,11 @@
     </div>
   </div>
   <%# ------------ 3 RECOMENDATIONS ----------------- %>
-  <h3 class='py-4 px-3'>Top Recomendations for you</h3>
-  <div class="container top-recomendations d-flex flex-column align-items-center" style="margin-top: -6px;">
+  <div class="d-flex container pt-2">
+    <%= image_tag "brand_kit/icon_green.png", style: "margin:10px;", alt: "Allymaps icon", width: "50", height: "50" %>
+    <h3 class="py-4 px-1 text-primary">Top Recomendations</h3>
+  </div>
+  <div class="container top-recomendations d-flex flex-column align-items-center" style="margin-top: -17px;">
     <% @places.shuffle.first(3).each do |place| %>
       <%= render "shared/mid_card", place: place %>
     <% end %>
