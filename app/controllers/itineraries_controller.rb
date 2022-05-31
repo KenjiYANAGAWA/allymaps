@@ -32,7 +32,7 @@ class ItinerariesController < ApplicationController
     @places = @itinerary.places
     @markers = @places.geocoded.map do |place|
       destinations = @itinerary.destinations
-      destination = destinations.select { |d| d.place == place }
+      destination = destinations.find { |d| d.place == place }
       {
         lat: place.latitude,
         lng: place.longitude,
