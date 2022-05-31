@@ -53,7 +53,7 @@
         <% end %>
       </tr>
     <% end %>
-    <% unless @place.elevator == 'no_data' %>
+    <% unless @place.elevator == 'no_data' || @place.elevator == 'nonessential' %>
       <tr>
         <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
         <td>Elevator</td>
