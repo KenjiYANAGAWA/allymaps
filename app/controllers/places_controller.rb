@@ -37,6 +37,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @destination = Destination.new
     authorize @place
   end
 

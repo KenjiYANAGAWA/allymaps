@@ -9,7 +9,6 @@
   <% end %>
 </div>
 <div class="p-3 place-content">
-
   <h1 class='text-center p-2 text-primary'><%= @place.name %></h1>
   <%= javascript_pack_tag 'readmore'%>
   <div class="place-info-short">
@@ -21,7 +20,6 @@
     <h6 class='pb-3'><%= @place.address.titleize%></h6>
   </div>
   <h3 class='pt-3 pb-3'>Accessible Features</h3>
-
   <table class="table table-striped mb-5">
     <% unless @place.toilet == 'no_data' %>
       <tr>
@@ -88,8 +86,29 @@
     <% end %>
   </table>
   <div class="d-grid gap-2 col-6 mx-auto mt-3">
-    <%= link_to new_place_destination_path(@place), class: "button button-add-summary" do %>
+    <!-- Button trigger modal -->
+    <button type="button" class="button button-add-summary" data-bs-toggle="modal" data-bs-target="#itineraryModal">
       <i class="fas fa-plus"></i>
-    <% end %>
+    </button>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="itineraryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add <%= @place.name %> to:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@place, @destination], class: 'add-to-itinerary-form' do |f| %>
+          <%= f.association :itinerary, as: :hidden, input_html: { value: current_user.itineraries.last.id } %>
+          <%= f.submit current_user.itineraries.last.name, class: 'itinerary_card mb-5 text-white', style: "background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(#{current_user.itineraries.last.places.first&.photos&.attached? ? cl_image_path(itinerary.places.first.photos.first.key) : image_path('https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940')})" %>
+        <% end %>
+        <%= link_to new_place_destination_path(@place), class: "" do %>
+          or add it to a new or existing itinerary
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
