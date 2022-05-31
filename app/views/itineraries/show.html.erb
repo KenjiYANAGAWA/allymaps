@@ -12,6 +12,7 @@
       <% end %>
     </div>
   <% end %>
+  <div class='w-100'><%= render partial: "map"%></div>
   <div class="d-flex flex-column align-items-center mb-3">
     <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
       <% @itinerary.destinations.order(position: :asc).each do |destination| %>
