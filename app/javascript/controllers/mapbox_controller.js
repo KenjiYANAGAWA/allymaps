@@ -29,6 +29,15 @@ export default class extends Controller {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
+
+        const el = document.createElement('div');
+        const width = 50;
+        const height = 50;
+        el.className = 'marker';
+        el.style.backgroundImage = `url(https://placekitten.com/g/${width}/${height}/)`;
+        el.style.width = `${width}px`;
+        el.style.height = `${height}px`;
+        el.style.backgroundSize = '100%';
     });
 
     // Below is for custom marker. Add give image path in places controller.
