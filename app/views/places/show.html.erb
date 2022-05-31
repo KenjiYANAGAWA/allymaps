@@ -12,12 +12,20 @@
   <h1 class='text-center p-2 text-primary'><%= @place.name %></h1>
   <%= javascript_pack_tag 'readmore'%>
   <div class="place-info-short">
-    <p><%= @place.description[0, 135] %>... <%= link_to 'Read more', '#', class: 'readmore-btn' %></p>
+    <p><%= @place.description[0, 135] %>...</p>
+    <p class='text-center'><%= link_to 'Read more about this place', '#', class: 'readmore-btn' %></p>
+    <%= link_to '#', class: 'readmore-arrow-btn' do %>
+      <p class='text-center'><i class="fas fa-chevron-down"></i></p>
+    <% end %>
   </div>
   <div class="place-info-long hidden">
-    <p><%= @place.description %><%= link_to ' Read Less', '#', class: 'readless-btn' %></p>
+    <p><%= @place.description %></p>
     <h5>Address:</h5>
     <h6 class='pb-3'><%= @place.address.titleize%></h6>
+    <p class='text-center'><%= link_to 'Read less about this place', '#', class: 'readless-btn' %></p>
+    <%= link_to '#', class: 'readless-arrow-btn' do %>
+      <p class='text-center'><i class="fas fa-chevron-up"></i></p>
+    <% end %>
   </div>
   <h3 class='pt-3 pb-3'>Accessible Features</h3>
   <table class="table table-striped mb-5">
@@ -87,7 +95,7 @@
   </table>
   <%# -------------LIST OF REVIEWS-------------- %>
   <h3>Reviews</h3>
-  <div class="p-3 m-3">
+  <div class="p-3 my-3">
     <div id="reviews">
       <% if @place.reviews.blank? %>
         <p class="text-center">No reviews yet</p>
@@ -99,17 +107,17 @@
     </div>
   </div>
   <%# -------------FORM FOR THE REVIEWS-------------- %>
-  <div class="comment-form p-5 m-3">
-    <h3>How accessible was this place?</h3>
+  <div class="comment-form p-4 mb-5">
+    <h5>How accessible was this place?</h5>
     <%=  simple_form_for [@place, @review], remote: true do |f| %>
       <div class="star-rating mb-5">
         <% 5.times do |i| %>
           <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
         <% end %>
       </div>
-      <%= f.input :content, label: false, placeholder: 'Write about your experience' %>
+      <%= f.input :content, as: :text, label: false, placeholder: 'Write about your experience', class: 'review-textarea' %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit 'Post', class: 'btn btn-primary' %>
+      <%= f.submit 'Post', class: 'button-review-post' %>
     <% end %>
   </div>
   <%# ----------------- ADD BUTTON --------------------- %>
