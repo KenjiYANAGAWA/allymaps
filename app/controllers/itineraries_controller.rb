@@ -30,15 +30,19 @@ class ItinerariesController < ApplicationController
     @place.destinations.build
     authorize @itinerary
     @places = @itinerary.places
-    @markers = @places.geocoded.map.with_index do |place, index|
+    @markers = @places.geocoded.map do |place|
+      destinations = @itinerary.destinations
+      destination = destinations.find { |d| d.place == place }
       {
         lat: place.latitude,
         lng: place.longitude,
         info_window: render_to_string(partial: "shared/info_window", locals: { place: place }),
-        image_url: helpers.asset_url("markers/number_#{index + 1}.png")
+        image_url: helpers.asset_url("markers/number_#{destination.position}.png")
       }
     end
   end
+
+  # itinerary.destinations.each d.order
 
   private
 

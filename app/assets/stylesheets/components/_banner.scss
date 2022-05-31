@@ -1,7 +1,7 @@
 .banner {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 32px;
   padding-bottom: 102px;
   position: relative;
@@ -37,6 +37,6 @@
   text-align: start;
 }
 
-.top-90 {
-  top: 90% !important;
+.top-86 {
+  top: 86% !important;
 }
