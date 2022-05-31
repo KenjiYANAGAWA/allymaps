@@ -11,12 +11,13 @@
   justify-content: center;
   background-size: cover;
   background-position: 50% 50%;
+  font-size: 24px;
+  text-transform: uppercase;
 }
 
 .itinerary_card-info h2 {
   /*customizable*/
   font-size: 24px;
-  font-weight: bold;
   margin: 0;
   color: $light-gray;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);

@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  has_many :destinations
   has_many :reviews, dependent: :destroy
   has_many_attached :photos
 
@@ -12,11 +13,16 @@ class Place < ApplicationRecord
   CATEGORY = ['temple', 'park', 'restaurant', 'landmark', 'hotel']
   # validates :category, inclusion: { in: CATEGORY }
 
-  validates :name, :city, presence: true
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
 
   # geocoding
   geocoded_by :name
   after_validation :geocode, if: :will_save_change_to_address?
+
+  accepts_nested_attributes_for :destinations
+
 end
 
 # toilet means accessible toilets
