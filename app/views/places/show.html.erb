@@ -12,12 +12,20 @@
   <h1 class='text-center p-2 text-primary'><%= @place.name %></h1>
   <%= javascript_pack_tag 'readmore'%>
   <div class="place-info-short">
-    <p><%= @place.description[0, 135] %>... <%= link_to 'Read more', '#', class: 'readmore-btn' %></p>
+    <p><%= @place.description[0, 135] %>...</p>
+    <p class='text-center'><%= link_to 'Read more about this place', '#', class: 'readmore-btn' %></p>
+    <%= link_to '#', class: 'readmore-arrow-btn' do %>
+      <p class='text-center'><i class="fas fa-chevron-down"></i></p>
+    <% end %>
   </div>
   <div class="place-info-long hidden">
-    <p><%= @place.description %><%= link_to ' Read Less', '#', class: 'readless-btn' %></p>
+    <p><%= @place.description %></p>
     <h5>Address:</h5>
     <h6 class='pb-3'><%= @place.address.titleize%></h6>
+    <p class='text-center'><%= link_to 'Read less about this place', '#', class: 'readless-btn' %></p>
+    <%= link_to '#', class: 'readless-arrow-btn' do %>
+      <p class='text-center'><i class="fas fa-chevron-up"></i></p>
+    <% end %>
   </div>
   <h3 class='pt-3 pb-3'>Accessible Features</h3>
   <table class="table table-striped mb-5">
