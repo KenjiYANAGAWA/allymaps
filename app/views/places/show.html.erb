@@ -95,7 +95,7 @@
   </table>
   <%# -------------LIST OF REVIEWS-------------- %>
   <h3>Reviews</h3>
-  <div class="p-3 m-3">
+  <div class="p-3 my-3">
     <div id="reviews">
       <% if @place.reviews.blank? %>
         <p class="text-center">No reviews yet</p>
@@ -107,17 +107,17 @@
     </div>
   </div>
   <%# -------------FORM FOR THE REVIEWS-------------- %>
-  <div class="comment-form p-5 m-3">
-    <h3>How accessible was this place?</h3>
+  <div class="comment-form p-4 mb-5">
+    <h5>How accessible was this place?</h5>
     <%=  simple_form_for [@place, @review], remote: true do |f| %>
       <div class="star-rating mb-5">
         <% 5.times do |i| %>
           <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
         <% end %>
       </div>
-      <%= f.input :content, label: false, placeholder: 'Write about your experience' %>
+      <%= f.input :content, as: :text, label: false, placeholder: 'Write about your experience', class: 'review-textarea' %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit 'Post', class: 'btn btn-primary' %>
+      <%= f.submit 'Post', class: 'button-review-post' %>
     <% end %>
   </div>
   <%# ----------------- ADD BUTTON --------------------- %>

@@ -1,4 +1,19 @@
 <div class="review-card">
+  <div class="user-info d-flex align-items-center">
+    <%= image_tag current_user.photo, alt: 'user avatar', class: 'user-avatar m-3' %>
+    <h3>username38</h3>
+    <%#= review.user.first_name %>
+    <%#= review.user.last_name %>
+  </div>
+  <div class="d-flex align-items-center stars-show pb-2" id="review-<%= review.id %> review_content">
+    <% review.rating.times do %>
+      <i class="fab fa-accessible-icon"></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <i class="fab fa-accessible-icon icon-white"></i>
+    <% end %>
+  </div>
+  <p class='review-content'><%= review.content %></p>
   <% if review.photos.any? %>
     <% if review.photos.length == 1 %>
       <%= image_tag review.photos.first, alt: 'review photo', class: 'review-img' %>
@@ -25,17 +40,5 @@
       </div>
     <% end %>
   <% end %>
-  <div class="d-flex align-items-center stars-show pb-2" id="review-<%= review.id %> review_content">
-    <%# <div class="username me-3"> %>
-    <%#= review.user.first_name %>
-    <%#= review.user.last_name %>
-    <%# </div> %>
-    <% review.rating.times do %>
-      <i class="fab fa-accessible-icon"></i>
-    <% end %>
-    <% (5 - review.rating).times do %>
-      <i class="fab fa-accessible-icon icon-white"></i>
-    <% end %>
-  </div>
-  <p class='review-content'><%= review.content %></p>
+  <p class='review-date p-3'>Posted: <%= review.created_at.strftime("%b %e, %Y") %></p>
 </div>
