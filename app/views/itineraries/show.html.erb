@@ -1,17 +1,16 @@
 <div class="nav-back">
   <%= render 'shared/back_button' %>
 </div>
-<div class="search-content d-flex flex-column justify-content-center align-items-center">
-  <h1 class="px-4 text-primary">Itinerary: <%= @itinerary.name.capitalize %></h1>
+<div class="search-content container px-4">
+  <p class="itinerary-word text-warning mb-1">Itinerary:</p>
+  <h1 class="text-primary mb-4"><%= @itinerary.name.capitalize %></h1>
   <% unless @itinerary.destinations.any? %>
-    <h3 class="text-center mb-5">No destinations yet</h3>
-    <!-- Button trigger modal -->
-    <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#placeForm">
-      <i class="fas fa-plus"></i><i class="fas fa-bed"></i>
-    </button>
-    <%= link_to places_path do %>
-      <p class='text-center'><i class="fas fa-search"></i>  or search for a place to visit</p>
-    <% end %>
+    <h3 class="text-center my-5">No destinations yet</h3>
+    <div class="px-5">
+      <%= link_to places_path, class:'btn btn-info btn-form' do %>
+        <i class="fas fa-search">&nbsp; Add places</i>
+      <% end %>
+    </div>
   <% end %>
   <div class="d-flex flex-column align-items-center mb-3">
     <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
@@ -28,19 +27,17 @@
     </ul>
   </div>
 </div>
-<% if @itinerary.destinations.any? %>
-  <!-- Button trigger modal -->
-  <button type="button" class="button button-add-hotel" data-bs-toggle="modal" data-bs-target="#placeForm">
-    <i class="fas fa-plus"></i><i class="fas fa-bed"></i>
-  </button>
-<% end %>
+<!-- Button trigger modal -->
+<button type="button" class="button button-add-hotel" data-bs-toggle="modal" data-bs-target="#placeForm">
+  <i class="fas fa-plus"></i><i class="fas fa-bed"></i>
+</button>
 <!-- Modal -->
-<div class="modal fade" id="placeForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade mt-5" id="placeForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog mt-5">
     <div class="modal-content">
       <div class="modal-header">
         <div>
-          <p style="opacity: 0.6">Itinerary: <%= @itinerary.name.upcase %></p>
+          <p class="text-warning mb-0">Itinerary: <%= @itinerary.name.upcase %></p>
           <h5 class="modal-title" id="exampleModalLabel">Add an accommodation</h5>
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
