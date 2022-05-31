@@ -1,7 +1,7 @@
 <div class="review-card">
   <div class="user-info d-flex align-items-center">
-    <%= image_tag current_user.photo, alt: 'user avatar', class: 'user-avatar m-3' %>
-    <h3>username38</h3>
+    <%= image_tag review.user.photo, alt: 'user avatar', class: 'user-avatar m-3' %>
+    <h3><%= review.user.username %></h3>
     <%#= review.user.first_name %>
     <%#= review.user.last_name %>
   </div>
