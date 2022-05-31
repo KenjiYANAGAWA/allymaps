@@ -30,9 +30,6 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
-      console.log('marker');
-      console.log(marker.image_url);
-      console.log(customMarker.style.backgroundImage);
       customMarker.style.backgroundSize = "contain"
       customMarker.style.width = "25px"
       customMarker.style.height = "25px"
