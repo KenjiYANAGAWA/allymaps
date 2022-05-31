@@ -3,8 +3,10 @@
 </div>
 <%# -------------search by location form------------- %>
 <div class="search-content-map">
+
   <h3 class="px-4 mb-3 mt-3 text-primary">Search your destination</h3>
   <%= form_tag places_path, method: :get, class: 'search-form pb-3 mx-4' do %>
+
     <%= text_field_tag :address,
       params[:location],
       class: "form-control",
@@ -29,6 +31,7 @@
       <% end %>
     </div>
   </div>
+  <div class="empty"></div>
   <%# <h3 class="p-3">Top Recomendations for you</h3>
 <div class="container top-recomendations d-flex flex-column align-items-center">
   <% @places.shuffle.first(3).each do |place| %>
