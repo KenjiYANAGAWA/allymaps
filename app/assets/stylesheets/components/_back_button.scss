@@ -2,8 +2,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px;
-  position: absolute;
+
+  padding: 16px;
+  position: fixed;
+
   top: 0;
   z-index: -10;
   background-color: $green;

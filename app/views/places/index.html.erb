@@ -1,9 +1,11 @@
 <div class="nav-back">
   <%= render 'shared/back_button' %>
 </div>
-<div class="container search-content">
-  <h3 class="mb-3 text-primary">Search your destination</h3>
-  <%# -------------search by location form------------- %>
+
+<%# -------------search by location form------------- %>
+<div class="search-content-map">
+  <h1 class="px-4 mb-2 text-primary">Search your destination</h1>
+
   <%= form_tag places_path, method: :get, class: 'search-form pb-3' do %>
     <%= text_field_tag :address,
       params[:location],
@@ -15,17 +17,23 @@
     <% end %>
   <% end %>
   <%# -------------list of places in the map------------- %>
-  <div><%= render partial: "map"%></div>
-  <%# -------------list of places with mid-card------------- %>
-  <% @places.each do |place| %>
-    <%= link_to place_path(place), class: 'card-link' do %>
-      <%= render "shared/mid_card", place: place %>
-    <% end %>
-  <% end %>
+  <div id='map-container'><%= render partial: "map"%></div>
 </div>
-<%# <h3 class="p-3">Top Recomendations for you</h3>
+<%# -------------list of places with mid-card------------- %>
+<div class="places-list p-3">
+  <div class="text-center"><i class="fas fa-grip-lines"></i></div>
+  <h2 class='py-2 text-center'>Destinations</h2>
+  <div class="cards">
+    <% @places.each do |place| %>
+      <%#= link_to place_path(place), class: 'card-link' do %>
+        <%= render "shared/mid_card", place: place %>
+        <%# end %>
+      <% end %>
+    </div>
+  </div>
+  <%# <h3 class="p-3">Top Recomendations for you</h3>
 <div class="container top-recomendations d-flex flex-column align-items-center">
   <% @places.shuffle.first(3).each do |place| %>
-  <%# <%= render "mid_card", place: place %>
-  <%# <% end %>
-  <%# </div> %>
+    <%# <%= render "mid_card", place: place %>
+    <%# <% end %>
+    <%# </div> %>

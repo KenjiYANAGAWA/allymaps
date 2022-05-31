@@ -1,6 +1,8 @@
 <%= link_to place_path(place), class: 'maplink' do %>
-  <div class="container info-window">
+
+  <div class="info-window">
     <%= place.photos&.attached? ? cl_image_tag(place.photos.first.key, :width => 100) : image_tag("https://images.vexels.com/media/users/3/128747/isolated/preview/30bdbb2e5f0f12d108d559752aff147e-sleeping-bed-real-estate-icon.png", :width => 100) %>
+
     <h2><strong><%= "#{place.name}"%></strong></h2>
     <p><%= place.city %></p>
   </div>

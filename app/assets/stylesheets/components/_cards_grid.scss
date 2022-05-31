@@ -2,6 +2,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  justify-items: center;
+}
+.cards-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
   padding: 0;
   justify-items: center;
   grid-auto-rows: 160px;
@@ -14,6 +20,9 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
+    grid-template-columns: 1fr;
+  }
+  .cards-categories {
     grid-template-columns: 1fr 1fr;
   }
 }
