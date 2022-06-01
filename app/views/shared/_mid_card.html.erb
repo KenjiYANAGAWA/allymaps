@@ -15,23 +15,38 @@
       <div class="d-flex flex-row-reverse" style="margin-left: 50%;">
         <%# ------------ TOILET --------------- %>
         <% if place.toilet == "has_one" || place.toilet == "has_many" %>
-          <h3 class="ms-3"><i class="access-icon fas fa-toilet-paper fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accessible Toilet"></i></h3>
+          <h3 class="ms-3"><i class="access-icon fas fa-toilet-paper fa-lg"></i></h3>
+        <% else %>
+          <h3 class="ms-3 position-relative">
+            <i class="faded fas fa-toilet-paper fa-lg"></i>
+            <i class="fas fa-slash fa-lg text-danger position-absolute top-0 start-0"></i>
+          </h3>
         <% end %>
         <%# ------------ PARKING --------------- %>
         <% if place.parking == "has"%>
-          <h3 class="ms-3"><i class="access-icon fas fa-parking fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Priority Parking"></i></h3>
+          <h3 class="ms-3"><i class="access-icon fas fa-parking fa-lg"></i></h3>
+        <% else %>
+          <h3 class="ms-3 position-relative">
+            <i class="faded fas fa-parking fa-lg"></i>
+            <i class="fas fa-slash fa-lg text-danger position-absolute top-0 start-0"></i>
+          </h3>
         <% end %>
         <%# ------------ CHARGING STATION --------------- %>
-        <% if place.charging == "has"%>
-          <h3 class="ms-3"><i class="access-icon fas fa-charging-station fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"></i></h3>
-        <% end %>
+        <%# <% if place.charging == "has"%>
+        <%# <h3 class="ms-3"><i class="access-icon fas fa-charging-station fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"></i></h3> %>
+        <%# <% end %>
         <%# ------------ Accessible AREA --------------- %>
-        <% if place.area == "most" || place.area == "all"%>
-          <h3 class="ms-3"><i class="access-icon fas fa-wheelchair fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wheelchair Charging Station"></i></h3>
-        <% end %>
+        <%# <% if place.area == "most" || place.area == "all"%>
+        <%# <h3 class="ms-3"><i class="access-icon fas fa-wheelchair fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wheelchair Charging Station"></i></h3> %>
+        <%# <% end %>
         <%# ------------ ELEVATOR --------------- %>
         <% if place.elevator == "has"%>
-          <h3 class="ms-3"><i class="access-icon fas fa-universal-access fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elevator"></i></h3>
+          <h3 class="ms-3"><i class="access-icon fas fa-universal-access fa-lg"></i></h3>
+        <% else %>
+          <h3 class="ms-3 position-relative">
+            <i class="faded fas fa-universal-access fa-lg"></i>
+            <i class="fas fa-slash fa-lg text-danger position-absolute top-0 start-0"></i>
+          </h3>
         <% end %>
       </div>
     </div>
