@@ -18,7 +18,11 @@ class ItinerariesController < ApplicationController
     authorize @itinerary
 
     if @itinerary.save
-      redirect_to itinerary_path(@itinerary)
+      flash[:notice] = "Added to your itinerary"
+      respond_to do |format|
+        format.js
+        format.html { redirect_to itinerary_path(@itinerary) }
+      end
     else
       render session[:referrer]
     end

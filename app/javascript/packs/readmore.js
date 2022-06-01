@@ -5,23 +5,31 @@ const readMoreArrowBtn = document.querySelector('.readmore-arrow-btn');
 const readLessBtn = document.querySelector('.readless-btn');
 const readLessArrowBtn = document.querySelector('.readless-arrow-btn');
 
-readMoreBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  shortText.classList.add('hidden');
-  longText.classList.remove('hidden');
-});
-readMoreArrowBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  shortText.classList.add('hidden');
-  longText.classList.remove('hidden');
-});
-readLessBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  shortText.classList.remove('hidden');
-  longText.classList.add('hidden');
-});
-readLessArrowBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  shortText.classList.remove('hidden');
-  longText.classList.add('hidden');
-});
+if (readMoreBtn) {
+  readMoreBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    shortText.classList.add('hidden');
+    longText.classList.remove('hidden');
+  });
+}
+if (readMoreArrowBtn) {
+  readMoreArrowBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    shortText.classList.add('hidden');
+    longText.classList.remove('hidden');
+  });
+}
+if (readLessBtn) {
+  readLessBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    shortText.classList.remove('hidden');
+    longText.classList.add('hidden');
+  });
+}
+if (readLessArrowBtn) {
+  readLessArrowBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    shortText.classList.remove('hidden');
+    longText.classList.add('hidden');
+  });
+}
