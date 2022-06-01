@@ -60,6 +60,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :description, :address, :city, :accommodation, :wheelchair_accessibility, destinations_attributes: [:itinerary_id])
+    params.require(:place).permit(:name, :description, :address, :city, :accommodation, :area, :toilet, :elevator, :parking, photos: [], destinations_attributes: [:itinerary_id])
   end
 end

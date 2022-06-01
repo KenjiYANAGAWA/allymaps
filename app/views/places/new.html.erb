@@ -1,2 +1,19 @@
-<h1>Places#new</h1>
-<p>Find me in app/views/places/new.html.erb</p>
+<h1 class="px-5 mt-5 text-center text-primary">Share a place in our accessible community</h1>
+<div class="container p-3">
+  <div class="row">
+    <div class="col-12 col-sm-6 offset-sm-3">
+      <%= simple_form_for @place do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description, as: :text, class: 'review-textarea', label: "Describe the place and how accessible it is" %>
+        <%= f.input :city %>
+        <%= f.input :address %>
+        <%= f.input :area, collection: Place.areas.keys, label: "How accessible is the area?", include_blank: false %>
+        <%= f.input :toilet, collection: Place.toilets.keys, label: 'Are there any accessible toilets?<i class="fas fa-plus"></i>'.html_safe, include_blank: false %>
+        <%= f.input :elevator, collection: Place.elevators.keys, label: 'Does it has elevator?<i class="fas fa-plus"></i>'.html_safe, include_blank: false %>
+        <%= f.input :parking, collection: Place.parkings.keys, label: 'Does it have accessible parking?<i class="fas fa-plus"></i>'.html_safe, include_blank: false %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit 'Post', class: 'button-review-post w-100 my-4' %>
+      <% end %>
+    </div>
+  </div>
+</div>
