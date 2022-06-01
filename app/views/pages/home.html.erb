@@ -4,6 +4,18 @@
     <%= image_tag "brand_kit/text_logo_green.png", style: "margin-left:33px;", alt: "Allymaps icon", width: "300", height: "150" %>
     <p class="text-primary" style="text-align:center">Your companion in accessible travel</p>
   </div>
+  <%# -------------search by location form------------- %>
+  <%# <h3 class="px-4 mb-3 mt-3 text-primary">Where are you going?</h3> %>
+  <%= form_tag places_path, method: :get, class: 'search-form pb-3 mx-4' do %>
+    <%= text_field_tag :address,
+        params[:location],
+        class: "form-control text-center",
+        placeholder: "Where are you going?"
+      %>
+    <%= button_tag type: 'submit', class: "btn btn-dark btn-search" do%>
+      <i class="fas fa-search"></i>
+    <% end %>
+  <% end %>
   <div class="arrow">
     <a href="#browse"><i class="fas fa-chevron-down fa-3x position-absolute top-86 start-50 translate-middle "></i></a>
   </div>
