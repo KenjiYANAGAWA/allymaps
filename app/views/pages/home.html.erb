@@ -1,7 +1,7 @@
-<div class="banner position-relative">
+<div class="banner banner-title position-relative">
   <div class="banner-image" style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url(<%= image_path('home/map-img.jpeg') %>);"> </div>
-  <div class="container">
-    <%= image_tag "brand_kit/text_logo_green.png", style: "margin-left:33px;", alt: "Allymaps icon", width: "300", height: "150" %>
+  <div class='text-center'>
+    <%= image_tag "brand_kit/text_logo_green.png", alt: "Allymaps icon", width: "300", height: "150", class: 'banner-logo' %>
     <p class="text-primary" style="text-align:center">Your companion in accessible travel</p>
   </div>
   <%# -------------search by location form------------- %>
@@ -55,9 +55,11 @@
     <%= image_tag "brand_kit/icon_green.png", style: "margin:10px;", alt: "Allymaps icon", width: "50", height: "50" %>
     <h3 class="py-4 px-1 text-primary">Top Recomendations</h3>
   </div>
-  <div class="container top-recomendations d-flex flex-column align-items-center" style="margin-top: -17px;">
+  <div class=" cards top-recomendations" style="margin-top: -17px;">
     <% @places.shuffle.first(3).each do |place| %>
-      <%= render "shared/mid_card", place: place %>
+      <%= link_to place_path(place), class: 'card-link' do %>
+        <%= render "shared/mid_card", place: place %>
+      <% end %>
     <% end %>
   </div>
   <div class="empty"></div>
