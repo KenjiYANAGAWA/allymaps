@@ -48,7 +48,7 @@
       <% elsif @place.elevator == 'nonessential' %>
         <td class='table-info'>Not Necessary</td>
       <% else %>
-        <td class='table-info'><%= @place.elevator.titleize %></td>
+        <td class='table-info'><%= @place.elevator&.titleize %></td>
       <% end %>
     </tr>
     <tr>
@@ -61,7 +61,7 @@
       <% elsif @place.parking == 'has' %>
         <td class='table-info'>Available</td>
       <% else %>
-        <td class='table-info'><%= @place.parking.titleize %></td>
+        <td class='table-info'><%= @place.parking&.titleize %></td>
       <% end %>
     </tr>
     <!-- <tr>
@@ -74,7 +74,7 @@
       <% elsif @place.charging == 'has' %>
         <td class='table-info'>Available</td>
       <% else %>
-        <td class='table-info'><%= @place.charging.titleize %></td>
+        <td class='table-info'><%= @place.charging&.titleize %></td>
       <% end %>
     </tr> !-->
   </table>
