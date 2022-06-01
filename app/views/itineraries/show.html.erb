@@ -16,16 +16,7 @@
   <div class="d-flex flex-column align-items-center mb-3">
     <!-- ----------with ARROES and eventListener---------- -->
     <% @itinerary.destinations.order(position: :asc).each do |destination| %>
-      <div>
-        <%= render "destination_card", destination: destination %>
-        <% if @itinerary.destinations.last != destination %>
-          <div class="d-flex justify-content-end">
-            <%= link_to "", class: 'btn-route', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
-              <h6 class="mb-0"><i class="fas fa-map-marker-alt"></i>  Get directions</h6>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <div><%= render "destination_card", destination: destination %></div>
     <% end %>
     <!-- ----------with DRAG&DROP and stimulus---------- -->
     <!--
