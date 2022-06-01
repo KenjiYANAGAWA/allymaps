@@ -3,7 +3,9 @@ table {
     border: none;
   }
 }
-
+td {
+  vertical-align: middle;
+}
 tr:nth-child(odd) {
   background-color: #e5f3f5;
 }
@@ -12,17 +14,24 @@ td:first-child,
 th:first-child {
   border-radius: 10px 0 0 10px;
 }
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  color: #514C4C;
+}
 
 // Set border-radius on the top-right and bottom-right of the last table data on the table row
 td:last-child,
 th:last-child {
   border-radius: 0 10px 10px 0;
+  color: #514C4C;
 }
 
 .access-icon {
   color: #295D63;
 }
-
+.table-info {
+  padding: 0 4px;
+  --bs-table-bg: #F4F4F4;
+  --bs-table-striped-bg: #D9E7E9;
 .faded {
   color: #757575;
 }

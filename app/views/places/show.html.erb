@@ -10,6 +10,74 @@
 </div>
 <div class="p-3 place-content">
   <h1 class='text-center p-2 text-primary'><%= @place.name %></h1>
+  <%# ------------- conditional for percentage icon ------------ %>
+  <% if @place.area == 'fully' %>
+    <h3 class='percentage-icon green'><%= @place.area.titleize %> Accessible</h3>
+  <% elsif @place.area == 'mostly' %>
+    <h3 class='percentage-icon yellow'><%= @place.area.titleize %> Accessible</h3>
+  <% elsif @place.area == 'partly' %>
+    <h3 class='percentage-icon orange'><%= @place.area.titleize %> Accessible</h3>
+  <% elsif @place.area == 'not' %>
+    <h3 class='percentage-icon red'><%= @place.area.titleize %> Accessible</h3>
+  <% end %>
+  <%# -------------- accessible features table ---------------- %>
+  <h3 class='pt-3 pb-3'></h3>
+  <table class="table table-striped mb-4">
+    <tr>
+      <td><i class="fas fa-toilet-paper fa-2x access-icon"></i></td>
+      <td>Accessible Toilet</td>
+      <% if @place.toilet == 'no_data' %>
+        <td class='table-info'>No Info</td>
+      <% elsif @place.toilet == 'has_many' %>
+        <td class='table-info'>Many</td>
+      <% elsif @place.toilet == 'has_one' %>
+        <td class='table-info'>One</td>
+      <% elsif @place.toilet == 'no' %>
+        <td class='table-info'>None</td>
+      <% end %>
+    </tr>
+    <tr>
+      <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
+      <td>Elevator</td>
+      <% if @place.elevator == 'no_data' || @place.elevator == 'nonessential' %>
+        <td class='table-info'>No Info</td>
+      <% elsif @place.elevator == 'no' %>
+        <td class='table-info'>None</td>
+      <% elsif @place.elevator == 'has' %>
+        <td class='table-info'>Available</td>
+      <% elsif @place.elevator == 'nonessential' %>
+        <td class='table-info'>Not Necessary</td>
+      <% else %>
+        <td class='table-info'><%= @place.elevator.titleize %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td><i class="fas fa-parking fa-2x access-icon"></i></td>
+      <td>Priority Parking</td>
+      <% if @place.parking == 'no_data' %>
+        <td class='table-info'>No Info</td>
+      <% elsif @place.parking == 'no' %>
+        <td class='table-info'>None</td>
+      <% elsif @place.parking == 'has' %>
+        <td class='table-info'>Available</td>
+      <% else %>
+        <td class='table-info'><%= @place.parking.titleize %></td>
+      <% end %>
+    </tr>
+    <!-- <tr>
+      <td><i class="fas fa-charging-station fa-2x access-icon"></i></td>
+      <td>Wheelchair Charging Station</td>
+      <% if @place.charging == 'no_data' %>
+        <td class='table-info'>No Info</td>
+      <% elsif @place.charging == 'no' %>
+        <td class='table-info'>None</td>
+      <% elsif @place.charging == 'has' %>
+        <td class='table-info'>Available</td>
+      <% else %>
+        <td class='table-info'><%= @place.charging.titleize %></td>
+      <% end %>
+    </tr> !-->
+  </table>
   <%= javascript_pack_tag 'readmore'%>
   <div class="place-info-short">
     <p><%= @place.description[0, 135] %>...</p>
@@ -27,72 +95,6 @@
       <p class='text-center'><i class="fas fa-chevron-up"></i></p>
     <% end %>
   </div>
-  <h3 class='pt-3 pb-3'>Accessible Features</h3>
-  <table class="table table-striped mb-5">
-    <% unless @place.toilet == 'no_data' %>
-      <tr>
-        <td><i class="fas fa-toilet-paper fa-2x access-icon"></i></td>
-        <td>Accessible Toilet</td>
-        <% if @place.toilet == 'has_many' %>
-          <td>Many</td>
-        <% elsif @place.toilet == 'has_one' %>
-          <td>One</td>
-        <% elsif @place.toilet == 'no' %>
-          <td>None</td>
-        <% end %>
-      </tr>
-    <% end %>
-    <% unless @place.area == 'no_data' %>
-      <tr>
-        <td><i class="fas fa-wheelchair fa-2x access-icon"></i></td>
-        <td>Accessible Area</td>
-        <% if @place.area == 'no' %>
-          <td>None</td>
-        <% else %>
-          <td><%= @place.area.titleize %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    <% unless @place.elevator == 'no_data' || @place.elevator == 'nonessential' %>
-      <tr>
-        <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
-        <td>Elevator</td>
-        <% if @place.elevator == 'no' %>
-          <td>None</td>
-        <% elsif @place.elevator == 'has' %>
-          <td>Available</td>
-        <% else %>
-          <td><%= @place.elevator.titleize %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    <% unless @place.parking == 'no_data' %>
-      <tr>
-        <td><i class="fas fa-parking fa-2x access-icon"></i></td>
-        <td>Priority Parking</td>
-        <% if @place.parking == 'no' %>
-          <td>None</td>
-        <% elsif @place.parking == 'has' %>
-          <td>Available</td>
-        <% else %>
-          <td><%= @place.parking.titleize %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    <% unless @place.charging == 'no_data' %>
-      <tr>
-        <td><i class="fas fa-charging-station fa-2x access-icon"></i></td>
-        <td>Electric Wheelchair Charging Station</td>
-        <% if @place.charging == 'no' %>
-          <td>None</td>
-        <% elsif @place.charging == 'has' %>
-          <td>Available</td>
-        <% else %>
-          <td><%= @place.charging.titleize %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
   <%# -------------LIST OF REVIEWS-------------- %>
   <h3>Reviews</h3>
   <div class="p-3 my-3">
@@ -108,20 +110,6 @@
       <% end %>
     </div>
   </div>
-  <%# -------------FORM FOR THE REVIEWS-------------- %>
-  <div class="comment-form p-4 mb-5">
-    <h5>How accessible was this place?</h5>
-    <%=  simple_form_for [@place, @review], remote: true do |f| %>
-      <div class="star-rating mb-5">
-        <% 5.times do |i| %>
-          <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
-        <% end %>
-      </div>
-      <%= f.input :content, as: :text, label: false, placeholder: 'Write about your experience', class: 'review-textarea' %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit 'Post', class: 'button-review-post' %>
-    <% end %>
-  </div>
   <%# ----------------- ADD BUTTON --------------------- %>
   <div class="d-grid gap-2 col-6 mx-auto mt-3">
     <!-- Button trigger modal -->
@@ -129,6 +117,20 @@
       <i class="fas fa-plus"></i>
     </button>
   </div>
+</div>
+<%# -------------FORM FOR THE REVIEWS-------------- %>
+<div class="comment-form py-5 px-3">
+  <h5>How accessible was this place?</h5>
+  <%=  simple_form_for [@place, @review], remote: true do |f| %>
+    <div class="star-rating mb-5">
+      <% 5.times do |i| %>
+        <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+      <% end %>
+    </div>
+    <%= f.input :content, as: :text, label: false, placeholder: 'Write about your experience', class: 'review-textarea' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit 'Post', class: 'button-review-post' %>
+  <% end %>
 </div>
 <!-- Modal -->
 <div class="modal fade mt-5" id="itineraryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

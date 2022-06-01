@@ -8,7 +8,7 @@ class Place < ApplicationRecord
   enum elevator: { no_data: 0,  no: 1, has: 2, nonessential: 3 }, _suffix: true
   enum parking: { no_data: 0, no: 1, has: 2 }, _suffix: true
   enum charging: { no_data: 0, no: 1, has: 2 }, _suffix: true
-  enum area: { no_data: 0, no: 1, some: 2, most: 3, all: 4 }, _suffix: true
+  enum area: { no_data: 0, not: 1, partly: 2, mostly: 3, fully: 4 }, _suffix: true
 
   CATEGORY = ['temple', 'park', 'restaurant', 'landmark', 'hotel']
   # validates :category, inclusion: { in: CATEGORY }
