@@ -1,0 +1,35 @@
+.percentage-icon {
+  // position: absolute;
+  top: 180px;
+  right: 36px;
+  background-color: $light-gray;
+  // border: 4px solid green;
+  font-family: $special-font;
+  font-size: 20px;
+  // position: absolute;
+  // top: 180px;
+  // right: 32px;
+  // background-color: rgba(59, 167, 104, 0.94);
+
+  border-radius: 36px;
+  text-align: center;
+  padding: 4px 28px;
+  color: $light-gray;
+  width: 54%;
+  margin: 0 auto;
+}
+.percent {
+  font-size: 16px;
+}
+.green {
+  background-color: rgb(59, 167, 104);
+}
+.yellow {
+  background-color: rgba(173, 203, 0, 0.94)
+}
+.orange {
+  background-color: rgba(226, 145, 23, 0.94)
+}
+.red {
+  background-color: rgba(227, 46, 43, 0.94)
+}
