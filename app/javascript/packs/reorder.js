@@ -41,12 +41,12 @@ upButtons.forEach((upButton) => {
     if (!card.previousElementSibling) return   // not do for the first destination
     const parent = card.parentElement;
     const previousSibling = card.previousElementSibling;
-    console.log("card: ", card);
-    console.log("parent: ", parent);
-    console.log("previousSibling: ", previousSibling);
+    // console.log("card: ", card);
+    // console.log("parent: ", parent);
+    // console.log("previousSibling: ", previousSibling);
     const index = Array.prototype.indexOf.call(parent.children, card)
     // parent is only 1 element. We want a collection so we do parent.children(whic is a collection). And call it on an Array.prototype insead on an HTML collection bc indexOf doens't seem to be working on a prototype
-    console.log("index: ", index)
+    // console.log("index: ", index)
     parent.insertBefore(card, previousSibling);
     hideLastButton();
     // change the url of the directionsButton
@@ -54,8 +54,8 @@ upButtons.forEach((upButton) => {
     directionButtons.forEach((button, index) => {
       const fromAddress = button.parentElement.previousElementSibling.children[0].dataset.address;
       const toAddress = button.parentElement.parentElement.nextElementSibling.children[0].children[0].dataset.address;
-      console.log("fromAddress", index, ": ", fromAddress);
-      console.log("toAddress", index, ": ", toAddress);
+      // console.log("fromAddress", index, ": ", fromAddress);
+      // console.log("toAddress", index, ": ", toAddress);
       button.href = `https://www.google.com/maps/dir/${fromAddress}/${toAddress}`;
     })
   })
@@ -70,7 +70,7 @@ downButtons.forEach((downButton) => {
     // console.log("card: ", card);
     // console.log("nextsibling: ", nextNextSibling);
     const index = Array.prototype.indexOf.call(parent.children, card)
-    console.log("index: ", index)
+    // console.log("index: ", index)
     parent.insertBefore(card, nextNextSibling);   // insertAfter is not supported yet
     hideLastButton();
     // change the url of the directionsButton
@@ -78,8 +78,8 @@ downButtons.forEach((downButton) => {
     directionButtons.forEach((button, index) => {
       const fromAddress = button.parentElement.previousElementSibling.children[0].dataset.address;
       const toAddress = button.parentElement.parentElement.nextElementSibling.children[0].children[0].dataset.address;
-      console.log("fromAddress", index, ": ", fromAddress);
-      console.log("toAddress", index, ": ", toAddress);
+      // console.log("fromAddress", index, ": ", fromAddress);
+      // console.log("toAddress", index, ": ", toAddress);
       button.href = `https://www.google.com/maps/dir/${fromAddress}/${toAddress}`;
     })
   })
@@ -88,10 +88,10 @@ downButtons.forEach((downButton) => {
 
 const hideLastButton = () => {
   const directionButtons = document.querySelectorAll('#directionButton');
-  console.log("direction butonssss: ", directionButtons);
+  // console.log("direction butonssss: ", directionButtons);
   let lastButton = directionButtons[directionButtons.length - 1];
   lastButton.style.display = 'none';
-  console.log("lastButton: ", lastButton);
+  // console.log("lastButton: ", lastButton);
   const penultimoButton = directionButtons[directionButtons.length - 2];
   penultimoButton.style.display = 'block';
 }

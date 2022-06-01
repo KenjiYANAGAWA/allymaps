@@ -1,6 +1,8 @@
 // app/javascript/controllers/mapbox_controller.js
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "mapbox-gl"
+// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+
 
 export default class extends Controller {
   static values = {
@@ -16,10 +18,16 @@ export default class extends Controller {
       style: "mapbox://styles/kenji123/cl3u88kr9000615p92pwpnfrk" //Add custom style later. Go to mapbox studio to create new style and get the link to paste here.
     })
 
+    this.markersValue = this.markersValue.sort((a, b) => a.position - b.position);
+
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }))
+    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }))
+    if (/^\/itineraries\//.test(window.location.pathname)) {
+      this.#drawItinerary()
+    }
+
   }
 
   #addMarkersToMap() {
@@ -37,14 +45,14 @@ export default class extends Controller {
       // Pass the element as an argument to the new marker
       if (marker.image_url) {
         new mapboxgl.Marker(customMarker)
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(this.map)
       } else {
         new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(this.map)
       }
 
     });
@@ -52,7 +60,44 @@ export default class extends Controller {
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding:40, maxZoom: 15, duration: 0 })
+    this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
+    this.map.fitBounds(bounds, { padding: 40, maxZoom: 15, duration: 0 })
+  }
+
+  #drawItinerary() {
+    this.map.on('load', () => {
+      // const [marker1, marker2] = this.markersValue;
+      // console.log(marker1, marker2);
+      console.log(this.markersValue);
+      // for (let i = 0; i < this.markersValue.length; i++) {
+      //   const marker1 = this.markersValue[i];
+      //   const marker2 = this.markersValue[i + 1];
+      this.map.addSource('route', {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'properties': {},
+          'geometry': {
+            'type': 'LineString',
+            'coordinates': this.markersValue.map(marker => [marker.lng, marker.lat])
+          }
+        }
+      });
+      // }
+      this.map.addLayer({
+        'id': 'route',
+        'type': 'line',
+        'source': 'route',
+        'layout': {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        'paint': {
+          'line-color': '#888',
+          'line-width': 8
+        }
+      });
+    });
   }
 }
+
