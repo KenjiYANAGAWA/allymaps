@@ -1,5 +1,17 @@
 puts "Creating landmarks..."
-Dir[File.join(Rails.root, 'db', 'places', 'landmarks_seeds.rb')].each { |seed| load seed }
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'landmarks_seeds.rb')].each { |seed| load seed }
+puts "...created #{Place.count} places in total."
+puts
+puts "Creating parks..."
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'parks_seeds.rb')].each { |seed| load seed }
+puts "...created #{Place.count} places in total."
+puts
+puts "Creating restaurants..."
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'restaurants_seeds.rb')].each { |seed| load seed }
+puts "...created #{Place.count} places in total."
+puts
+puts "Creating temples..."
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'temples_seeds.rb')].each { |seed| load seed }
 puts "...created #{Place.count} places in total."
 puts
 
