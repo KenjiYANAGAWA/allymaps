@@ -12,7 +12,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'has',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -30,7 +30,7 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'has',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -48,7 +48,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'all',
+  area: 'fully',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -66,7 +66,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -86,7 +86,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'no',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -104,7 +104,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -122,7 +122,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -140,7 +140,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'has',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -155,7 +155,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'has',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   # address: '1-12-9, Yokoami, Sumida, Tokyo, 130-0015, Japan',
   address: 'Japanese Sword Museum',
   city: 'Sumida',
@@ -173,7 +173,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   # address: '4 Sagaogurayama Tabuchiyamachō, Kyoto, Kyoto, 616-8394, Japan',
   address: 'Kyoto Arashiyama',
   city: 'Kyoto',
@@ -191,7 +191,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'no',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   # address: '721-1 Karasuma-dori Higashi Shiokoji-cho Shimogyo-ku, Kyoto, Kyoto, 600-8216, Japan',
   address: 'Kyoto Tower',
   city: 'Kyoto',
@@ -209,7 +209,7 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'has',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   # address: '1-13 Namiki, Tokorozawa-shi, Saitama, 359-0042, Japan',
   address: 'Tokorozawa Aviation Museum',
   city: 'Saitama',
@@ -227,7 +227,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'has',
   charging: 'no_data',
-  area: 'all',
+  area: 'fully',
   # address: '1 Chome-1-2 Oshiage, Sumida City, Tokyo, 131-0045, Japan',
   address: 'Tokyo Skytree',
   city: 'Sumida',
@@ -245,7 +245,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'has',
   charging: 'no_data',
-  area: 'all',
+  area: 'fully',
   # address: '7-20 Uenokoen, Taito City, Tokyo, 110-8718, Japan',
   address: 'National Museum of Nature and Science',
   city: 'Taito',
@@ -265,7 +265,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'has',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   # address: '2-1 Yoyogikamizonocho, Shibuya, Tokyo, 151-0052, Japan',
   address: 'Yoyogi Park',
   city: 'Shibuya',
@@ -283,7 +283,7 @@ place = Place.create!(
   elevator: 'nonessential',
   parking: 'has',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   # address: '940-3 Tagura, Futtsu, Chiba, 299-1731, Japan',
   address: 'Mother Farm',
   city: 'Futtsu Chiba',
@@ -303,7 +303,7 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'has',
   charging: 'no_data',
-  area: 'most',
+  area: 'mostly',
   # address: '2 Chome-2-23 Motoakasaka, Minato City, Tokyo, 107-8507, Japan',
   address: 'Meiji Kinenkan',
   city: 'Minato',
