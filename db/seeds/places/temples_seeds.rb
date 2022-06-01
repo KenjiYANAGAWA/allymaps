@@ -71,3 +71,21 @@ place = Place.create!(
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
+
+puts "..."
+file = File.open("app/assets/images/places/temples/meijijingu.webp")
+place = Place.create!(
+  name: 'Meiji Jingu',
+  description: "The Meiji Shrine, or Meiji Jingu, is an essential stop for anyone visiting Japan.  It is a great way to see some Japanese culture, enjoy a walk through the woods, and – if lucky – see a traditional Japanese wedding.  The accessibility is a bit of a mixed bag, though.  While there is a nice wheelchair accessible toilet and great ramps right up to the main sanctuary, it is found at the end of a rather long walk down a gravel path which may be difficult for people who are slow walkers or use manual wheelchairs.  Check out our review!",
+  # address: '1-1 Yoyogikamizonocho, Shibuya, Tokyo, 151-0052, Japan',
+  address: 'Meiji Jingu',
+  city: 'Shibuya',
+  toilet: 'has_one',
+  elevator: 'nonessential',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'mostly',
+  category: 'temple'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"

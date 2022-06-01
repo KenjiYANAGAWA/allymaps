@@ -1,5 +1,43 @@
 ### Landmarks
 
+# MEIJI KINENKAN
+# puts "..."
+# file = File.open("app/assets/images/places/landmarks/nezu.jpeg")
+# place = Place.create!(
+#   name: 'Meiji Kinenkan',
+#   description: "The Nezu Museum is a stylish and wheelchair accessible museum where visitors can enjoy a peaceful break from the city. There is also a large traditional Japanese garden behind the museum that contains many ancient statues and monuments. Along the wandering paths users can find a pond, waterfall and tea houses as well as the Nezu Cafe.",
+#   # address: 'Minami Aoyama 6-5-1, Minato, Tokyo, 107-0062, Japan',
+#   address: 'Meiji Kinenkan',
+#   city: 'Minato',
+#   toilet: 'has_many',
+#   elevator: 'has',
+#   parking: 'has',
+#   charging: 'no_data',
+#   area: 'mostly',
+#   category: 'landmark'
+# )
+# place.photos.attach(io: file, filename: 'place.jpeg')
+# puts "#{place.name} created"
+
+# NEZU MUSEUM
+puts "..."
+file = File.open("app/assets/images/places/landmarks/nezu.jpeg")
+place = Place.create!(
+  name: 'Nezu Museum',
+  description: "The Nezu Museum is a stylish and wheelchair accessible museum where visitors can enjoy a peaceful break from the city. There is also a large traditional Japanese garden behind the museum that contains many ancient statues and monuments. Along the wandering paths users can find a pond, waterfall and tea houses as well as the Nezu Cafe.",
+  # address: 'Minami Aoyama 6-5-1, Minato, Tokyo, 107-0062, Japan',
+  address: 'Nezu Museum',
+  city: 'Minato',
+  toilet: 'has_many',
+  elevator: 'has',
+  parking: 'has',
+  charging: 'no_data',
+  area: 'mostly',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
 puts "..."
 file = File.open("app/assets/images/places/landmarks/gunkanjima.png")
 place = Place.create!(
