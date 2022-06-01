@@ -1,0 +1,119 @@
+.puto {
+  font-size: 24px;
+  padding: 1px 0;
+  text-align: center;
+}
+.cards-icons {
+  .icons-container {
+    .puto {
+      font-size: 21px;
+      height: 28px;
+      width: 28px;
+      border: 2px solid $light-gray;
+      border-radius: 50%;
+    }
+    .puto2 {
+      padding: 4px 0;
+      text-align: center;
+      font-size: 32px;
+      // background-color: $blue;
+      color: $blue;
+      i {
+        color: $blue;
+      }
+    }
+    .puto2-container {
+      .slash {
+        top: 6px;
+        left: 6px;
+        font-size: 24px;
+      }
+    }
+    .puto3 {
+      font-size: 20px;
+      i {
+        font-size: 17px;
+      }
+      .slash {
+        font-size: 24px;
+      }
+    }
+    h3 {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: $blue;
+      color: $light-gray;
+      padding: 2px 1.75px;
+      text-align: center;
+    }
+  }
+  .roll {
+    font-size: 21px;
+  }
+  i {
+    color: $light-gray;
+  }
+}
+.slash {
+  top: 6px;
+  left: 1px;
+}
+.faded {
+  opacity: .6;
+}
+.dc_info {
+  .cards-icons {
+    .icons-container {
+      .puto {
+        font-size: 17px;
+        height: 20px;
+        width: 21px;
+        border: 1px solid $light-gray;
+        border-radius: 50%;
+      }
+      .puto2 {
+        padding: 4px 0;
+        text-align: center;
+        font-size: 26px;
+        // background-color: $blue;
+        color: $blue;
+        i {
+          color: $blue;
+        }
+      }
+      .puto2-container {
+        .slash {
+          top: 6px;
+          left: 6px;
+          font-size: 19px;
+        }
+      }
+      .puto3 {
+        font-size: 15px;
+        i {
+          font-size: 14px;
+        }
+        .slash {
+          font-size: 19px;
+        }
+      }
+      h3 {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: $blue;
+        color: $light-gray;
+        padding: 2px 1.75px;
+        text-align: center;
+        margin: 6px 0;
+      }
+    }
+    .roll {
+      font-size: 21px;
+    }
+    i {
+      color: $light-gray;
+    }
+  }
+}
