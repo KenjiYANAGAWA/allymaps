@@ -18,7 +18,7 @@ file1 = File.open("app/assets/images/reviews/landmarks/nezu1.webp")
 file2 = File.open("app/assets/images/reviews/landmarks/nezu2.webp")
 review = Review.create!(
   rating: 4,
-  content: "The museum itself is quite open and is easy to maneuver in a wheelchair. While there are steps in the garden, the museum offers a map highlighting an accessible route. The route takes visitors by the majority of the statues on display. Unfortunately, the path is a bit uneven and narrow, and since the garden is on an incline it would be nice if there were a few guard rails at steeper parts.",
+  content: "The museum itself is quite accessible. There are steps in the garden, the museum offers a map highlighting an accessible route. Unfortunately, the path is a bit uneven and narrow, and since the garden is on an incline it would be nice if there were a few guard rails at steeper parts.",
   user: User.where.not(email: '2@e.com').sample,
   place: Place.find_by(name: 'Nezu Museum')
 )
