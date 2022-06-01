@@ -11,6 +11,7 @@ images.each do |image|
   user.photo.attach(io: file, filename: 'user.jpg')
 end
 
+puts "..."
 user = User.create!(
   username: 'Kenji',
   email: "kenji@e.com",
@@ -18,14 +19,37 @@ user = User.create!(
 )
 file = File.open("app/assets/images/users/kenji.jpeg")
 user.photo.attach(io: file, filename: 'user.jpg')
+puts user.email
 
+puts "..."
 user = User.create!(
-  username: 'Kenji',
-  email: "kenji@e.com",
+  username: 'Yuki',
+  email: "Yuki@e.com",
   password: 123_123
 )
-file = File.open("app/assets/images/users/kenji.jpeg")
+file = File.open("app/assets/images/users/yuki.jpeg")
 user.photo.attach(io: file, filename: 'user.jpg')
+puts user.email
+
+puts "..."
+user = User.create!(
+  username: 'Luis',
+  email: "Luis@e.com",
+  password: 123_123
+)
+file = File.open("app/assets/images/users/luis.jpeg")
+user.photo.attach(io: file, filename: 'user.jpg')
+puts user.email
+
+puts "..."
+user = User.create!(
+  username: 'Tirso',
+  email: "Tirso@e.com",
+  password: 123_123
+)
+file = File.open("app/assets/images/users/tirso.png")
+user.photo.attach(io: file, filename: 'user.jpg')
+puts user.email
 
 
 # 4.times do |index|
