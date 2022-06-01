@@ -10,7 +10,35 @@
     <div class="dc_info">
       <div>
         <h2><%= destination.place.name %></h2>
-        <h3><span>in </span><%= destination.place.city.capitalize %></h3>
+        <div class="d-flex">
+          <%# ------------ TOILET --------------- %>
+          <% if destination.place.toilet == "has_one" || destination.place.toilet == "has_many" %>
+            <h3 class="ms-3"><i class="access-icon fas fa-toilet-paper fa-lg"></i></h3>
+          <% else %>
+            <h3 class="ms-3 position-relative">
+              <i class="faded fas fa-toilet-paper fa-lg"></i>
+              <i class="fas fa-slash fa-lg text-danger position-absolute top-0 start-0"></i>
+            </h3>
+          <% end %>
+          <%# ------------ PARKING --------------- %>
+          <% if destination.place.parking == "has"%>
+            <h3 class="ms-3"><i class="access-icon fas fa-parking fa-lg"></i></h3>
+          <% else %>
+            <h3 class="ms-3 position-relative">
+              <i class="faded fas fa-parking fa-lg"></i>
+              <i class="fas fa-slash fa-lg text-danger position-absolute top-0 start-0"></i>
+            </h3>
+          <% end %>
+          <%# ------------ ELEVATOR --------------- %>
+          <% if destination.place.elevator == "has"%>
+            <h3 class="ms-3"><i class="access-icon fas fa-universal-access fa-lg"></i></h3>
+          <% else %>
+            <h3 class="ms-3 position-relative">
+              <i class="faded fas fa-universal-access fa-lg"></i>
+              <i class="fas fa-slash fa-lg text-danger position-absolute top-0 start-0"></i>
+            </h3>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
