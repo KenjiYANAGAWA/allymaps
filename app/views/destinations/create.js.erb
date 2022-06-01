@@ -1,0 +1,7 @@
+function rerenderFlashes() {
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    "<%= j render 'shared/flashes' %>"
+  );
+}
+rerenderFlashes();
