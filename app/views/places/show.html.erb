@@ -141,11 +141,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@place, @destination], class: 'add-to-itinerary-form' do |f| %>
-          <%= f.association :itinerary, as: :hidden, input_html: { value: current_user.itineraries.last.id } %>
-          <%= f.submit current_user.itineraries.last.name, class: 'itinerary_card_w100 mb-1 text-white', style: "background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(#{current_user.itineraries.last.places.first&.photos&.attached? ? cl_image_path(current_user.itineraries.last.places.first.photos.first.key) : image_path('https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940')})" %>
+        <% if current_user.itineraries&.last %>
+          <%= simple_form_for [@place, @destination], class: 'add-to-itinerary-form' do |f| %>
+            <%= f.association :itinerary, as: :hidden, input_html: { value: current_user.itineraries.last.id } %>
+            <%= f.submit current_user.itineraries.last.name, class: 'itinerary_card_w100 mb-1 text-white', style: "background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(#{current_user.itineraries.last.places.first&.photos&.attached? ? cl_image_path(current_user.itineraries.last.places.first.photos.first.key) : image_path('https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940')})" %>
+          <% end %>
+          <p class="ms-3 fw-light fst-italic small-font">Created on: <%= current_user.itineraries.last.created_at.strftime("%b %e, %Y") %></p>
         <% end %>
-        <p class="ms-3 fw-light fst-italic small-font">Created on: <%= current_user.itineraries.last.created_at.strftime("%b %e, %Y") %></p>
         <div class="text-center">
           <%= simple_form_for @itinerary do |f|%>
             <div class="position-relative">
