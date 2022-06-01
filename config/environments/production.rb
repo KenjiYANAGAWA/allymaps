@@ -120,6 +120,6 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # for the PWA thing:
-  config.hosts << "allymaps.herokuapp.com"
-  config.hosts << "allymaps.com"
+  # config.hosts << "allymaps.herokuapp.com"
+  # config.hosts << "allymaps.com"
 end
