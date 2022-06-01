@@ -44,16 +44,16 @@
   </div>
   <div class="cards">
     <% @places.each do |place| %>
-      <%#= link_to place_path(place), class: 'card-link' do %>
+      <%= link_to place_path(place), class: 'card-link' do %>
         <%= render "shared/mid_card", place: place %>
-        <%# end %>
       <% end %>
-    </div>
+    <% end %>
   </div>
-  <div class="empty"></div>
-  <%# <h3 class="p-3">Top Recomendations for you</h3>
+</div>
+<div class="empty"></div>
+<%# <h3 class="p-3">Top Recomendations for you</h3>
 <div class="container top-recomendations d-flex flex-column align-items-center">
   <% @places.shuffle.first(3).each do |place| %>
-    <%# <%= render "mid_card", place: place %>
-    <%# <% end %>
-    <%# </div> %>
+  <%# <%= render "mid_card", place: place %>
+  <%# <% end %>
+  <%# </div> %>
