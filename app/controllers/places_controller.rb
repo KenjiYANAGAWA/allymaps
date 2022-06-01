@@ -44,6 +44,8 @@ class PlacesController < ApplicationController
     @review = Review.new
 
     authorize @place
+
+    @itinerary = Itinerary.new
   end
 
   private
