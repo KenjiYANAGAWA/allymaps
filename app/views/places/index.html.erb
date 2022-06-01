@@ -1,31 +1,59 @@
 <div class="nav-back">
   <%= render 'shared/back_button' %>
 </div>
-<div class="container search-content">
-  <h1 class="px-4 mb-2 text-primary">Search your destination</h1>
-  <%# -------------search by location form------------- %>
-  <%= form_tag places_path, method: :get, class: 'search-form pb-3' do %>
+<div class="search-content-map">
+  <%# -------------search form (first location and then features)------------- %>
+  <h3 class="px-4 mb-3 mt-3 text-primary">Search your destination</h3>
+  <%= form_tag places_path, method: :get, class: 'search-form pb-3 mx-4' do %>
     <%= text_field_tag :address,
-      params[:location],
+      params[:address] ? params[:address].capitalize: params[:address],
       class: "form-control",
-      placeholder: "Where do you want to go?"
-  %>
+      placeholder: "Eg: Kyoto"
+    %>
+    <%= check_box_tag :toilet, params[:toilet], params[:toilet] %>
+    <%= label_tag :toilet do %>
+      <i class="access-icon fas fa-toilet-paper fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accessible Toilet"></i>
+    <% end %>
+    <%= check_box_tag :elevator, params[:elevator], params[:elevator] %>
+    <%= label_tag :elevator do %>
+      <i class="access-icon fas fa-universal-access fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elevator"></i>
+    <% end %>
+    <%= check_box_tag :parking, params[:parking], params[:parking] %>
+    <%= label_tag :parking do %>
+      <i class="access-icon fas fa-parking fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Priority Parking"></i>
+    <% end %>
     <%= button_tag type: 'submit', class: "btn btn-dark btn-search" do%>
       <i class="fas fa-search"></i>
     <% end %>
   <% end %>
   <%# -------------list of places in the map------------- %>
-  <div><%= render partial: "map"%></div>
-  <%# -------------list of places with mid-card------------- %>
-  <% @places.each do |place| %>
-    <%= link_to place_path(place), class: 'card-link' do %>
-      <%= render "shared/mid_card", place: place %>
-    <% end %>
-  <% end %>
+  <div id='map-container'><%= render partial: "map"%></div>
 </div>
-<%# <h3 class="p-3">Top Recomendations for you</h3>
+<%# -------------list of places with mid-card------------- %>
+<div class="places-list p-3">
+  <div class="text-center"><i class="fas fa-grip-lines"></i></div>
+  <div class='py-1 text-center text-primary'>
+    <% if @places == [] %>
+      <h2 class='py-1 text-center text-primary'>No destinations were found</h2>
+      <p class="text-center text-warning">Please adjust the filters</p>
+    <% else %>
+      <h2 class='py-1 text-center text-primary'>
+        <%= @places.length %> destinations
+      </h2>
+    <% end %>
+  </div>
+  <div class="cards">
+    <% @places.each do |place| %>
+      <%#= link_to place_path(place), class: 'card-link' do %>
+        <%= render "shared/mid_card", place: place %>
+        <%# end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="empty"></div>
+  <%# <h3 class="p-3">Top Recomendations for you</h3>
 <div class="container top-recomendations d-flex flex-column align-items-center">
   <% @places.shuffle.first(3).each do |place| %>
-  <%# <%= render "mid_card", place: place %>
-  <%# <% end %>
-  <%# </div> %>
+    <%# <%= render "mid_card", place: place %>
+    <%# <% end %>
+    <%# </div> %>

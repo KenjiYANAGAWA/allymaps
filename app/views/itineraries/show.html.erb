@@ -1,25 +1,27 @@
+  
 <div class="nav-back">
   <%= render 'shared/back_button' %>
 </div>
-<div class="search-content container px-4">
-  <p class="itinerary-word text-warning mb-1">Itinerary:</p>
-  <h1 class="text-primary mb-4"><%= @itinerary.name.capitalize %></h1>
-  <% unless @itinerary.destinations.any? %>
-    <h3 class="text-center my-5">No destinations yet</h3>
-    <div class="px-5">
-      <%= link_to places_path, class:'btn btn-info btn-form' do %>
-        <i class="fas fa-search">&nbsp; Add places</i>
-      <% end %>
+<div class="search-content-map">
+  <div class="p-3">
+    <p class="itinerary-word text-warning" style='margin-bottom:0;'>Itinerary:</p>
+    <h1 class="text-primary"><%= @itinerary.name.capitalize %></h1>
+  </div>
+  <% if @itinerary.destinations.any? %>
+    <div id='map-container'>
+      <%= render partial: "map"%>
     </div>
-  <% end %>
-  <div class='w-100'><%= render partial: "map"%></div>
-  <div class="d-flex flex-column align-items-center mb-3">
-    <!-- ----------with ARROES and eventListener---------- -->
-    <% @itinerary.destinations.order(position: :asc).each do |destination| %>
-      <div><%= render "destination_card", destination: destination %></div>
-    <% end %>
-    <!-- ----------with DRAG&DROP and stimulus---------- -->
-    <!--
+  </div>
+  <div class="d-flex flex-column align-items-center places-list pt-3">
+    <div class="text-center"><i class="fas fa-grip-lines"></i></div>
+    <h2 class='py-2 text-primary'>Your destinations</h2>
+    <div class="d-flex flex-column align-items-center mb-3">
+      <!-- ----------with ARROES and eventListener---------- -->
+      <% @itinerary.destinations.order(position: :asc).each do |destination| %>
+        <div><%= render "destination_card", destination: destination %></div>
+      <% end %>
+      <!-- ----------with DRAG&DROP and stimulus---------- -->
+      <!--
     <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
       <% @itinerary.destinations.order(position: :asc).each do |destination| %>
         <li  data-sortable-update-url="<%= destination_path(destination) %>" >
@@ -33,8 +35,21 @@
       <% end %>
     </ul>
     -->
-  </div>
+    </div>
+  <% else %>
+    <h3 class="text-center my-5">No destinations yet</h3>
+    <div class="px-5">
+      <%= link_to places_path, class:'btn btn-info btn-form' do %>
+        <i class="fas fa-search">&nbsp; Add places</i>
+      <% end %>
+    </div>
+  <% end %>
+</ul>
 </div>
+<div class='add-another'>
+  <%= link_to 'Add another destination', places_path, class: 'btn btn-info btn-form mb-5'%>
+</div>
+<div class="empty"></div>
 <!-- Button trigger modal -->
 <button type="button" class="button button-add-hotel" data-bs-toggle="modal" data-bs-target="#placeForm">
   <i class="fas fa-plus"></i><i class="fas fa-bed"></i>

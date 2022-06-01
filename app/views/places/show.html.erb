@@ -1,6 +1,6 @@
 <div class="place-imgs">
   <div class="nav-back-place">
-    <%= render 'shared/back_button' %>
+    <%= render 'shared/show_back_button' %>
   </div>
   <% if @place.photos.first %>
     <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
@@ -53,7 +53,7 @@
         <% end %>
       </tr>
     <% end %>
-    <% unless @place.elevator == 'no_data' %>
+    <% unless @place.elevator == 'no_data' || @place.elevator == 'nonessential' %>
       <tr>
         <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
         <td>Elevator</td>
@@ -100,9 +100,11 @@
       <% if @place.reviews.blank? %>
         <p class="text-center">No reviews yet</p>
       <% else %>
-        <% @place.reviews.each do |review| %>
-          <%= render 'reviews/review', review: review %>
-        <% end %>
+        <div class="cards">
+          <% @place.reviews.each do |review| %>
+            <%= render 'reviews/review', review: review %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -143,8 +145,13 @@
         <% end %>
         <p class="ms-3 fw-light fst-italic small-font">Created on: <%= current_user.itineraries.last.created_at.strftime("%b %e, %Y") %></p>
         <div class="text-center">
-          <%= link_to new_place_destination_path(@place), class: "" do %>
-            or add it to a new or existing itinerary
+          <%= simple_form_for @itinerary do |f|%>
+            <div class="position-relative">
+              <%= f.input :name, placeholder: 'Add a new itinerary to your list', label: false %>
+              <%= button_tag type: 'submit', class: "btn btn-primary btn-add" do%>
+                <i class="fas fa-plus"></i>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>

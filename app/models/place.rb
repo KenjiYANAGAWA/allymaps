@@ -18,10 +18,19 @@ class Place < ApplicationRecord
   validates :city, presence: true
 
   # geocoding
-  geocoded_by :name
+  geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  # for creating also a destination when you create a place with accommodation true
   accepts_nested_attributes_for :destinations
+
+  # for searching by features in places#show
+  include PgSearch::Model
+  pg_search_scope :search_by_features,
+    against: [ :toilet, :elevator, :parking],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 
 end
 

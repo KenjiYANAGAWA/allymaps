@@ -3,7 +3,16 @@ class PlacesController < ApplicationController
 
   def index
     @places = policy_scope(Place)
-    @places = @places.near(params[:address], 50) if params[:address]
+    if params[:toilet]
+      @places = @places.where("toilet = 2 OR toilet = 3")
+    end
+    if params[:elevator]
+      @places = @places.where("elevator = 2 OR elevator = 3")
+    end
+    if params[:parking]
+      @places = @places.where(parking: 2)
+    end
+    @places = @places.near(params[:address], 25) if params[:address]
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
@@ -44,6 +53,8 @@ class PlacesController < ApplicationController
     @review = Review.new
 
     authorize @place
+
+    @itinerary = Itinerary.new
   end
 
   private

@@ -1,11 +1,13 @@
 table {
-  td{
-  border: none;
+  td {
+    border: none;
   }
 }
+
 tr:nth-child(odd) {
   background-color: #e5f3f5;
 }
+
 td:first-child,
 th:first-child {
   border-radius: 10px 0 0 10px;
@@ -16,6 +18,11 @@ td:last-child,
 th:last-child {
   border-radius: 0 10px 10px 0;
 }
+
 .access-icon {
   color: #295D63;
+}
+
+.faded {
+  color: #757575;
 }
