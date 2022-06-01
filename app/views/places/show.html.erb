@@ -3,9 +3,9 @@
     <%= render 'shared/show_back_button' %>
   </div>
   <% if @place.photos.first %>
-    <%= cl_image_tag @place.photos.first.key ,style:"width:100%" %>
+    <%= cl_image_tag @place.photos.first.key %>
   <% else %>
-    <img style="width:100%" src="https://wallpaperaccess.com/full/2286682.jpg"/>
+    <img src="https://wallpaperaccess.com/full/2286682.jpg"/>
   <% end %>
 </div>
 <div class="p-3 place-content">
