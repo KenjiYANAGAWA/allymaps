@@ -6,7 +6,7 @@
   <h3 class="px-4 mb-3 mt-3 text-primary">Search your destination</h3>
   <%= form_tag places_path, method: :get, class: 'search-form pb-3 mx-4' do %>
     <%= text_field_tag :address,
-      params[:address].capitalize,
+      params[:address] ? params[:address].capitalize: params[:address],
       class: "form-control",
       placeholder: "Eg: Kyoto"
     %>
