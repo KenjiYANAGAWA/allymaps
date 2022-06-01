@@ -1,4 +1,3 @@
-  
 <div class="nav-back">
   <%= render 'shared/back_button' %>
 </div>
@@ -17,8 +16,16 @@
     <h2 class='py-2 text-primary'>Your destinations</h2>
     <div class="d-flex flex-column align-items-center mb-3">
       <!-- ----------with ARROES and eventListener---------- -->
-      <% @itinerary.destinations.order(position: :asc).each do |destination| %>
-        <div><%= render "destination_card", destination: destination %></div>
+      <% @itinerary.destinations.order(position: :asc).each_with_index do |destination, index| %>
+        <div id="thisisthefrucckingcard">
+          <div><%= render "destination_card", destination: destination %></div>
+          <%# next line creates direction buttons below destinations except for the last one %>
+          <div class="d-flex justify-content-end">
+            <%= link_to "https://www.google.com/maps/dir/#{destination.place.address}/#{@itinerary.destinations[index+1]&.place&.address}", id:'directionButton', class: 'btn-route', target: '_blank' do %>
+              <h6 class="mb-0"><i class="fas fa-map-marker-alt"></i>  Get directions</h6>
+            <% end %>
+          </div>
+        </div>
       <% end %>
       <!-- ----------with DRAG&DROP and stimulus---------- -->
       <!--
