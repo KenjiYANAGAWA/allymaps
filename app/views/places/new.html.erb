@@ -8,9 +8,29 @@
         <%= f.input :city %>
         <%= f.input :address %>
         <%= f.input :area, collection: Place.areas.keys, label: "How accessible is the area?", include_blank: false %>
-        <%= f.input :toilet, collection: Place.toilets.keys, label: 'Are there any accessible toilets?<i class="fas fa-plus"></i>'.html_safe, include_blank: false %>
-        <%= f.input :elevator, collection: Place.elevators.keys, label: 'Does it has elevator?<i class="fas fa-plus"></i>'.html_safe, include_blank: false %>
-        <%= f.input :parking, collection: Place.parkings.keys, label: 'Does it have accessible parking?<i class="fas fa-plus"></i>'.html_safe, include_blank: false %>
+        <%= f.input :toilet, collection: Place.toilets.keys,
+        label: '<div class="cards-icons d-flex align-items-center">
+              <div class="icons-container">
+                <h3 class="mx-1 puto3"><i class="fas fa-solid fa-restroom roll fa-lg"></i></h3>
+              </div>
+              <p class="m-0">Are there any accessible toilets?</p>
+            </div>'.html_safe, include_blank: false %>
+        <%= f.input :elevator, collection: Place.elevators.keys,
+        label: '<div class="cards-icons my-1 d-flex align-items-center">
+              <div class="icons-container">
+                <i class="mx-1 puto2 fas fa-universal-access fa-lg"></i>
+              </div>
+              <p class="m-0">Does it have an elevator?</p>
+            </div> '.html_safe, include_blank: false, class: '' %>
+        <%= f.input :parking, collection: Place.parkings.keys,
+        label: '<div class="cards-icons d-flex align-items-center">
+              <div class="icons-container">
+                <h3 class="mx-1">
+                  <p class="puto">P</p>
+                </h3>
+              </div>
+              <p class="m-0">Does it have accessible parking?</p>
+            </div>'.html_safe, include_blank: false %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit 'Post', class: 'button-review-post w-100 my-4' %>
       <% end %>
