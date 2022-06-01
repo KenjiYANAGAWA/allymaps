@@ -147,8 +147,13 @@
         <% end %>
         <p class="ms-3 fw-light fst-italic small-font">Created on: <%= current_user.itineraries.last.created_at.strftime("%b %e, %Y") %></p>
         <div class="text-center">
-          <%= link_to new_place_destination_path(@place), class: "" do %>
-            or add it to a new or existing itinerary
+          <%= simple_form_for @itinerary do |f|%>
+            <div class="position-relative">
+              <%= f.input :name, placeholder: 'Add a new itinerary to your list', label: false %>
+              <%= button_tag type: 'submit', class: "btn btn-primary btn-add" do%>
+                <i class="fas fa-plus"></i>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>

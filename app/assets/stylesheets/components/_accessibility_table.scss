@@ -1,6 +1,6 @@
 table {
-  td{
-  border: none;
+  td {
+    border: none;
   }
 }
 td {
@@ -9,6 +9,7 @@ td {
 tr:nth-child(odd) {
   background-color: #e5f3f5;
 }
+
 td:first-child,
 th:first-child {
   border-radius: 10px 0 0 10px;
@@ -23,6 +24,7 @@ th:last-child {
   border-radius: 0 10px 10px 0;
   color: #514C4C;
 }
+
 .access-icon {
   color: #295D63;
 }
@@ -30,4 +32,6 @@ th:last-child {
   padding: 0 4px;
   --bs-table-bg: #F4F4F4;
   --bs-table-striped-bg: #D9E7E9;
+.faded {
+  color: #757575;
 }
