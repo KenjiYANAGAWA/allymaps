@@ -24,7 +24,13 @@
   <h3 class='pt-3 pb-3'></h3>
   <table class="table table-striped mb-4">
     <tr>
-      <td><i class="fas fa-toilet-paper fa-2x access-icon"></i></td>
+      <td>
+        <div class="cards-icons">
+          <div class="icons-container">
+            <h3 class="mx-1 puto3"><i class="access-icon fas fa-solid fa-restroom roll fa-lg"></i></h3>
+          </div>
+        </div>
+      </td>
       <td>Accessible Toilet</td>
       <% if @place.toilet == 'no_data' %>
         <td class='table-info'>No Info</td>
@@ -37,7 +43,13 @@
       <% end %>
     </tr>
     <tr>
-      <td><i class="fas fa-universal-access fa-2x access-icon"></i></td>
+      <td>
+        <div class="cards-icons my-1">
+          <div class="icons-container">
+            <i class="mx-1 puto2 access-icon fas fa-universal-access fa-lg"></i>
+          </div>
+        </div>
+      </td>
       <td>Elevator</td>
       <% if @place.elevator == 'no_data' || @place.elevator == 'nonessential' %>
         <td class='table-info'>No Info</td>
@@ -52,7 +64,15 @@
       <% end %>
     </tr>
     <tr>
-      <td><i class="fas fa-parking fa-2x access-icon"></i></td>
+      <td>
+        <div class="cards-icons">
+          <div class="icons-container">
+            <h3 class="mx-1 access-icon">
+              <p class="puto">P</p>
+            </h3>
+          </div>
+        </div>
+      </td>
       <td>Priority Parking</td>
       <% if @place.parking == 'no_data' %>
         <td class='table-info'>No Info</td>
