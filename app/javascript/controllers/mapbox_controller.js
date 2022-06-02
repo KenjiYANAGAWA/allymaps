@@ -68,7 +68,7 @@ export default class extends Controller {
     this.map.on('load', () => {
       // const [marker1, marker2] = this.markersValue;
       // console.log(marker1, marker2);
-      console.log(this.markersValue);
+      // console.log(this.markersValue);
       for (let i = 0; i < this.markersValue.length; i++) {
         const marker1 = this.markersValue[i];
         const marker2 = this.markersValue[i + 1];

@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   # for reorder the psoition
   resources :destinations, only: [:update]
 
+  # custom route for google maps
+  get "/get_travel_time", to: "itineraries#get_travel_time"
+
 end

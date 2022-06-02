@@ -46,8 +46,10 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-
+    
+    
     @itinerary = Itinerary.new
+    @itinerary.destinations.build
     @destination = Destination.new
 
     @reviews = Review.where(place: @place.id)
