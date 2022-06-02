@@ -145,9 +145,6 @@ puts "#{place.name} created"
 # place.photos.attach(io: file, filename: 'place.jpeg')
 # puts "#{place.name} created"
 #
-# place.photos.attach(io: file, filename: 'place.jpeg')
-# puts "#{place.name} created"
-#
 # puts "..."
 # file = File.open("app/assets/images/places/landmarks/gunkanjima.png")
 # place = Place.create!(
