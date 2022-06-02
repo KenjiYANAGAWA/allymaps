@@ -3,6 +3,8 @@ console.log("pepe"); <%# useless line, just to check if this js file is received
 function insertReview() {
 const reviews = document.querySelector('#reviews');
 reviews.insertAdjacentHTML('beforeend', "<%= j render 'reviews/review', review: @review %>")
+const noreviewsyet = document.querySelector('#noreviewsyet');
+noreviewsyet.innerHTML = "";
 }
 function emptyForm() {
 document.getElementById("review_content").value = "";

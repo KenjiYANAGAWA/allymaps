@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
     if params[:parking]
       @places = @places.where(parking: 2)
     end
-    @places = @places.near(params[:address], 10) if params[:address] && params[:address] != ""
+    @places = @places.near(params[:address], 6) if params[:address] && params[:address] != ""
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
@@ -47,6 +47,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
 
+    @itinerary = Itinerary.new
     @destination = Destination.new
 
     @reviews = Review.where(place: @place.id)
@@ -54,7 +55,6 @@ class PlacesController < ApplicationController
 
     authorize @place
 
-    @itinerary = Itinerary.new
   end
 
   private
