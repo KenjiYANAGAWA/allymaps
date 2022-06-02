@@ -69,34 +69,39 @@ export default class extends Controller {
       // const [marker1, marker2] = this.markersValue;
       // console.log(marker1, marker2);
       console.log(this.markersValue);
-      // for (let i = 0; i < this.markersValue.length; i++) {
-      //   const marker1 = this.markersValue[i];
-      //   const marker2 = this.markersValue[i + 1];
-      this.map.addSource('route', {
-        'type': 'geojson',
-        'data': {
-          'type': 'Feature',
-          'properties': {},
-          'geometry': {
-            'type': 'LineString',
-            'coordinates': this.markersValue.map(marker => [marker.lng, marker.lat])
+      for (let i = 0; i < this.markersValue.length; i++) {
+        const marker1 = this.markersValue[i];
+        const marker2 = this.markersValue[i + 1];
+        this.map.addSource(`route${i}`, {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+              'type': 'LineString',
+              'coordinates':
+                // this.markersValue.map(marker => [marker.lng, marker.lat])
+                [
+                  [marker1.lng, marker1.lat],
+                  [marker2.lng, marker2.lat],
+                ]
+            }
           }
-        }
-      });
-      // }
-      this.map.addLayer({
-        'id': 'route',
-        'type': 'line',
-        'source': 'route',
-        'layout': {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        'paint': {
-          'line-color': '#888',
-          'line-width': 8
-        }
-      });
+        });
+        this.map.addLayer({
+          'id': `route${i}`,
+          'type': 'line',
+          'source': `route${i}`,
+          'layout': {
+            'line-join': 'round',
+            'line-cap': 'round'
+          },
+          'paint': {
+            'line-color': '#FFC65A',
+            'line-width': 5
+          }
+        });
+      }
     });
   }
 }
