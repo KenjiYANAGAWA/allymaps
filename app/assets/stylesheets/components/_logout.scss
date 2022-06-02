@@ -9,3 +9,30 @@
   background-color: white;
 
 }
+.login-btn {
+  border-radius: 36px;
+  background-color: $blue;
+  color: $light-gray;
+  margin: 0 auto 8px auto;
+  padding: 10px 142px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  // background-color: white;
+
+}
+.shared-login {
+  border-radius: 36px;
+  background-color: $yellow;
+  color: $blue;
+  margin: 0 auto;
+  padding: 10px 146px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  // background-color: white;
+
+}
+.signup-email {
+  margin-bottom: 0;
+}

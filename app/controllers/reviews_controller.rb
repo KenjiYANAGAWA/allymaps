@@ -5,14 +5,15 @@ class ReviewsController < ApplicationController
     @place = Place.find(params[:place_id])
     @review.place = @place
     authorize @review
-    # raise
     if @review.save
       respond_to do |format|
         format.html { redirect_to place_path(@place, anchor: "review-#{@review.id}") }
         format.js # look for a JS view with the same action name
       end
     else
-      render 'places/show'
+      # flash.now[:alert] = "Please add content"
+      # redirect_back(fallback_location: place_path(@place, anchor: 'new_review'))
+      redirect_to place_path(@place, anchor: 'new_review'), notice: 'Please write about your experience'
     end
   end
 
