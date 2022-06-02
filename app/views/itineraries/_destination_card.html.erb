@@ -3,7 +3,7 @@
     <div id="button-up"><i class="fas fa-chevron-up"></i></div>
     <div id="button-down"><i class="fas fa-chevron-down"></i></div>
   </div>
-  <%= link_to destination.place.accommodation? ? "javascript: void(0)" : place_path(destination.place), class:"d-flex" do %>
+  <%= link_to destination.place.accommodation? ? "javascript: void(0)" : place_path(destination.place), class:"d-flex flex-grow-1" do %>
     <div class="dc_img">
       <%= destination.place.photos&.attached? ? cl_image_tag(destination.place.photos.first.key) : image_tag("https://images.vexels.com/media/users/3/128747/isolated/preview/30bdbb2e5f0f12d108d559752aff147e-sleeping-bed-real-estate-icon.png") %>
     </div>
