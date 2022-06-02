@@ -41,15 +41,20 @@ export default class extends Controller {
       customMarker.style.backgroundSize = "contain"
       customMarker.style.width = "70px"
       customMarker.style.height = "70px"
+      customMarker.style.paddingBottom = "70px"
 
       // Pass the element as an argument to the new marker
       if (marker.image_url) {
-        new mapboxgl.Marker(customMarker)
+        new mapboxgl.Marker({
+          color: marker.color
+        })
           .setLngLat([marker.lng, marker.lat])
           .setPopup(popup)
           .addTo(this.map)
       } else {
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({
+          color: marker.color
+        })
           .setLngLat([marker.lng, marker.lat])
           .setPopup(popup)
           .addTo(this.map)

@@ -10,6 +10,7 @@ class Place < ApplicationRecord
   enum charging: { no_data: 0, no: 1, has: 2 }, _suffix: true
   enum area: { no_data: 0, not: 1, partly: 2, mostly: 3, fully: 4 }, _suffix: true
 
+  COLORS = { no_data: "gray", not: "rgba(227, 46, 43, 0.94)", partly: "rgba(226, 145, 23, 0.94)", mostly: "rgba(173, 203, 0, 0.94)", fully: "rgb(59, 167, 104)" }
   CATEGORY = ['temple', 'park', 'restaurant', 'landmark', 'hotel']
   # validates :category, inclusion: { in: CATEGORY }
 
