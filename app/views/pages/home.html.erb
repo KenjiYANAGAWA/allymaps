@@ -9,7 +9,7 @@
   <%= form_tag places_path, method: :get, class: 'search-form pb-3 mx-4' do %>
     <%= text_field_tag :address,
         params[:location],
-        class: "form-control text-center",
+        class: "form-control",
         placeholder: "Where are you going?"
       %>
     <%= button_tag type: 'submit', class: "btn btn-dark btn-search" do%>

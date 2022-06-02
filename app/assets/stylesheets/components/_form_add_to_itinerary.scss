@@ -5,6 +5,11 @@
 #itinerary_name {
   border-radius: 36px;
   padding: 12px 16px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  background-color: white;
+  border: none;
 }
 
 .btn-form {

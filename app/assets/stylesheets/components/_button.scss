@@ -59,8 +59,8 @@
   top: 0;
   width: 66px;
   right: 0;
-  height: 50px;
-  box-shadow: none;
+  height: 48px;
+  // box-shadow: none;
   border-radius: 0 36px 36px 0;
   display: grid;
   place-items: center;
@@ -68,4 +68,9 @@
   padding: 0;
   margin: 0;
   color: white;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  // background-color: white;
+  border: none;
 }
