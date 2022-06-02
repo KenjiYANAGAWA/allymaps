@@ -30,7 +30,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'all',
+  area: 'fully',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -48,7 +48,7 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -66,7 +66,7 @@ place = Place.create!(
   elevator: 'has',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'all',
+  area: 'fully',
   category: 'temple'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -144,23 +144,6 @@ place = Place.create!(
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
 
-puts "..."
-file = File.open("app/assets/images/places/temples/fushimiinari.jpeg")
-place = Place.create!(
-  name: 'Fushimi Inari Shrine',
-  description: 'Fushimi Inari Shrine is an iconic site in Kyoto with thousands of torii gates that wind up a forested mountain. With a bit of effort, visitors in wheelchairs can see the first stretch of the path and the first two shrines.',
-  # address: '68 Fukakusa Yabunouchicho, Fushimi-ku, Kyoto, Kyoto, 612-0882, Japan',
-  address: 'Fushimi Inari Shrine',
-  city: 'Kyoto',
-  toilet: 'has_many',
-  elevator: 'has',
-  parking: 'has',
-  charging: 'no_data',
-  area: 'partly',
-  category: 'temple'
-)
-place.photos.attach(io: file, filename: 'place.jpeg')
-puts "#{place.name} created"
 
 puts "..."
 file = File.open("app/assets/images/places/temples/kamakura_daibutsu.jpeg")
@@ -199,24 +182,6 @@ place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
 
 puts "..."
-file = File.open("app/assets/images/places/temples/kinkakuji.webp")
-place = Place.create!(
-  name: 'Kinkakuji',
-  description: "Kinkakuji, or the Golden Pavilion, is one of the top stops for anyone visiting Kyoto, and one of Japan’s most popular buildings. Originally a shogun’s estate, it is now a Buddhist temple and is part of the Historic Monuments of Ancient Kyoto UNESCO World Heritage site.  The site near the pavilion is wheelchair accessible, but much of the gardens are not.",
-  # address: '1 Kinkakujicho, Kita-ku, Kyoto, Kyoto, 603-8361, Japan',
-  address: 'Kinkakuji',
-  city: 'Kyoto',
-  toilet: 'has_one',
-  elevator: 'nonessential',
-  parking: 'no_data',
-  charging: 'no_data',
-  area: 'partly',
-  category: 'temple'
-)
-place.photos.attach(io: file, filename: 'place.jpeg')
-puts "#{place.name} created"
-
-puts "..."
 file = File.open("app/assets/images/places/temples/meijijingu.webp")
 place = Place.create!(
   name: 'Meiji Jingu',
@@ -233,3 +198,39 @@ place = Place.create!(
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
+
+# puts "..."
+# file = File.open("app/assets/images/places/temples/fushimiinari.jpeg")
+# place = Place.create!(
+#   name: 'Fushimi Inari Shrine',
+#   description: 'Fushimi Inari Shrine is an iconic site in Kyoto with thousands of torii gates that wind up a forested mountain. With a bit of effort, visitors in wheelchairs can see the first stretch of the path and the first two shrines.',
+#   # address: '68 Fukakusa Yabunouchicho, Fushimi-ku, Kyoto, Kyoto, 612-0882, Japan',
+#   address: 'Fushimi Inari Shrine',
+#   city: 'Kyoto',
+#   toilet: 'has_many',
+#   elevator: 'has',
+#   parking: 'has',
+#   charging: 'no_data',
+#   area: 'partly',
+#   category: 'temple'
+# )
+# place.photos.attach(io: file, filename: 'place.jpeg')
+# puts "#{place.name} created"
+
+# puts "..."
+# file = File.open("app/assets/images/places/temples/kinkakuji.webp")
+# place = Place.create!(
+#   name: 'Kinkakuji',
+#   description: "Kinkakuji, or the Golden Pavilion, is one of the top stops for anyone visiting Kyoto, and one of Japan’s most popular buildings. Originally a shogun’s estate, it is now a Buddhist temple and is part of the Historic Monuments of Ancient Kyoto UNESCO World Heritage site.  The site near the pavilion is wheelchair accessible, but much of the gardens are not.",
+#   # address: '1 Kinkakujicho, Kita-ku, Kyoto, Kyoto, 603-8361, Japan',
+#   address: 'Kinkakuji',
+#   city: 'Kyoto',
+#   toilet: 'has_one',
+#   elevator: 'nonessential',
+#   parking: 'no_data',
+#   charging: 'no_data',
+#   area: 'partly',
+#   category: 'temple'
+# )
+# place.photos.attach(io: file, filename: 'place.jpeg')
+# puts "#{place.name} created"

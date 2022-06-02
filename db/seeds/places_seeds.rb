@@ -14,6 +14,18 @@ puts "Creating temples..."
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'temples_seeds.rb')].each { |seed| load seed }
 puts "...created #{Place.count} places in total."
 puts
+puts "Creating gardens..."
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'gardens_seeds.rb')].each { |seed| load seed }
+puts "...created #{Place.count} places in total."
+puts
+puts "Creating museums..."
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'museums_seeds.rb')].each { |seed| load seed }
+puts "...created #{Place.count} places in total."
+puts
+puts "Creating entertainments..."
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'entertainments_seeds.rb')].each { |seed| load seed }
+puts "...created #{Place.count} places in total."
+puts
 
 # enum toilet: { no_data: 0, no: 1, has_one: 2, has_many: 3 }, _suffix: true
 # enum elevator: { no_data: 0,  no: 1, has: 2, nonessential: 3 }, _suffix: true
