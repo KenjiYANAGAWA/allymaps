@@ -83,7 +83,7 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -155,7 +155,7 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
@@ -191,7 +191,7 @@ place = Place.create!(
   elevator: 'no_data',
   parking: 'no_data',
   charging: 'no_data',
-  area: 'some',
+  area: 'partly',
   category: 'landmark'
 )
 place.photos.attach(io: file, filename: 'shimokitazawa.jpeg')

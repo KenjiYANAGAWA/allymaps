@@ -1,49 +1,49 @@
 puts "Creating landmarks..."
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'landmarks_seeds.rb')].each { |seed| load seed }
 landmarks = Place.count
-puts "...created #{landmarks} places in total."
+puts "...created #{landmarks} landmarks."
 puts
 before = Place.count
 puts "Creating parks..."
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'parks_seeds.rb')].each { |seed| load seed }
 parks = Place.count - before
-puts "...created #{parks} places in total."
+puts "...created #{parks} parks."
 puts
 puts "Creating restaurants..."
 before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'restaurants_seeds.rb')].each { |seed| load seed }
 restaurants = Place.count - before
-puts "...created #{restaurants} places in total."
+puts "...created #{restaurants} restaurants."
 puts
 puts "Creating temples..."
 before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'temples_seeds.rb')].each { |seed| load seed }
 temples = Place.count - before
-puts "...created #{temples} places in total."
+puts "...created #{temples} temples."
 puts
 puts "Creating gardens..."
 before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'gardens_seeds.rb')].each { |seed| load seed }
 gardens = Place.count - before
-puts "...created #{gardens} places in total."
+puts "...created #{gardens} gardens."
 puts
 puts "Creating museums..."
 before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'museums_seeds.rb')].each { |seed| load seed }
 museums = Place.count - before
-puts "...created #{museums} places in total."
+puts "...created #{museums} museums."
 puts
 puts "Creating entertainments..."
 before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'entertainments_seeds.rb')].each { |seed| load seed }
 entertainments = Place.count - before
-puts "...created #{entertainments} places in total."
+puts "...created #{entertainments} entertainments."
 puts
 puts "Creating towns..."
 before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'towns_seeds.rb')].each { |seed| load seed }
 towns = Place.count - before
-puts "...created #{towns} places in total."
+puts "...created #{towns} towns."
 puts
 
 puts "#{landmarks} landmarks"
