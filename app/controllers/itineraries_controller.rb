@@ -40,7 +40,8 @@ class ItinerariesController < ApplicationController
         lat: place.latitude,
         lng: place.longitude,
         info_window: render_to_string(partial: "shared/info_window", locals: { place: place }),
-        image_url: helpers.asset_url("markers/number_#{destination.position}.png"),
+        color: Place::COLORS[place.area.to_sym],
+        # image_url: helpers.asset_url("markers/number_#{destination.position}.png"),
         position: destination.position
       }
     end
