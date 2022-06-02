@@ -3,13 +3,12 @@
 </div>
 <div class="search-content-map">
   <%# -------------search form (first location and then features)------------- %>
-  <h3 class="px-4 mb-3 mt-3 text-primary">Search your destination</h3>
   <%= form_tag places_path, method: :get, class: 'pb-3 mx-4' do %>
     <div class="search-form">
       <%= text_field_tag :address,
       params[:address] ? params[:address].capitalize : params[:address],
       class: "form-control",
-      placeholder: "Eg: Kyoto"
+      placeholder: "Explore destinations"
     %>
       <%= button_tag type: 'submit', class: "btn btn-dark btn-search" do%>
         <i class="fas fa-search"></i>
@@ -60,14 +59,14 @@
   <div class='py-1 text-center text-primary'>
     <% if !params[:address] || params[:address] == "" && !params[:elevator] && !params[:toilet] && !params[:parking]  %>
       <h2 class='py-1 text-center text-primary'>
-        Discover places
+        Top accessible destinations
       </h2>
     <% elsif @places == [] %>
       <h2 class='py-1 text-center text-primary'>No destinations were found</h2>
       <p class="text-center text-warning">Please adjust the filters</p>
     <% else %>
       <h2 class='py-1 text-center text-primary'>
-        <%= @places.length %> places
+        <%= @places.length %> results
       </h2>
     <% end %>
   </div>
