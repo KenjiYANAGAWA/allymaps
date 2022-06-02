@@ -9,10 +9,10 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
 
-    # lines below in case validation fils in destinations/new
+    # lines below in case validation fails in destinations/new
     @destination = @itinerary.destinations.first
     @place = @destination&.place                 # & means: if @destination exist
-    # line below in case validation fils in itineraries#index
+    # line below in case validation fails in itineraries#index
     @itineraries = policy_scope(Itinerary)
 
     authorize @itinerary
