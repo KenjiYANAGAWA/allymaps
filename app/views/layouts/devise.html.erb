@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AllyMaps</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%# -----PWA------ %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
+  </head>
+  <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
+    <div class="nav-back">
+      <%= render 'shared/back_button' %>
+    </div>
+    <div class="login-container">
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <p class='footer-text text-center'>&copy; 2022 AllyMaps</p>
+    </div>
+  </body>
+</html>

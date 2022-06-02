@@ -53,9 +53,11 @@
   <% end %>
 </ul>
 </div>
-<div class='add-another'>
-  <%= link_to 'Add another destination', places_path, class: 'btn btn-info btn-form mb-5'%>
-</div>
+<% if @itinerary.destinations.any? %>
+  <div class='add-another'>
+    <%= link_to 'Add another destination', places_path, class: 'btn btn-info btn-form mb-5'%>
+  </div>
+<% end %>
 <div class="empty"></div>
 <!-- Button trigger modal -->
 <button type="button" class="button button-add-hotel" data-bs-toggle="modal" data-bs-target="#placeForm">
