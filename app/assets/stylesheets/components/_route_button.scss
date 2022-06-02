@@ -1,8 +1,11 @@
 .btn-route {
-  padding: 18px 24px;
+  padding: 2px;
   border-radius: 36px;
   margin: 12px 0;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
-  background-color: #4285F4;
-  color: white;
+  // box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  color: var(--bs-body-color);
+}
+.google-pin {
+  height: 24px;
 }

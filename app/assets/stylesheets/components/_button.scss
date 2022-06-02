@@ -1,3 +1,6 @@
+.btn {
+  color: $blue;
+}
 .button {
   background-color: #272c31;
   color: $light-gray;
@@ -38,6 +41,14 @@
   background-color: $light-gray;
   color: $blue;
   border: none;
+  .fa-plus {
+    font-size: 13px;
+    padding: 0;
+  }
+  .fa-bed {
+    font-size: 23px;
+    padding: 0;
+  }
 }
 
 .button-review-post {
@@ -80,6 +91,7 @@
 }
 
 .thisisthefrucckingcard:last-child .direction-button,
-.thisisthefrucckingcard:last-child .travel-time {
+.thisisthefrucckingcard:last-child .travel-time,
+.thisisthefrucckingcard:last-child .fa-car {
   display: none;
 }
