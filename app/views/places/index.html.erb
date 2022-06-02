@@ -4,27 +4,52 @@
 <div class="search-content-map">
   <%# -------------search form (first location and then features)------------- %>
   <h3 class="px-4 mb-3 mt-3 text-primary">Search your destination</h3>
-  <%= form_tag places_path, method: :get, class: 'search-form pb-3 mx-4' do %>
-    <%= text_field_tag :address,
-      params[:address] ? params[:address].capitalize: params[:address],
+  <%= form_tag places_path, method: :get, class: 'pb-3 mx-4' do %>
+    <div class="search-form">
+      <%= text_field_tag :address,
+      params[:address] ? params[:address].capitalize : params[:address],
       class: "form-control",
       placeholder: "Eg: Kyoto"
     %>
-    <%= check_box_tag :toilet, params[:toilet], params[:toilet] %>
-    <%= label_tag :toilet do %>
-      <i class="access-icon fas fa-toilet-paper fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accessible Toilet"></i>
-    <% end %>
-    <%= check_box_tag :elevator, params[:elevator], params[:elevator] %>
-    <%= label_tag :elevator do %>
-      <i class="access-icon fas fa-universal-access fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elevator"></i>
-    <% end %>
-    <%= check_box_tag :parking, params[:parking], params[:parking] %>
-    <%= label_tag :parking do %>
-      <i class="access-icon fas fa-parking fa-lg" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Priority Parking"></i>
-    <% end %>
-    <%= button_tag type: 'submit', class: "btn btn-dark btn-search" do%>
-      <i class="fas fa-search"></i>
-    <% end %>
+      <%= button_tag type: 'submit', class: "btn btn-dark btn-search" do%>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </div>
+    <div class="search-icons d-flex ps-4 gap-4">
+      Filter by:
+      <div class="search-filter">
+        <%= check_box_tag :elevator, params[:elevator], params[:elevator] %>
+        <%= label_tag :elevator, class: 'label' do %>
+          <div class="cards-icons">
+            <div class="icons-container mb-2 mx-1">
+              <i class="mx-1 puto2 fas fa-universal-access fa-lg"></i>
+            </div>
+          </div>
+        <% end %>
+        <div class="search-filter">
+          <%= check_box_tag :parking, params[:parking], params[:parking] %>
+          <%= label_tag :parking, class: 'label' do %>
+            <div class="cards-icons">
+              <div class="icons-container mx-1">
+                <h3 class="mx-1">
+                  <p class="puto">P</p>
+                </h3>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="search-filter">
+          <%= check_box_tag :toilet, params[:toilet], params[:toilet] %>
+          <%= label_tag :toilet, class: 'label' do %>
+            <div class="cards-icons">
+              <div class="icons-container mx-1">
+                <h3 class="mx-1 puto3"><i class="fas fa-solid fa-restroom roll fa-lg"></i></h3>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
   <%# -------------list of places in the map------------- %>
   <div id='map-container'><%= render partial: "map"%></div>
@@ -33,12 +58,16 @@
 <div class="places-list p-3">
   <div class="text-center"><i class="fas fa-grip-lines"></i></div>
   <div class='py-1 text-center text-primary'>
-    <% if @places == [] %>
+    <% if !params[:address] || params[:address] == "" && !params[:elevator] && !params[:toilet] && !params[:parking]  %>
+      <h2 class='py-1 text-center text-primary'>
+        Discover places
+      </h2>
+    <% elsif @places == [] %>
       <h2 class='py-1 text-center text-primary'>No destinations were found</h2>
       <p class="text-center text-warning">Please adjust the filters</p>
     <% else %>
       <h2 class='py-1 text-center text-primary'>
-        <%= @places.length %> destinations
+        <%= @places.length %> places
       </h2>
     <% end %>
   </div>

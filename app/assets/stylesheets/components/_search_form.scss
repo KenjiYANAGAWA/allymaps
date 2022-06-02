@@ -7,15 +7,73 @@
 #address {
   border-radius: 36px 0 0 36px;
   padding: 16px 20px;
+  background-color: white;
+  border: none;
+  box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
 }
 
 .btn-search {
   border-radius: 0 36px 36px 0;
   background-color: $yellow;
-  border-color: $yellow;
+  border: none;
+  box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
 
   i {
     padding: 8px 10px;
     font-size: 20px;
   }
+}
+
+// Search filter icons styles
+
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input[type=checkbox] {
+    display: none;
+  }
+  .label {
+    opacity: 0.6;
+    /* background: url("unchecked.png") no-repeat left center; */
+    /* padding-left: 15px; */
+  }
+  input[type=checkbox]:checked + .label {
+    opacity: 1;
+    /* background-image: url("checked.png"); */
+  }
+}
+
+.stars-show {
+  color: rgb(255, 187, 0);
+  padding: 0 18px;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.icon-white {
+  color: white;
+  text-shadow: 0px 0px 7px rgb(255, 187, 0);
+}
+.fa-accessible-icon {
+  padding: 0 2px;
+}
+
+.username {
+  color: grey;
+  font-family: 'Smooch', cursive;
+  font-size: 28px;
+  color: $red;
+}
+.comment-form {
+  background-color: white;
+  margin-bottom: 30px;
+}
+.search-icons {
+  height: 35px;
 }
