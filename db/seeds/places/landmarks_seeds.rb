@@ -1,5 +1,95 @@
 ### Landmarks
 
+puts "..."
+file = File.open("app/assets/images/places/landmarks/harajukugirls.webp")
+place = Place.create!(
+  name: 'Harajuku',
+  description: "Sandwiched between Shinjuku and Shibuya, Harajuku is a great place to see youth culture up close.  Named after the area around Harakuju Station, and brought to many people’s attention by Gwen Stafani’s Harajuku Girls backup dancers, Harajuku not only offers the latest in youth fashion, but is also close to Meiji Shrine, Yoyogi Park, and Omotesando.  Unfortunately, it does have some accessibility challenges: crowds and crammed stores.  Those in wheelchairs may be constantly carried along with the current of people!",
+  # address: 'Minami Aoyama 6-5-1, Minato, Tokyo, 107-0062, Japan',
+  address: 'Harajuku',
+  city: 'Shibuya',
+  toilet: 'no_data',
+  elevator: 'no_data',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'some',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/hamarikyu.webp")
+place = Place.create!(
+  name: 'Hama Rikyu',
+  description: "The Hama Rikyu Gardens is a public park located at the mouth of the Sumida River on Tokyo Bay. Though nestled amongst the skyscrapers of the Shiodome district, Hama Rikyu Gardens is a quiet oasis where visitors can enjoy nature and tea in a sculpted Japanese garden. While much of the park is accessible, some places – including the tea house – are not accessible by wheelchair. Despite this, the gardens can be a great place to relax and see an historic garden.",
+  # address: 'Minami Aoyama 6-5-1, Minato, Tokyo, 107-0062, Japan',
+  address: 'Hama Rikyu',
+  city: 'Chuo',
+  toilet: 'has_many',
+  elevator: 'no',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'mostly',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/ginza.webp")
+place = Place.create!(
+  name: 'Ginza',
+  description: "Though it was formerly rejected by foreigners for being “too Western,” the high-end shopping center of Ginza is now a popular place to visit. Luckily, if you are browsing the many expensive department buildings or flagship stores, the shopping experience is mostly accessible to those with disabilities.",
+  # address: 'Minami Aoyama 6-5-1, Minato, Tokyo, 107-0062, Japan',
+  address: 'Ginza',
+  city: 'Chuo',
+  toilet: 'has_many',
+  elevator: 'has',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'mostly',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/edotokyo.webp")
+place = Place.create!(
+  name: 'Edo-Tokyo Museum',
+  description: "Though settlements have existed in the Tokyo area since 3000 BCE, things really started in the 12th century CE when Edo Shigenaga, the military governor of a large Kanto province, erected his castle in present day Tokyo, calling it Edojuku.  Celebrating Tokyo’s long past, the Edo-Tokyo Museum is an excellent museum that is fantastically wheelchair accessible.  Check out our accessibility report below!",
+  # address: 'Minami Aoyama 6-5-1, Minato, Tokyo, 107-0062, Japan',
+  address: 'Edo-Tokyo Museum',
+  city: 'Sumida',
+  toilet: 'has_many',
+  elevator: 'has',
+  parking: 'no',
+  charging: 'no_data',
+  area: 'mostly',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
+puts "..."
+file = File.open("app/assets/images/places/landmarks/ameyoko.webp")
+place = Place.create!(
+  name: 'Ameyoko',
+  description: "If you are in Tokyo and looking for a lively market to shop and eat, then Ameyoko is one of the best places to visit.  With many outdoor stores and restaurants, it is surprisingly accessible in its own way.",
+  # address: 'Minami Aoyama 6-5-1, Minato, Tokyo, 107-0062, Japan',
+  address: 'Ameya Yokocho',
+  city: 'Taito',
+  toilet: 'no',
+  elevator: 'nonessential',
+  parking: 'no_data',
+  charging: 'no_data',
+  area: 'mostly',
+  category: 'landmark'
+)
+place.photos.attach(io: file, filename: 'place.jpeg')
+puts "#{place.name} created"
+
 # NEZU MUSEUM
 puts "..."
 file = File.open("app/assets/images/places/landmarks/nezu.jpeg")
