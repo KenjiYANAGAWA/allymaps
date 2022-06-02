@@ -30,27 +30,35 @@
 //   })
 // }
 
-const hideLastButton = () => {
-  const directionButtons = document.querySelectorAll('#directionButton');
-  // console.log("direction butonssss: ", directionButtons);
-  let lastButton = directionButtons[directionButtons.length - 1];
-  lastButton.style.display = 'none';
-  // console.log("lastButton: ", lastButton);
-  const penultimoButton = directionButtons[directionButtons.length - 2];
-  penultimoButton.style.display = 'block';
-}
-hideLastButton();  // hide the button below the last destination as soon as the page loads
+// const hideLastButton = () => {
+//   const directionButtons = document.querySelectorAll('#directionButton');
+//   // console.log("direction butonssss: ", directionButtons);
+//   let lastButton = directionButtons[directionButtons.length - 1];
+//   lastButton.style.display = 'none';
+//   // console.log("lastButton: ", lastButton);
+//   const penultimoButton = directionButtons[directionButtons.length - 2];
+//   penultimoButton.style.display = 'block';
+// }
 
-const setGoogleUrl = () => {
-  const directionButtons = document.querySelectorAll('#directionButton');
-  directionButtons.forEach((button, index) => {
-    const fromAddress = button.parentElement.previousElementSibling.children[0].dataset.address;
-    const toAddress = button.parentElement.parentElement.nextElementSibling.children[0].children[0].dataset.address;
-    // console.log("fromAddress", index, ": ", fromAddress);
-    // console.log("toAddress", index, ": ", toAddress);
-    button.href = `https://www.google.com/maps/dir/${fromAddress}/${toAddress}`;
+const setGoogleUrlAndTime = () => {
+  const destinationCards = document.querySelectorAll('.thisisthefrucckingcard');
+  destinationCards.forEach(async (card, index) => {   // we dont need to calculate for the last card so we slice the collection
+    if (destinationCards[index + 1]) {
+      const fromAddress = card.querySelector('.destination_card').dataset.address;
+      const toAddress = destinationCards[index + 1].querySelector('.destination_card').dataset.address;
+      // console.log("fromAddress", index, ": ", fromAddress);
+      // console.log("toAddress", index, ": ", toAddress);
+      const button = card.querySelector('.direction-button');
+      button.href = `https://www.google.com/maps/dir/${fromAddress}/${toAddress}`;
+      const timeDisplay = card.querySelector(".travel-time");
+      timeDisplay.innerText = await getTravelTime(fromAddress, toAddress);
+    }
   })
 }
+document.addEventListener('DOMContentLoaded', () => {
+  // hideLastButton();  // hide the button below the last destination as soon as the page loads
+  setGoogleUrlAndTime();
+})
 
 // --------------------- REORDER function with ARROWS --------------------- 
 const upButtons = document.querySelectorAll('#button-up');
@@ -69,8 +77,8 @@ upButtons.forEach((upButton) => {
     // parent is only 1 element. We want a collection so we do parent.children(whic is a collection). And call it on an Array.prototype insead on an HTML collection bc indexOf doens't seem to be working on a prototype
     console.log({ index });
     parent.insertBefore(card, previousSibling);
-    hideLastButton();
-    setGoogleUrl();
+    // hideLastButton();
+    setGoogleUrlAndTime();
   })
 })
 
@@ -85,7 +93,22 @@ downButtons.forEach((downButton) => {
     const index = Array.prototype.indexOf.call(parent.children, card)
     console.log({ index });
     parent.insertBefore(card, nextNextSibling);   // insertAfter is not supported yet
-    hideLastButton();
-    setGoogleUrl();
+    // hideLastButton();
+    setGoogleUrlAndTime();
   })
 })
+
+
+
+// --------------------- GOOGLE MAPS API ----------------------------
+const getTravelTime = async (fromAddress, toAddress) => {
+  try {
+    url = `/get_travel_time?from=${fromAddress}&to=${toAddress}`
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.time);
+    return data.time;
+  } catch (e) {
+    console.log("SOMETHING WENT WRONG!!!!!!", e)
+  }
+}

@@ -46,6 +46,11 @@ class ItinerariesController < ApplicationController
     end
   end
 
+  def get_travel_time
+    skip_authorization
+    render json: { time: GetTravelTime.new(params[:from], params[:to]).call }
+  end
+
   # itinerary.destinations.each d.order
 
   private

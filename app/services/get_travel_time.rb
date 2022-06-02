@@ -6,6 +6,8 @@ class GetTravelTime
   end
 
   def call
+    return unless @from && @to
+
     params = {
       # ?origin=#{@from}&destination=#{@to}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}
       origin: @from,
@@ -18,7 +20,6 @@ class GetTravelTime
     directions = JSON.parse(response.body)
     directions["routes"].first["legs"].first["duration"]["text"]
   end
-
 end
 
 
