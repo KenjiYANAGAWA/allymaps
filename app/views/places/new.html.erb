@@ -3,26 +3,26 @@
   <div class="row">
     <div class="col-12 col-sm-6 offset-sm-3">
       <%= simple_form_for @place do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description, as: :text, class: 'review-textarea', label: "Describe the place and how accessible it is" %>
-        <%= f.input :city %>
-        <%= f.input :address %>
-        <%= f.input :area, collection: Place.areas.keys, label: "How accessible is the area?", include_blank: false %>
-        <%= f.input :toilet, collection: Place.toilets.keys,
+        <%= f.input :name, class: 'new-place-input' %>
+        <%= f.input :description, as: :text, class: 'review-textarea new-place-input', label: "Describe the place and how accessible it is" %>
+        <%= f.input :city, class: 'new-place-input' %>
+        <%= f.input :address, class: 'new-place-input' %>
+        <%= f.input :area, collection: Place.areas.keys, label: "How accessible is the area?", include_blank: false, class: 'new-place-input' %>
+        <%= f.input :toilet, class: 'new-place-input', collection: Place.toilets.keys,
         label: '<div class="cards-icons d-flex align-items-center">
               <div class="icons-container">
                 <h3 class="mx-1 puto3"><i class="fas fa-solid fa-restroom roll fa-lg"></i></h3>
               </div>
               <p class="m-0">Are there any accessible toilets?</p>
             </div>'.html_safe, include_blank: false %>
-        <%= f.input :elevator, collection: Place.elevators.keys,
+        <%= f.input :elevator, class: 'new-place-input', collection: Place.elevators.keys,
         label: '<div class="cards-icons my-1 d-flex align-items-center">
               <div class="icons-container">
                 <i class="mx-1 puto2 fas fa-universal-access fa-lg"></i>
               </div>
               <p class="m-0">Does it have an elevator?</p>
             </div> '.html_safe, include_blank: false, class: '' %>
-        <%= f.input :parking, collection: Place.parkings.keys,
+        <%= f.input :parking, class: 'new-place-input', collection: Place.parkings.keys,
         label: '<div class="cards-icons d-flex align-items-center">
               <div class="icons-container">
                 <h3 class="mx-1">

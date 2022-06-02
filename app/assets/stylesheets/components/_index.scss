@@ -29,7 +29,13 @@
 @import "percentage_icon";
 @import "cards_icons";
 @import "logout";
+@import "form_new_place";
 
 a {
   text-decoration: none;
+}
+
+.username-text {
+  font-family: $special-font;
+  font-size: 24px;
 }
