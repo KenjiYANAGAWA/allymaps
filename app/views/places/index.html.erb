@@ -56,9 +56,9 @@
 <%# -------------list of places with mid-card------------- %>
 <div class="places-list p-3">
   <div class="text-center"><i class="fas fa-grip-lines"></i></div>
-  <div class='py-1 text-center text-primary'>
+  <div class='text-center text-primary places-title'>
     <% if !params[:address] || params[:address] == "" && !params[:elevator] && !params[:toilet] && !params[:parking]  %>
-      <h2 class='py-1 text-center text-primary'>
+      <h2 class='text-center text-primary'>
         Top accessible destinations
       </h2>
     <% elsif @places == [] %>

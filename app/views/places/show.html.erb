@@ -179,7 +179,7 @@
         <div class="text-center">
           <%= simple_form_for @itinerary, remote: true, html: { data: { action: "submit->modal-form-submit#clickClose"}} do |f|%>
             <div class="position-relative">
-              <%= f.input :name, placeholder: 'Add a new itinerary to your list', label: false %>
+              <%= f.input :name, placeholder: 'Add to new itinerary', label: false %>
               <%= f.simple_fields_for :destinations do |d_form| %>
                 <%= d_form.association :place, as: :hidden, input_html: { value: @place.id } %>
               <% end %>
@@ -189,9 +189,10 @@
             </div>
           <% end %>
         </div>
-        <div class="mt-4 text-center">
+        <div class="text-center">
+          <p class=''>or</p>
           <%= link_to new_place_destination_path(@place) do  %>
-            <p class="text-primary">or add this place to another of your itineraries</p>
+            <p class="text-primary m-0">add this place to another of your itineraries</p>
           <% end %>
         </div>
       </div>
