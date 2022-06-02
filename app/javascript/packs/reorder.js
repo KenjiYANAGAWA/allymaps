@@ -30,10 +30,31 @@
 //   })
 // }
 
-// ---------------------------- REORDER ---------------------------- //
+const hideLastButton = () => {
+  const directionButtons = document.querySelectorAll('#directionButton');
+  // console.log("direction butonssss: ", directionButtons);
+  let lastButton = directionButtons[directionButtons.length - 1];
+  lastButton.style.display = 'none';
+  // console.log("lastButton: ", lastButton);
+  const penultimoButton = directionButtons[directionButtons.length - 2];
+  penultimoButton.style.display = 'block';
+}
+hideLastButton();  // hide the button below the last destination as soon as the page loads
+
+const setGoogleUrl = () => {
+  const directionButtons = document.querySelectorAll('#directionButton');
+  directionButtons.forEach((button, index) => {
+    const fromAddress = button.parentElement.previousElementSibling.children[0].dataset.address;
+    const toAddress = button.parentElement.parentElement.nextElementSibling.children[0].children[0].dataset.address;
+    // console.log("fromAddress", index, ": ", fromAddress);
+    // console.log("toAddress", index, ": ", toAddress);
+    button.href = `https://www.google.com/maps/dir/${fromAddress}/${toAddress}`;
+  })
+}
+
+// --------------------- REORDER function with ARROWS --------------------- 
 const upButtons = document.querySelectorAll('#button-up');
 const downButtons = document.querySelectorAll('#button-down');
-
 
 upButtons.forEach((upButton) => {
   upButton.addEventListener('click', (e) => {
@@ -49,15 +70,7 @@ upButtons.forEach((upButton) => {
     // console.log("index: ", index)
     parent.insertBefore(card, previousSibling);
     hideLastButton();
-    // change the url of the directionsButton
-    const directionButtons = document.querySelectorAll('#directionButton');
-    directionButtons.forEach((button, index) => {
-      const fromAddress = button.parentElement.previousElementSibling.children[0].dataset.address;
-      const toAddress = button.parentElement.parentElement.nextElementSibling.children[0].children[0].dataset.address;
-      // console.log("fromAddress", index, ": ", fromAddress);
-      // console.log("toAddress", index, ": ", toAddress);
-      button.href = `https://www.google.com/maps/dir/${fromAddress}/${toAddress}`;
-    })
+    setGoogleUrl();
   })
 })
 
@@ -73,26 +86,6 @@ downButtons.forEach((downButton) => {
     // console.log("index: ", index)
     parent.insertBefore(card, nextNextSibling);   // insertAfter is not supported yet
     hideLastButton();
-    // change the url of the directionsButton
-    const directionButtons = document.querySelectorAll('#directionButton');
-    directionButtons.forEach((button, index) => {
-      const fromAddress = button.parentElement.previousElementSibling.children[0].dataset.address;
-      const toAddress = button.parentElement.parentElement.nextElementSibling.children[0].children[0].dataset.address;
-      // console.log("fromAddress", index, ": ", fromAddress);
-      // console.log("toAddress", index, ": ", toAddress);
-      button.href = `https://www.google.com/maps/dir/${fromAddress}/${toAddress}`;
-    })
+    setGoogleUrl();
   })
 })
-
-
-const hideLastButton = () => {
-  const directionButtons = document.querySelectorAll('#directionButton');
-  // console.log("direction butonssss: ", directionButtons);
-  let lastButton = directionButtons[directionButtons.length - 1];
-  lastButton.style.display = 'none';
-  // console.log("lastButton: ", lastButton);
-  const penultimoButton = directionButtons[directionButtons.length - 2];
-  penultimoButton.style.display = 'block';
-}
-hideLastButton();
