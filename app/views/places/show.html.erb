@@ -168,7 +168,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Add <strong class="text-primary"><%= @place.name %></strong> to:</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-modal-form-submit-target="close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body p-4">
         <% if current_user&.itineraries&.last %>
           <%= simple_form_for [@place, @destination], remote: true, class: 'add-to-itinerary-form', html: { data: { action: "submit->modal-form-submit#clickClose"}} do |f| %>
             <%= f.association :itinerary, as: :hidden, input_html: { value: current_user.itineraries.last.id } %>
