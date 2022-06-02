@@ -111,6 +111,18 @@
   .percentage-icon {
     width: 69%;
   }
+  .modal-content {
+    position: absolute;
+    top: 16px;
+    right: 40px;
+    width: 60vw;
+   border: none;
+   margin-top: -220px;
+ }
+  .place-img {
+    height: 100%;
+    border-radius: 18px;
+  }
 }
 .arrow {
   i {

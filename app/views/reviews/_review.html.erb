@@ -7,10 +7,10 @@
   </div>
   <div class="d-flex align-items-center stars-show pb-2" id="review-<%= review.id %> review_content">
     <% review.rating.times do %>
-      <i class="fas fa-star"></i>
+      <i class="fab fa-accessible-icon"></i>
     <% end %>
     <% (5 - review.rating).times do %>
-      <i class="far fa-star"></i>
+      <i class="fab fa-accessible-icon icon-white"></i>
     <% end %>
   </div>
   <p class='review-content'><%= review.content %></p>
