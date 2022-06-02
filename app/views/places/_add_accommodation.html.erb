@@ -3,6 +3,7 @@
   <%= f.input :address, placeholder: "1 Chome Marunouchi, Chiyoda City, Tokyo" %>
   <%= f.input :city, placeholder: "Tokyo" %>
   <%= f.input :accommodation, as: :hidden, input_html: { value: true } %>
+  <%= f.input :area, as: :hidden, input_html: { value: 'no_data' } %>
   <%= f.simple_fields_for :destinations do |d_form| %>
     <%= d_form.association :itinerary, as: :hidden, input_html: { value: itinerary.id } %>
   <% end %>
