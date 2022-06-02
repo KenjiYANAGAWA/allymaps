@@ -28,3 +28,9 @@ puts
 puts "Creating destinations..."
 Dir[File.join(Rails.root, 'db', 'seeds', 'destinations_seeds.rb')].each { |seed| load seed }
 puts "...created #{Destination.count} destinations."
+puts
+puts "#{Place.count} Places."
+puts "#{User.count} Users."
+puts "#{Review.count} Reviews."
+puts "#{Itinerary.count} Itineraries."
+puts "#{Destination.count} Destinations."

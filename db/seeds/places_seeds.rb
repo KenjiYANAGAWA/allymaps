@@ -1,20 +1,59 @@
 puts "Creating landmarks..."
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'landmarks_seeds.rb')].each { |seed| load seed }
-puts "...created #{Place.count} places in total."
+landmarks = Place.count
+puts "...created #{landmarks} landmarks."
 puts
+before = Place.count
 puts "Creating parks..."
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'parks_seeds.rb')].each { |seed| load seed }
-puts "...created #{Place.count} places in total."
+parks = Place.count - before
+puts "...created #{parks} parks."
 puts
 puts "Creating restaurants..."
+before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'restaurants_seeds.rb')].each { |seed| load seed }
-puts "...created #{Place.count} places in total."
+restaurants = Place.count - before
+puts "...created #{restaurants} restaurants."
 puts
 puts "Creating temples..."
+before = Place.count
 Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'temples_seeds.rb')].each { |seed| load seed }
-puts "...created #{Place.count} places in total."
+temples = Place.count - before
+puts "...created #{temples} temples."
+puts
+puts "Creating gardens..."
+before = Place.count
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'gardens_seeds.rb')].each { |seed| load seed }
+gardens = Place.count - before
+puts "...created #{gardens} gardens."
+puts
+puts "Creating museums..."
+before = Place.count
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'museums_seeds.rb')].each { |seed| load seed }
+museums = Place.count - before
+puts "...created #{museums} museums."
+puts
+puts "Creating entertainments..."
+before = Place.count
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'entertainments_seeds.rb')].each { |seed| load seed }
+entertainments = Place.count - before
+puts "...created #{entertainments} entertainments."
+puts
+puts "Creating towns..."
+before = Place.count
+Dir[File.join(Rails.root, 'db', 'seeds', 'places', 'towns_seeds.rb')].each { |seed| load seed }
+towns = Place.count - before
+puts "...created #{towns} towns."
 puts
 
+puts "#{landmarks} landmarks"
+puts "#{parks} parks"
+puts "#{restaurants} restaurants"
+puts "#{temples} temples"
+puts "#{gardens} gardens"
+puts "#{museums} museums"
+puts "#{entertainments} entertainments"
+puts "#{towns} towns"
 # enum toilet: { no_data: 0, no: 1, has_one: 2, has_many: 3 }, _suffix: true
 # enum elevator: { no_data: 0,  no: 1, has: 2, nonessential: 3 }, _suffix: true
 # enum parking: { no_data: 0, no: 1, has: 2 }, _suffix: true
