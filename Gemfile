@@ -35,6 +35,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'pundit'
 gem 'pg_search', '~> 2.3.0'
 gem 'acts_as_list'
+gem 'rest-client'
 
 gem "turbolinks_render"
 

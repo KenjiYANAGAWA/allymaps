@@ -12,11 +12,10 @@ class ItinerariesController < ApplicationController
     # lines below in case validation fails in destinations/new
     @destination = @itinerary.destinations.first
     @place = @destination&.place                 # & means: if @destination exist
+    # @destination = Destination.create!(place: Place.find(params[:place_id]), itinerary: @itinerary)
     # line below in case validation fails in itineraries#index
     @itineraries = policy_scope(Itinerary)
-
     authorize @itinerary
-
     if @itinerary.save
       flash[:notice] = "Added to your itinerary"
       respond_to do |format|

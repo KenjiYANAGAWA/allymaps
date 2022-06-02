@@ -67,7 +67,7 @@ upButtons.forEach((upButton) => {
     // console.log("previousSibling: ", previousSibling);
     const index = Array.prototype.indexOf.call(parent.children, card)
     // parent is only 1 element. We want a collection so we do parent.children(whic is a collection). And call it on an Array.prototype insead on an HTML collection bc indexOf doens't seem to be working on a prototype
-    // console.log("index: ", index)
+    console.log({ index });
     parent.insertBefore(card, previousSibling);
     hideLastButton();
     setGoogleUrl();
@@ -83,7 +83,7 @@ downButtons.forEach((downButton) => {
     // console.log("card: ", card);
     // console.log("nextsibling: ", nextNextSibling);
     const index = Array.prototype.indexOf.call(parent.children, card)
-    // console.log("index: ", index)
+    console.log({ index });
     parent.insertBefore(card, nextNextSibling);   // insertAfter is not supported yet
     hideLastButton();
     setGoogleUrl();
