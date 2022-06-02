@@ -161,3 +161,14 @@
 .modal-content {
   border-radius: 18px;
 }
+
+
+
+@media (max-height: 769px) {
+  .search-content-map {
+    margin-top: -412px;
+  }
+  .places-list {
+    margin-top: 471px;
+  }
+}

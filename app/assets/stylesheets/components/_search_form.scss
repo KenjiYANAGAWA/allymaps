@@ -6,25 +6,26 @@
 
 #address {
   border-radius: 36px 0 0 36px;
-  padding: 16px 20px;
+  padding: 16px 26px;
   background-color: white;
   border: none;
-  box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
-  -webkit-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
-  -moz-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
 }
 
 .btn-search {
   border-radius: 0 36px 36px 0;
   background-color: $yellow;
   border: none;
-  box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
-  -webkit-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
-  -moz-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
 
   i {
     padding: 8px 10px;
     font-size: 20px;
+    color: $blue;
   }
 }
 
@@ -70,9 +71,12 @@
   font-size: 28px;
   color: $red;
 }
-.comment-form {
+.comment-form2 {
   background-color: white;
   margin-bottom: 30px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
 }
 .search-icons {
   height: 35px;

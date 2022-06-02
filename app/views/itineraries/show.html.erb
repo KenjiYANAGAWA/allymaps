@@ -8,7 +8,7 @@
   </div>
   <% if @itinerary.destinations.any? %>
     <div id='map-container'>
-      <%= render "places/map"%>
+      <%= render partial: "map"%>
     </div>
   </div>
   <div class="d-flex flex-column align-items-center places-list pt-3">

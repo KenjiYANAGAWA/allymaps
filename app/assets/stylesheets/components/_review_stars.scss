@@ -51,6 +51,9 @@
   color: $red;
 }
 .comment-form {
-  background-color: white;
+  background-color: rgb(248, 248, 248);
   margin-bottom: 30px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
 }

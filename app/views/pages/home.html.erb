@@ -1,5 +1,5 @@
 <div class="banner banner-title position-relative">
-  <div class="banner-image" style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url(<%= image_path('home/map-img.jpeg') %>);"> </div>
+  <div class="banner-image" style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url(<%= image_path('home/tokyo58.jpeg') %>);"> </div>
   <div class='text-center'>
     <%= image_tag "brand_kit/text_logo_green.png", alt: "Allymaps icon", width: "300", height: "150", class: 'banner-logo' %>
     <p class="text-primary" style="text-align:center">Your companion in accessible travel</p>
@@ -9,7 +9,7 @@
   <%= form_tag places_path, method: :get, class: 'search-form pb-3 mx-4' do %>
     <%= text_field_tag :address,
         params[:location],
-        class: "form-control text-center",
+        class: "form-control",
         placeholder: "Where are you going?"
       %>
     <%= button_tag type: 'submit', class: "btn btn-dark btn-search" do%>

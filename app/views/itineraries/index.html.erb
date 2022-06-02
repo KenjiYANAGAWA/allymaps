@@ -7,7 +7,7 @@
   <% else %>
     <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
   <% end %>
-  <h3 class="mt-3"><%=current_user.username  %></h3>
+  <h3 class="mt-2 username-text"><%=current_user.username  %></h3>
   <%= link_to "Log out", destroy_user_session_path, method: "delete", class: "logout-btn"%>
 </div>
 <div class="search-content mt-2">
