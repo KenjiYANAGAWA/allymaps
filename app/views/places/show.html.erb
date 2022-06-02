@@ -132,10 +132,16 @@
   </div>
   <%# ----------------- ADD BUTTON --------------------- %>
   <div class="d-grid gap-2 col-6 mx-auto mt-3">
-    <!-- Button trigger modal -->
-    <button type="button" class="button button-add-summary" data-bs-toggle="modal" data-bs-target="#itineraryModal">
-      <i class="fas fa-plus"></i>
-    </button>
+    <!-- Button trigger MODAL -->
+    <% if current_user %>
+      <button type="button" class="button button-add-summary" data-bs-toggle="modal" data-bs-target="#itineraryModal">
+        <i class="fas fa-plus"></i>
+      </button>
+    <% else %>
+      <%= link_to new_user_session_path, class: 'button button-add-summary' do  %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    <% end %>
   </div>
 </div>
 <%# -------------FORM FOR THE REVIEWS-------------- %>
@@ -161,7 +167,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-modal-form-submit-target="close"></button>
       </div>
       <div class="modal-body">
-        <% if current_user.itineraries&.last %>
+        <% if current_user&.itineraries&.last %>
           <%= simple_form_for [@place, @destination], remote: true, class: 'add-to-itinerary-form', html: { data: { action: "submit->modal-form-submit#clickClose"}} do |f| %>
             <%= f.association :itinerary, as: :hidden, input_html: { value: current_user.itineraries.last.id } %>
             <%= f.submit current_user.itineraries.last.name, class: 'itinerary_card_w100 mb-1 text-white', style: "background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(#{current_user.itineraries.last.places.first&.photos&.attached? ? cl_image_path(current_user.itineraries.last.places.first.photos.first.key) : image_path('https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940')})" %>
@@ -172,13 +178,21 @@
           <%= simple_form_for @itinerary, remote: true, html: { data: { action: "submit->modal-form-submit#clickClose"}} do |f|%>
             <div class="position-relative">
               <%= f.input :name, placeholder: 'Add a new itinerary to your list', label: false %>
+              <%= f.simple_fields_for :destinations do |d_form| %>
+                <%= d_form.association :place, as: :hidden, input_html: { value: @place.id } %>
+              <% end %>
               <%= button_tag type: 'submit', class: "btn btn-primary btn-add" do%>
                 <i class="fas fa-plus"></i>
               <% end %>
             </div>
           <% end %>
         </div>
+        <div class="mt-4 text-center">
+          <%#= link_to new_place_destination_path do  %>
+            <p class="text-warning small-font">or add this place to another of your itineraries</p>
+            <%# end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
