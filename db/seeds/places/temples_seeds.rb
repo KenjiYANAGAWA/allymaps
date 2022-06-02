@@ -144,25 +144,6 @@ place = Place.create!(
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
 
-
-puts "..."
-file = File.open("app/assets/images/places/temples/kamakura_daibutsu.jpeg")
-place = Place.create!(
-  name: 'Kōtoku-in',
-  description: "The Great Buddha of Kamakura (鎌倉大仏, Kamakura Daibutsu) is a bronze statue of Amida Buddha, which stands on the grounds of Kotokuin Temple. With a height of 11.4 meters, it has long been the second tallest bronze Buddha statue in Japan, surpassed only by the statue in Nara's Todaiji Temple and some recent creations. The statue was cast in 1252 and originally located inside a large temple hall. However, the temple buildings were destroyed multiple times by typhoons and a tsunami in the 14th and 15th centuries. So, since the late 15th century, the Buddha has been standing in the open air.",
-  # address: '4 Chome-2-28 Hase, Kamakura, Kanagawa, 248-0016, Japan',
-  address: 'Kōtoku-in',
-  city: 'Kanagawa',
-  toilet: 'has_one',
-  elevator: 'no_data',
-  parking: 'has',
-  charging: 'no_data',
-  area: 'mostly',
-  category: 'temple'
-)
-place.photos.attach(io: file, filename: 'place.jpeg')
-puts "#{place.name} created"
-
 puts "..."
 file = File.open("app/assets/images/places/temples/sensoji.webp")
 place = Place.create!(
@@ -198,6 +179,24 @@ place = Place.create!(
 )
 place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
+
+# puts "..."
+# file = File.open("app/assets/images/places/temples/kamakura_daibutsu.jpeg")
+# place = Place.create!(
+#   name: 'Kōtoku-in',
+#   description: "The Great Buddha of Kamakura (鎌倉大仏, Kamakura Daibutsu) is a bronze statue of Amida Buddha, which stands on the grounds of Kotokuin Temple. With a height of 11.4 meters, it has long been the second tallest bronze Buddha statue in Japan, surpassed only by the statue in Nara's Todaiji Temple and some recent creations. The statue was cast in 1252 and originally located inside a large temple hall. However, the temple buildings were destroyed multiple times by typhoons and a tsunami in the 14th and 15th centuries. So, since the late 15th century, the Buddha has been standing in the open air.",
+#   # address: '4 Chome-2-28 Hase, Kamakura, Kanagawa, 248-0016, Japan',
+#   address: 'Kōtoku-in',
+#   city: 'Kanagawa',
+#   toilet: 'has_one',
+#   elevator: 'no_data',
+#   parking: 'has',
+#   charging: 'no_data',
+#   area: 'mostly',
+#   category: 'temple'
+# )
+# place.photos.attach(io: file, filename: 'place.jpeg')
+# puts "#{place.name} created"
 
 # puts "..."
 # file = File.open("app/assets/images/places/temples/fushimiinari.jpeg")
