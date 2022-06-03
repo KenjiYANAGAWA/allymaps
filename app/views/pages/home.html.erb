@@ -51,6 +51,7 @@
     </div>
   </div>
   <%# ------------ 3 RECOMENDATIONS ----------------- %>
+  <!--
   <div class="d-flex container mt-3 pt-2">
     <%= image_tag "brand_kit/icon_green.png", style: "margin:10px;", alt: "Allymaps icon", width: "50", height: "50" %>
     <h3 class="py-4 px-1 text-primary">Top Recomendations</h3>
@@ -62,11 +63,30 @@
       <% end %>
     <% end %>
   </div>
+  -->
+  <%# ------------------ABOUT US------------------- %>
   <div class="d-flex mt-3 pt-2">
     <%= image_tag "brand_kit/icon_green.png", style: "margin:10px;", alt: "Allymaps icon", width: "50", height: "50" %>
     <h3 class="py-4 px-1 text-primary">About us</h3>
   </div>
-  <p class="px-4">We help you plan worry-free accessible travel experience. We believe everyone should be included and hope to help the world find more accessible areas. Join our community and share up-to-date accessibility information.
+  <p class="px-4" style="text-align: justify">We help you plan worry-free accessible travel experience. We believe everyone should be included and hope to help the world find more accessible areas. Join our community and share up-to-date accessibility information.
   </p>
-  <div class="empty"></div>
+  <%# <div class="empty"></div> %>
+</div>
+<%# ------------------ABOUT US------------------- %>
+<div class="footer-basic">
+  <footer>
+    <div class="madeby">
+      <p>App made by</p>
+    </div>
+    <div class="social">
+      <a class="footer-img" href="https://github.com/tirsop" target="_blank"><%= image_tag 'footer/tirso.png' %></a>
+      <a class="footer-img" href="https://github.com/KenjiYANAGAWA" target="_blank"><%= image_tag 'footer/kenji.jpg' %></a>
+      <a class="footer-img" href="https://github.com/yharwood" target="_blank"><%= image_tag 'footer/yuki.jpg' %></a>
+      <a class="footer-img" href="https://github.com/luisrrv" target="_blank"><%= image_tag 'footer/luis.jpg' %></a></div>
+    <p class="copyright"><i class="fab fa-github ninjagarage"></i>&nbsp; <a href="https://github.com/KenjiYANAGAWA/allymaps" target="_blank">AllyMaps</a> © 2022</p>
+    <p class="copyright text-center">If you want to rent craze Japanese vehicles,<br>
+      check out our other app <a href="https://ninja-garage.herokuapp.com/" class="ninjagaraje target="_blank"">Ninja-garage</a>
+    </p>
+  </footer>
 </div>
