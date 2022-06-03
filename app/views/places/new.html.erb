@@ -7,7 +7,16 @@
         <%= f.input :description, as: :text, class: 'review-textarea new-place-input', label: "Describe the place and how accessible it is", input_html: {value: 'Taro Okamoto Museum of Art is an art museum located in Tama-ku, Kawasaki, Kanagawa, Japan. The Taro Okamoto Museum of Art mainly collects and preserves the works of Taro Okamoto, and his parents Kanoko and Ippei.'} %>
         <%= f.input :city, class: 'new-place-input', input_html: {value: 'Minato'} %>
         <%= f.input :address, class: 'new-place-input', input_html: {value: 'Taro Okamoto Museum'} %>
-        <%= f.input :area, collection: Place.areas.keys, label: "How accessible is the area?", include_blank: false, class: 'new-place-input', as: :radio_buttons, checked: 'no_data' %>
+        <%= f.input :area, collection: Place.areas.keys, label: '<div class="cards-icons justify-content-start d-flex align-items-center">
+              <div class="icons-container">
+                <h3 class="mx-1 puto3"><i class="fas fa-wheelchair fa-lg"></i></h3>
+              </div>
+              <p class="m-0">How accessible is this place?</p>
+            </div>'.html_safe,
+            include_blank: false, class: 'new-place-input', as: :radio_buttons, checked: 'no_data', collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'} %>
         <%# below is the same as Place.toilets.keys.map(|key| key.humanize) %>
         <%= f.input :toilet, class: 'new-place-input', collection: Place.toilets.keys,
         label: '<div class="cards-icons justify-content-start d-flex align-items-center">
@@ -15,14 +24,20 @@
                 <h3 class="mx-1 puto3"><i class="fas fa-solid fa-restroom roll fa-lg"></i></h3>
               </div>
               <p class="m-0">Are there any accessible toilets?</p>
-            </div>'.html_safe, include_blank: false, as: :radio_buttons, checked: 'no_data' %>
+            </div>'.html_safe, include_blank: false, as: :radio_buttons, checked: 'no_data', collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'} %>
         <%= f.input :elevator, class: 'new-place-input', collection: Place.elevators.keys,
         label: '<div class="cards-icons justify-content-start my-1 d-flex align-items-center">
               <div class="icons-container">
                 <i class="mx-1 puto2 fas fa-universal-access fa-lg"></i>
               </div>
               <p class="m-0">Does it have an elevator?</p>
-            </div> '.html_safe, include_blank: false, class: '', as: :radio_buttons, checked: 'no_data' %>
+            </div> '.html_safe, include_blank: false, class: '', as: :radio_buttons, checked: 'no_data', collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'} %>
         <%= f.input :parking,  as: :radio_buttons, checked: 'no_data', class: 'new-place-input', collection: Place.parkings.keys,
         label: '<div class="cards-icons justify-content-start d-flex align-items-center">
               <div class="icons-container">
@@ -31,7 +46,10 @@
                 </h3>
               </div>
               <p class="m-0">Does it have accessible parking?</p>
-            </div>'.html_safe %>
+            </div>'.html_safe, collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'} %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit 'Post', class: 'button-review-post w-100 my-4' %>
       <% end %>

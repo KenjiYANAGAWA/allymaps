@@ -31,6 +31,8 @@
 @import "logout";
 @import "form_new_place";
 @import "footer";
+@import "checkboxes";
+
 
 a {
   text-decoration: none;
@@ -40,3 +42,10 @@ a {
   font-family: $special-font;
   font-size: 24px;
 }
+
+.white {
+  color: $light-gray;
+  // text-shadow: 0 0 3px white;
+  font-size: 32px;
+}
+
