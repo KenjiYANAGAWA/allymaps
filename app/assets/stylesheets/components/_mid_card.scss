@@ -37,7 +37,7 @@
 
 .mid_card-info h3 {
   /*customizable*/
-  font-size: 18px;
+  font-size: 17px;
   margin: 0;
   text-align: end;
 }
@@ -57,13 +57,9 @@
   font-size: 24px;
 }
 
-// .card-link {
-//   background-color: transparent;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-// }
+.card-link + .card-link {
+  margin: 0;
+}
 .cards-icons {
   display: flex;
   align-items: flex-end;
