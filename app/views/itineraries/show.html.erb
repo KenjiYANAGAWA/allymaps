@@ -4,20 +4,11 @@
 <div class="search-content-map">
   <div class="p-3">
     <p class="itinerary-word text-warning text-center" style='margin-bottom:0;'>Itinerary:</p>
-    <h1 class="text-primary"><%= @itinerary.name.capitalize %></h1>
+    <h1 class="text-primary text-center"><%= @itinerary.name.capitalize %></h1>
   </div>
   <% if @itinerary.destinations.any? %>
     <div id='map-container'>
       <%= render partial: "map"%>
-    </div>
-  <% else %>
-    <div class="d-flex flex-column justify-content-center align-items-center">
-      <div id="">
-        <h3>No destinations yet</h3>
-      </div>
-      <div class='add-another'>
-        <%= link_to 'Add your first destination', places_path, class: 'btn btn-info btn-form mb-5'%>
-      </div>
     </div>
   <% end %>
 </div>
@@ -28,10 +19,12 @@
     </div>
     <h2 class='py-2 text-primary'>Your destinations</h2>
     <div class="d-flex flex-column align-items-center mb-3">
-      <!-- ----------with ARROES and eventListener---------- -->
+      <!-- ----------with ARROwS and eventListener---------- -->
       <% @itinerary.destinations.order(position: :asc).each_with_index do |destination, index| %>
         <div class="thisisthefrucckingcard">
-          <div><%= render "destination_card", destination: destination %></div>
+          <div>
+            <%= render "destination_card", destination: destination %>
+          </div>
           <!-- next line creates direction buttons below destinations except for the last one -->
           <div class="routes d-flex justify-content-between align-items-center px-3">
             <div class="travels d-flex align-items-center gap-1">
@@ -47,11 +40,22 @@
         </div>
       <% end %>
     </div>
-  <% end %>
-</div>
-<% if @itinerary.destinations.any? %>
-  <div class='add-another'>
-    <%= link_to 'Add another destination', places_path, class: 'btn btn-info btn-form mb-5'%>
+    <div class='add-another'>
+      <%= link_to 'Add another destination', places_path, class: 'btn btn-info btn-form mb-5'%>
+    </div>
+  </div>
+<% else %>
+  <div class="mt-5 pt-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="p-3">
+      <p class="itinerary-word text-warning text-center" style='margin-bottom:0;'>Itinerary:</p>
+      <h1 class="text-primary text-center"><%= @itinerary.name.capitalize %></h1>
+    </div>
+    <div id="">
+      <h3>No destinations yet</h3>
+    </div>
+    <div class='add-another'>
+      <%= link_to 'Add your first destination', places_path, class: 'btn btn-info btn-form mb-5'%>
+    </div>
   </div>
 <% end %>
 <div class="empty"></div>
