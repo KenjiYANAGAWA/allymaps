@@ -6,7 +6,7 @@ file = File.open("app/assets/images/reviews/landmarks/nezu-cafe.webp")
 review = Review.create!(
   rating: 5,
   content: "There was a nice cafe called Nezu Cafe.  The views are great, and tables are tall enough for foreign wheelchairs.  The staff are also very thoughtful about providing drinking straws and pre-cut food if needed.",
-  user: User.where.not(email: '1@e.com').sample,
+  user: User.find_by(email: 'yuki@e.com'),
   place: Place.find_by(name: 'Nezu Museum')
 )
 review.photos.attach(io: file, filename: 'review.jpeg')
@@ -17,9 +17,9 @@ file = File.open("app/assets/images/reviews/landmarks/nezu.jpeg")
 file1 = File.open("app/assets/images/reviews/landmarks/nezu1.webp")
 file2 = File.open("app/assets/images/reviews/landmarks/nezu2.webp")
 review = Review.create!(
-  rating: 4,
+  rating: 5,
   content: "The museum itself is quite accessible. There are steps in the garden, the museum offers a map highlighting an accessible route. Unfortunately, the path is a bit uneven and narrow, and since the garden is on an incline it would be nice if there were a few guard rails at steeper parts.",
-  user: User.where.not(email: '2@e.com').sample,
+  user: User.find_by(email: '2@e.com'),
   place: Place.find_by(name: 'Nezu Museum')
 )
 review.photos.attach(io: file, filename: 'review.jpeg')
