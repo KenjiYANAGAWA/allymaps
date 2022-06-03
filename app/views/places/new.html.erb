@@ -3,10 +3,10 @@
   <div class="row">
     <div class="col-12 col-sm-6 offset-sm-3">
       <%= simple_form_for @place do |f| %>
-        <%= f.input :name, class: 'new-place-input' %>
-        <%= f.input :description, as: :text, class: 'review-textarea new-place-input', label: "Describe the place and how accessible it is" %>
-        <%= f.input :city, class: 'new-place-input' %>
-        <%= f.input :address, class: 'new-place-input' %>
+        <%= f.input :name, class: 'new-place-input', input_html: {value: 'Taro Okamoto Museum'} %>
+        <%= f.input :description, as: :text, class: 'review-textarea new-place-input', label: "Describe the place and how accessible it is", input_html: {value: 'Taro Okamoto Museum of Art is an art museum located in Tama-ku, Kawasaki, Kanagawa, Japan. The Taro Okamoto Museum of Art mainly collects and preserves the works of Taro Okamoto, and his parents Kanoko and Ippei.'} %>
+        <%= f.input :city, class: 'new-place-input', input_html: {value: 'Minato'} %>
+        <%= f.input :address, class: 'new-place-input', input_html: {value: 'Taro Okamoto Museum'} %>
         <%= f.input :area, collection: Place.areas.keys, label: "How accessible is the area?", include_blank: false, class: 'new-place-input', as: :radio_buttons, checked: 'no_data' %>
         <%# below is the same as Place.toilets.keys.map(|key| key.humanize) %>
         <%= f.input :toilet, class: 'new-place-input', collection: Place.toilets.keys,
