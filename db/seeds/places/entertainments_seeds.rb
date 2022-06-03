@@ -54,7 +54,7 @@ place.photos.attach(io: file, filename: 'place.jpeg')
 puts "#{place.name} created"
 
 puts "..."
-file = File.open("app/assets/images/places/entertainments/noh.webp")
+file = File.open("app/assets/images/places/entertainments/noh.jpeg")
 place = Place.create!(
   name: 'National Noh Theater',
   description: "The National Noh Theater is the principle theater in Tokyo for viewing Noh and Kyogen, two traditional forms of Japanese theater. It is a must visit for anyone with an interest in the performing arts who happens to find themselves traveling in Tokyo.",
