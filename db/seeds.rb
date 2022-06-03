@@ -5,14 +5,14 @@ User.destroy_all
 Place.destroy_all
 puts
 
-puts "Creating places..."
-Dir[File.join(Rails.root, 'db', 'seeds', 'places_seeds.rb')].each { |seed| load seed }
-puts "...created #{Place.count} places."
-puts
-
 puts "Creating users..."
 Dir[File.join(Rails.root, 'db', 'seeds', 'users_seeds.rb')].each { |seed| load seed }
 puts "...created #{User.count} users."
+puts
+
+puts "Creating places..."
+Dir[File.join(Rails.root, 'db', 'seeds', 'places_seeds.rb')].each { |seed| load seed }
+puts "...created #{Place.count} places."
 puts
 
 puts "Creating reviews..."
