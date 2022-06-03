@@ -3,23 +3,29 @@
 </div>
 <div class="search-content-map">
   <div class="p-3">
-    <p class="itinerary-word text-warning" style='margin-bottom:0;'>Itinerary:</p>
-    <h1 class="text-primary"><%= @itinerary.name.capitalize %></h1>
+    <p class="itinerary-word text-warning text-center" style='margin-bottom:0;'>Itinerary:</p>
+    <h1 class="text-primary text-center"><%= @itinerary.name.capitalize %></h1>
   </div>
   <% if @itinerary.destinations.any? %>
     <div id='map-container'>
       <%= render partial: "map"%>
     </div>
-  </div>
+  <% end %>
+</div>
+<% if @itinerary.destinations.any? %>
   <div class="d-flex flex-column align-items-center places-list pt-3">
-    <div class="text-center"><i class="fas fa-grip-lines"></i></div>
+    <div class="text-center">
+      <i class="fas fa-grip-lines"></i>
+    </div>
     <h2 class='py-2 text-primary'>Your destinations</h2>
     <div class="d-flex flex-column align-items-center mb-3">
-      <!-- ----------with ARROES and eventListener---------- -->
+      <!-- ----------with ARROwS and eventListener---------- -->
       <% @itinerary.destinations.order(position: :asc).each_with_index do |destination, index| %>
         <div class="thisisthefrucckingcard">
-          <div><%= render "destination_card", destination: destination %></div>
-          <%# next line creates direction buttons below destinations except for the last one %>
+          <div>
+            <%= render "destination_card", destination: destination %>
+          </div>
+          <!-- next line creates direction buttons below destinations except for the last one -->
           <div class="routes d-flex justify-content-between align-items-center px-3">
             <div class="travels d-flex align-items-center gap-1">
               <i class="fas fa-car"></i>
@@ -33,35 +39,23 @@
           </div>
         </div>
       <% end %>
-      <!-- ----------with DRAG&DROP and stimulus---------- -->
-      <!--
-    <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
-      <% @itinerary.destinations.order(position: :asc).each do |destination| %>
-        <li  data-sortable-update-url="<%= destination_path(destination) %>" >
-          <%= render "destination_card", destination: destination %>
-          <div class="d-flex justify-content-end">
-            <%= link_to "", class: 'btn-route', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
-              <h6 class="mb-0"><i class="fas fa-map-marker-alt"></i>  Get directions</h6>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-    -->
     </div>
-  <% else %>
-    <h3 class="text-center my-5">No destinations yet</h3>
-    <div class="px-5">
-      <%= link_to places_path, class:'btn btn-info btn-form' do %>
-        <i class="fas fa-search">&nbsp; Add places</i>
-      <% end %>
+    <div class='add-another'>
+      <%= link_to 'Add another destination', places_path, class: 'btn btn-info btn-form mb-5'%>
     </div>
-  <% end %>
-</ul>
-</div>
-<% if @itinerary.destinations.any? %>
-  <div class='add-another'>
-    <%= link_to 'Add another destination', places_path, class: 'btn btn-info btn-form mb-5'%>
+  </div>
+<% else %>
+  <div class="mt-5 pt-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="p-3">
+      <p class="itinerary-word text-warning text-center" style='margin-bottom:0;'>Itinerary:</p>
+      <h1 class="text-primary text-center"><%= @itinerary.name.capitalize %></h1>
+    </div>
+    <div id="">
+      <h3>No destinations yet</h3>
+    </div>
+    <div class='add-another'>
+      <%= link_to 'Add your first destination', places_path, class: 'btn btn-info btn-form mb-5'%>
+    </div>
   </div>
 <% end %>
 <div class="empty"></div>
@@ -87,3 +81,18 @@
   </div>
 </div>
 <%= javascript_pack_tag 'reorder'%>
+<!-- ----------with DRAG&DROP and stimulus---------- -->
+<!--
+    <ul data-controller="sortable" data-sortable-resource-name-value="destination" style='list-style-type: none;' class='p-0 m-0'>
+      <% @itinerary.destinations.order(position: :asc).each do |destination| %>
+        <li  data-sortable-update-url="<%= destination_path(destination) %>" >
+          <%= render "destination_card", destination: destination %>
+          <div class="d-flex justify-content-end">
+            <%= link_to "", class: 'btn-route', data: {sortable_target: 'button', address: destination.place.address }, target: '_blank' do %>
+              <h6 class="mb-0"><i class="fas fa-map-marker-alt"></i>  Get directions</h6>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    -->
