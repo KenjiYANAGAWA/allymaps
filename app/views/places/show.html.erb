@@ -155,7 +155,7 @@
         <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
       <% end %>
     </div>
-    <%= f.input :content, as: :text, label: false, placeholder: 'Write about your experience', class: 'review-textarea' %>
+    <%= f.input :content, as: :text, label: false, placeholder: 'Write about your experience', class: 'review-textarea', input_html: {value: 'The place was fully accessible and the people there were nice!'} %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit 'Post', class: 'button-review-post' %>
   <% end %>
